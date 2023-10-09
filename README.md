@@ -8,15 +8,25 @@ Objectif : créer un site internet interactif renseignant la pollution sur le mo
 dernières années pour plusieurs villes et plusieurs polluants en France. 
 
 Conditions : 
-_ Pour la création du site au moins une des pages doit contenir un élément interactif (cartes, widget,etc.)
+_ Pour la création du site au moins une des pages doit contenir un élément interactif (cartes, widget,etc.)  
+
 _ le code doit être placé dans un sous repertoire /HAX712X
+
 _ Petit diapo (avec quatro) pour présenter oralement pendant 15min le projet à la fin 
+
 _ Créer un fichier .gitignore pour éviter l'inclusion de fichiers inutiles 
+
 _ Dans ce README on mettra le lien du projet (githupage) 
+
 _ Un petit extrait de code pour le site web 
-_ Liste des auteurs 
+
+_ Liste des auteurs
+
 _ On doit coder au moins une classe .Python 
+
 _ Projet qui doit contenir des sous modules 
+
 _Utilisation de 2 branches ! 
+
 
 
