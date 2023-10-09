@@ -7,7 +7,7 @@ _ La pollution Occitanie (données Atmo Occitanie)
 Objectif : créer un site internet interactif renseignant la pollution sur le mois dernier, l'année dernière et les 5 
 dernières années pour plusieurs villes et plusieurs polluants en France. 
 
-Conditions : 
+Conditions :  
 _ Pour la création du site au moins une des pages doit contenir un élément interactif (cartes, widget,etc.)  
 
 _ le code doit être placé dans un sous repertoire /HAX712X
