@@ -26,7 +26,7 @@ _ On doit coder au moins une classe .Python
 
 _ Projet qui doit contenir des sous modules 
 
-_Utilisation de 2 branches ! 
+_ Utilisation de 2 branches ! 
 
 
 
