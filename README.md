@@ -16,7 +16,7 @@ _ Petit diapo (avec quatro) pour présenter oralement pendant 15min le projet à
 
 _ Créer un fichier .gitignore pour éviter l'inclusion de fichiers inutiles 
 
-_ Dans ce README on mettra le lien du projet ( https://github.com/RomeoBex/Projet_Groupe_Pollution_Air_Occitanie.git )
+_ Dans ce README on mettra le lien du projet ( https://romeobex.github.io/Projet_Groupe_Pollution_Air_Occitanie/ )
 
 _ Un petit extrait de code pour le site web 
 
