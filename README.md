@@ -18,6 +18,7 @@ _ Créer un fichier .gitignore pour éviter l'inclusion de fichiers inutiles
 
 _ Dans ce README on mettra le lien du projet ( https://romeobex.github.io/Projet_Groupe_Pollution_Air_Occitanie/ )
 
+
 _ Un petit extrait de code pour le site web 
 
 _ Liste des auteurs
@@ -29,4 +30,6 @@ _ Projet qui doit contenir des sous modules
 _ Utilisation de 2 branches ! 
 
 
-carte https://paintmaps.com/map-charts/232c/Occitanie-map-chart
+_ lien de la Documentation :
+* https://paintmaps.com/map-charts/232c/Occitanie-map-chart
+*
