@@ -41,7 +41,7 @@ dernières années pour plusieurs villes et plusieurs polluants en France.
 **pandas** : bibliothèques spécialisée dans la manipulation et l'analyse de données. 
 Le nom « Pandas » est en fait la contraction du terme « Panel Data » désignant les ensembles de données incluant des observations sur de multiples périodes temporelles. Cette bibliothèque a été créée comme un outil de haut niveau pour l’analyse en Python.
 
-
+**Matplotlib** : 
 
 
 
