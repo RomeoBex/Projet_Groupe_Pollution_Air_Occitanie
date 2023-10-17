@@ -8,26 +8,26 @@ dernières années pour plusieurs villes et plusieurs polluants en France.
 
 ## Récapitulatif des Conditions :  
 
-_ Pour la création du site au moins une des pages doit contenir un élément interactif (cartes, widget,etc.)  
+* Pour la création du site au moins une des pages doit contenir un élément interactif (cartes, widget,etc.)  
 
-_ le code doit être placé dans un sous repertoire /HAX712X
+* le code doit être placé dans un sous repertoire /HAX712X
 
-_ Petit diapo (avec quatro) pour présenter oralement pendant 15min le projet à la fin 
+* Petit diapo (avec quatro) pour présenter oralement pendant 15min le projet à la fin 
 
-_ Créer un fichier .gitignore pour éviter l'inclusion de fichiers inutiles 
+* Créer un fichier .gitignore pour éviter l'inclusion de fichiers inutiles 
 
-_ Dans ce README nous mettrons le lien du projet ( https://romeobex.github.io/Projet_Groupe_Pollution_Air_Occitanie/ )
+* Dans ce README nous mettrons le lien du projet ( https://romeobex.github.io/Projet_Groupe_Pollution_Air_Occitanie/ )
 
 
-_ Un petit extrait de code pour le site web 
+* Un petit extrait de code pour le site web 
 
-_ Liste des auteurs
+* Liste des auteurs
 
-_ On doit coder au moins une classe .Python 
+* On doit coder au moins une classe .Python 
 
-_ Projet qui doit contenir des sous modules 
+* Projet qui doit contenir des sous modules 
 
-_ Utilisation de 2 branches ! 
+* Utilisation de 2 branches ! 
 
 
 ## Packages/Software description for the project :
