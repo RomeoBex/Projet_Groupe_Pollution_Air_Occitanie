@@ -16,7 +16,7 @@ dernières années pour plusieurs villes et plusieurs polluants en France.
 
 * Créer un fichier .gitignore pour éviter l'inclusion de fichiers inutiles 
 
-* Dans ce README nous mettrons le lien du projet ( https://romeobex.github.io/Projet_Groupe_Pollution_Air_Occitanie/ )
+* Voici le lien de la page web : https://romeobex.github.io/Projet_Groupe_Pollution_Air_Occitanie/ 
 
 
 * Un petit extrait de code pour le site web 
