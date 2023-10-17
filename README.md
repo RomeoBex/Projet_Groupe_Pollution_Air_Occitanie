@@ -1,17 +1,17 @@
-Voici le projet de groupe, il consiste à faire une enquête sur la pollution en Occitanie à travers 2 jeux de données
+	Voici le projet de groupe, il consiste à faire une enquête sur la pollution en Occitanie à travers 2 jeux de données
 différents qui sont : 
 
-_ Les prévisions météorologiques (données SYNOP)
-_ La pollution Occitanie (données Atmo Occitanie)
+_ Les prévisions météorologiques (données **SYNOP**)
+_ La pollution Occitanie (données **Atmo Occitanie**)
 
 Objectif : créer un site internet interactif renseignant la pollution sur le mois dernier, l'année dernière et les 5 
 dernières années pour plusieurs villes et plusieurs polluants en France. 
 
-## Récap des Conditions :  
+## Récapitulatif des Conditions :  
 
 _ Pour la création du site au moins une des pages doit contenir un élément interactif (cartes, widget,etc.)  
 
-_ le code doit être placé dans un sous repertoire "/HAX712X"
+_ le code doit être placé dans un sous repertoire /HAX712X
 
 _ Petit diapo (avec quatro) pour présenter oralement pendant 15min le projet à la fin 
 
