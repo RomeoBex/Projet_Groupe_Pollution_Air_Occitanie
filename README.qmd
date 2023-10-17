@@ -1,7 +1,7 @@
 	Voici le projet de groupe, il consiste à faire une enquête sur la pollution en Occitanie à travers 2 jeux de données
 différents qui sont : 
 
-_ Les prévisions météorologiques (données **SYNOP**)
+_ Les prévisions météorologiques (données __SYNOP__)
 _ La pollution Occitanie (données **Atmo Occitanie**)
 
 Objectif : créer un site internet interactif renseignant la pollution sur le mois dernier, l'année dernière et les 5 
