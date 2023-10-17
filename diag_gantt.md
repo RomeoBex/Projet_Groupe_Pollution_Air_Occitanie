@@ -1,3 +1,4 @@
+````mermaid
 gantt
     title Exemple de Diagramme de Gantt
     dateFormat YYYY-MM-DD
