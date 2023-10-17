@@ -7,16 +7,17 @@ _ La pollution Occitanie (données Atmo Occitanie)
 Objectif : créer un site internet interactif renseignant la pollution sur le mois dernier, l'année dernière et les 5 
 dernières années pour plusieurs villes et plusieurs polluants en France. 
 
-Conditions :  
+## Récap des Conditions :  
+
 _ Pour la création du site au moins une des pages doit contenir un élément interactif (cartes, widget,etc.)  
 
-_ le code doit être placé dans un sous repertoire /HAX712X
+_ le code doit être placé dans un sous repertoire "/HAX712X"
 
 _ Petit diapo (avec quatro) pour présenter oralement pendant 15min le projet à la fin 
 
 _ Créer un fichier .gitignore pour éviter l'inclusion de fichiers inutiles 
 
-_ Dans ce README on mettra le lien du projet ( https://romeobex.github.io/Projet_Groupe_Pollution_Air_Occitanie/ )
+_ Dans ce README nous mettrons le lien du projet ( https://romeobex.github.io/Projet_Groupe_Pollution_Air_Occitanie/ )
 
 
 _ Un petit extrait de code pour le site web 
