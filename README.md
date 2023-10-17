@@ -30,6 +30,21 @@ _ Projet qui doit contenir des sous modules
 _ Utilisation de 2 branches ! 
 
 
-_ lien de la Documentation :
+## Utilisation des différents packages :
+
+
+Numpy :
+
+os :
+
+pandas : 
+
+
+
+
+
+
+
+# lien de la Documentation :
 * https://paintmaps.com/map-charts/232c/Occitanie-map-chart
 *
