@@ -2,6 +2,8 @@
 
 
 
+
+
 gantt
     title Exemple de Diagramme de Gantt
     dateFormat YYYY-MM-DD
@@ -10,7 +12,7 @@ gantt
 
     section Dates importantes
     Fin du projet :crit, 2023-12-10, 5d
-    Présentation Orale :crit, 2023-12-15, 6d
+    Présentation Orale :crit, 2023-12-15, 8d
 
 
     section Repository
