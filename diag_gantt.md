@@ -1,4 +1,4 @@
-```mermaid
+
 
 gantt
     title Exemple de Diagramme de Gantt
@@ -17,8 +17,8 @@ gantt
     Ajout de index html : a5, 2023-10-24, 7d
 
     section Pages web
-    Création de la page web : a6, 2023-10-31, 8d
-    Ajout de la carte : a7, 2023-11-08, 10d
+    Création de la page web : a6, 2023-10-31, 10d
+    Ajout de la carte : a7, 2023-11-08, 12d
     Ajout d'interactivité : a8, 2023-11-18, 22d
     Embellissement de la page : a9, 2023-11-01, 30d
 
