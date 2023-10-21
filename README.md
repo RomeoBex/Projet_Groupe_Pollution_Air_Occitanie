@@ -43,6 +43,7 @@ Le nom « Pandas » est en fait la contraction du terme « Panel Data » désign
 
 **Matplotlib** : C'est est une bibliothèque du langage de programmation Python destinée à tracer et visualiser des données sous forme de graphiques. Elle peut être combinée avec les bibliothèques python et de calcul scientifique NumPy.
 
+![image](Bildschirmfoto 2023-10-21 um 10.25.42.png)
 
 
 ## lien de la Documentation :
