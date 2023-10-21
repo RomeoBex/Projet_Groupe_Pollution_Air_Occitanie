@@ -54,5 +54,5 @@ Le nom « Pandas » est en fait la contraction du terme « Panel Data » désign
 
 
 
-![Objectif](images/github_actions.jpg)
+![Objectif](github_actions.jpg)
 
