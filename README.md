@@ -39,7 +39,6 @@ The name « Pandas » is a contraction of the term « Panel Data », referring t
 
 **Matplotlib** : Matplotlib is a Python library intended for graph representation of data. It can be combined with NumPy and other pyhton libraries.
 
-![image](Bildschirmfoto 2023-10-21 um 10.25.42.png)
 
 
 ## Links to the documentation :
