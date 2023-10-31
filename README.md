@@ -1,52 +1,47 @@
-Voici le projet de groupe, il consiste à faire une enquête sur la pollution en Occitanie à travers 2 jeux de données différents qui sont : 
+This is the group project, a report on the pollution in Occitanie through two data sets, which are :
 
-* Les prévisions météorologiques (données **SYNOP**)
-* La pollution Occitanie (données **Atmo Occitanie**)
+* The meteorological prediction  (data **SYNOP**)
+* The pollution in Occitanie (data **Atmo Occitanie**)
 
-Objectif : créer un site internet interactif renseignant la pollution sur le mois dernier, l'année dernière et les 5 
-dernières années pour plusieurs villes et plusieurs polluants en France. 
+Objective : create an interactive website giving the pollution of the previous month, the past year and the last five years, for different polluting substances and in a few cities in France.
 
-## Récapitulatif des Conditions :  
+## Summary of the conditions :  
 
-* Pour la création du site au moins une des pages doit contenir un élément interactif (cartes, widget,etc.)  
+* At least one page of the website must contain an interactive element (maps, widget, etc.)  
 
-* le code doit être placé dans un sous repertoire /HAX712X
+* The code must be placed in a repository /HAX712X
 
-* Petit diapo (avec quatro) pour présenter oralement pendant 15min le projet à la fin 
+* Make a slideshow (with Quarto) to use during the oral presentation of the project 
 
-* Créer un fichier .gitignore pour éviter l'inclusion de fichiers inutiles 
+* Create a file .gitignore to avoid adding unecessary files 
 
-* Voici le lien de la page web : https://romeobex.github.io/Projet_Groupe_Pollution_Air_Occitanie/ 
+* Here is the link to the website page : https://romeobex.github.io/Projet_Groupe_Pollution_Air_Occitanie/ 
 
+* A code extract for the website 
 
-* Un petit extrait de code pour le site web 
+* An authors list
 
-* Liste des auteurs
+* Code at least one class with Python 
 
-* On doit coder au moins une classe .Python 
+* The project must contain submodules
 
-* Projet qui doit contenir des sous modules 
-
-* Utilisation de 2 branches ! 
+* At least two branches must be used during the project
 
 
 ## Packages/Software description for the project :
 
+**Numpy** : NumPy is very useful for mathematical calculations involving arrays and matrixes. Thanks to this package operations are far more quick and efficient than with Python lists.
 
-**Numpy** : NumPy est très utile pour effectuer des calculs logiques et mathématiques sur des tableaux et des matrices. Cet outil permet d’effectuer des opérations bien plus rapidement et efficacement que les listes Python. Son utilisation permet une utilisation plus simple et plus pratique.
+**os** : With the os module, operations can be made independently of the operaing system, which simplifies group work, as people can more easily work from different operating systems.  
 
-**os** :Le module os de Python permet d'effectuer des opérations indépendamment du système d'exploitation, ainsi cela permet de pouvoir travailler à plusieurs dans un groupe même si les personnes du groupe ne sont pas sur le même système d'exploitation. 
+**pandas** : library specialised in data manipulation and analysis 
+The name « Pandas » is a contraction of the term « Panel Data », referring to the datasets including observations during multiple periods. This library was created as an advanced tool for Python analysis.
 
-
-**pandas** : bibliothèques spécialisée dans la manipulation et l'analyse de données. 
-Le nom « Pandas » est en fait la contraction du terme « Panel Data » désignant les ensembles de données incluant des observations sur de multiples périodes temporelles. Cette bibliothèque a été créée comme un outil de haut niveau pour l’analyse en Python.
-
-**Matplotlib** : C'est est une bibliothèque du langage de programmation Python destinée à tracer et visualiser des données sous forme de graphiques. Elle peut être combinée avec les bibliothèques python et de calcul scientifique NumPy.
-
-![image](Bildschirmfoto 2023-10-21 um 10.25.42.png)
+**Matplotlib** : Matplotlib is a Python library intended for graph representation of data. It can be combined with NumPy and other pyhton libraries.
 
 
-## lien de la Documentation :
+
+## Links to the documentation :
 
 * https://paintmaps.com/map-charts/232c/Occitanie-map-chart (carte)
 * https://docs.python.org/fr/3.5/tutorial/ (aide python)
@@ -55,4 +50,3 @@ Le nom « Pandas » est en fait la contraction du terme « Panel Data » désign
 
 
 ![Objectif](github_actions.jpg)
-
