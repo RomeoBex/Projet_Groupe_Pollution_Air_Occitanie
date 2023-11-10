@@ -1,8 +1,8 @@
 project:
   type: website
-
+   output-dir: docs
 website:
-  title: "Quarto"
+  title: "Pollution"
   navbar:
     left:
       - href: index.qmd
