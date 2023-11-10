@@ -24,18 +24,34 @@ print(dataframe.head())
 # Affichez les premières lignes du DataFrame après suppression des lignes avec NaN
 print(dataframe.head())
 
+
+
+
 #%%
+import matplotlib.pyplot as plt
 
-# Utilisez la méthode value_counts() pour compter les occurrences de chaque valeur dans la colonne 'valeur'
-valeurs_counts = dataframe['valeur'].value_counts()
+# Colonnes des polluants
+polluants = ['val_no2', 'val_so2', 'val_o3', 'val_pm10', 'val_pm25']
 
-# Créez un diagramme à barres
-valeurs_counts.plot(kind='bar', color='skyblue')
+# Calcul de la somme des valeurs pour chaque polluant
+somme_par_polluant = ca_ales_data[polluants].sum()
 
-# Ajoutez des étiquettes et un titre
-plt.xlabel('Valeur')
-plt.ylabel('Nombre d\'occurrences')
-plt.title('Occurrences des valeurs dans la colonne "valeur"')
+# Créez un diagramme à barres pour la somme de polluants
+plt.figure(figsize=(12, 8))
+
+# Utilisez la fonction bar pour créer un diagramme à barres
+plt.bar(polluants, somme_par_polluant)
+
+plt.title('Quantité de polluant par polluant pour CA Alès')
+plt.xlabel('Polluants')
+plt.ylabel('Somme des valeurs')
+plt.xticks(rotation=45, ha='right')  # Rotation des étiquettes sur l'axe x pour une meilleure lisibilité
+plt.show()
+
+chemin_enregistrement = os.path.join(os.path.expanduser('~'), 'Desktop', 'diagramme_polluants.svg')
+
+# Enregistrez le diagramme en tant que fichier SVG
+plt.savefig(chemin_enregistrement, format='svg')
 
 # Affichez le diagramme
 plt.show()
