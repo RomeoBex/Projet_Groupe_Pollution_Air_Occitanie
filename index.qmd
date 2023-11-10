@@ -17,7 +17,4 @@ Voici une page web qui nous en apprendra sur le lien entre les conditions mété
 En résumé, les conditions météorologiques peuvent influencer la dispersion, l'accumulation et la formation de polluants atmosphériques, ce qui a un impact direct sur la qualité de l'air. Il est important de prendre en compte ces facteurs lorsque l'on examine les niveaux de pollution de l'air et que l'on tente de comprendre les variations de la qualité de l'air dans une région donnée ici nous avons pris comme exeple l'Occitanie. 
 
 
-
-
-
-
+![**Quantité de polluant pour la ville d'Alès pour l'année 2020**](diagramme_pollu.png)
