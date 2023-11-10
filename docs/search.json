@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Quarto",
+    "section": "",
+    "text": "Site quarto"
+  },
+  {
+    "objectID": "Diag_Gantt/diag_gantt.html",
+    "href": "Diag_Gantt/diag_gantt.html",
+    "title": "Météo",
+    "section": "",
+    "text": "``` mermaid\ngantt title Exemple de Diagramme de Gantt dateFormat YYYY-MM-DD title Diagramme de Gantt axisFormat %d-%m\nsection Dates importantes\nFin du projet :crit, 2023-12-10, 5d\nPrésentation Orale :crit, 2023-12-15, 8d\n\n\nsection Repository\nCréation de contenu : a3, 2023-10-07, 10d\nAjout d'un Readme : a4, 2023-10-17, 7d\nAjout de index html : a5, 2023-10-24, 10d\n\nsection Pages web\nCréation de la page web : a6, 2023-10-31, 10d\nAjout de la carte : a7, 2023-11-08, 12d\nAjout d'interactivité : a8, 2023-11-18, 22d\nEmbellissement de la page : a9, 2023-11-01, 30d"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  }
+]
