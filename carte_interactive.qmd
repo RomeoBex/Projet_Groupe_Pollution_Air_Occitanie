@@ -2,4 +2,22 @@
 title: "Carte intéractive"
 ---
 
-Intéractivité à mettre..
+```{python}
+
+#Carte interactive 
+from ipyleaflet import Map, TileLayer, basemaps
+
+# Remplacez l'URL par le service WMTS que vous souhaitez utiliser
+wmts_url = "https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/WMTS"
+
+# Créer une carte avec le service WMTS
+carte = Map(center=(43.611015, 3.876733), zoom=12)
+
+# Ajouter une couche WMTS à la carte
+wmts_layer = TileLayer(url=wmts_url, name="WMTS Layer")
+carte.add_layer(wmts_layer)
+
+# Afficher la carte
+carte
+
+```
