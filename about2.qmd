@@ -1,0 +1,45 @@
+---
+title: "Données météos"
+---
+
+```{python}
+
+import requests
+import pandas as pd
+import matplotlib.pyplot as plt
+from datetime import datetime, timedelta
+import random
+
+# Remplacez le nom du jeu de données (dataset-name) et les filtres (facet et refine) par les valeurs appropriées
+url_api = "https://public.opendatasoft.com/api/records/1.0/search/?dataset=donnees-synop-essentielles-omm&rows=100&facet=nom_reg&refine.nom_reg=Occitanie"
+
+# Faites la requête API
+response = requests.get(url_api)
+data = response.json()
+
+# Créer un DataFrame à partir des données
+df = pd.DataFrame([record['fields'] for record in data['records']])
+
+# Ajout d'une colonne temporelle pour la démonstration (à remplacer par votre propre colonne)
+df['datetime'] = [datetime.now() - timedelta(days=random.randint(1, 365)) for _ in range(len(df))]
+
+# Convertir la colonne 'datetime' en format datetime
+df['datetime'] = pd.to_datetime(df['datetime'])
+
+# Vérifier la structure des données
+print(df.head())
+
+# Représentation graphique
+if 'temps_present' in df.columns:
+    plt.figure(figsize=(12, 6))
+    plt.plot(df['datetime'], df['temps_present'], marker='o', linestyle='-')
+    plt.title('Représentation Temporelle du Dataset')
+    plt.xlabel('Date et Heure')
+    plt.ylabel('Temps Présent')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
+else:
+    print("La colonne 'temps_present' n'est pas présente dans le DataFrame.")
+
+```

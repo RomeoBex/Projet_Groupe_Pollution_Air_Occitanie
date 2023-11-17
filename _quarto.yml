@@ -2,13 +2,13 @@ project:
   type: website
   output-dir: docs
 website:
-  title: Pollution
+  title: Pollution Occitanie 
   navbar:
     left: 
       - href: index.qmd
-        text: Acceuil
+        text: Pollution
+      - about2.qmd
       - about.qmd
-
 format:
   html:
     theme: green
