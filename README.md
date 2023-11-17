@@ -58,3 +58,6 @@ The name « Pandas » is a contraction of the term « Panel Data », referring t
 * Possiblités de faire des graphs ? 
 * Réussir à ne pas afficher le code dans l'onglet "Carte intéractive"
 * Création d'une classe ? laquelle ? 
+* Titre du graphe pour les 4 graphes + les expliquer brièvement
+* Importation des données avec le site meteo
+  
