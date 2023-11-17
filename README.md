@@ -50,3 +50,11 @@ The name « Pandas » is a contraction of the term « Panel Data », referring t
 
 
 ![Objectif](github_actions.jpg)
+
+
+## Choses à faire : 
+
+* Corrélation entre températures et pollutions dans chaque ville
+* Possiblités de faire des graphs ? 
+* Réussir à ne pas afficher le code dans l'onglet "Carte intéractive"
+* Création d'une classe ? laquelle ? 
