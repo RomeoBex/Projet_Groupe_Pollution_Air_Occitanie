@@ -268,9 +268,22 @@ print("Seuil de valeur élevée:", seuil_valeur_elevee)
 
 
 # %%
-#Potentiel bon code 
+
+#pour calculer la valeur seuil 
+# Calculer la moyenne et l'écart type des valeurs de pollution
+moyenne_pollution = df['valeur'].mean()
+ecart_type_pollution = df['valeur'].std()
+
+# Définir le seuil comme la moyenne plus 2 fois l'écart type
+seuil_valeur_elevee = moyenne_pollution + 2 * ecart_type_pollution
+
+print("Moyenne de la pollution:", moyenne_pollution)
+print("Écart type de la pollution:", ecart_type_pollution)
+print("Seuil de valeur élevée:", seuil_valeur_elevee)
+
+
 import pandas as pd
-from ipyleaflet import Map, TileLayer, basemaps, GeoJSON, Marker
+from ipyleaflet import Map, TileLayer, GeoJSON, Marker
 import ipywidgets as widgets
 from IPython.display import display
 
@@ -280,6 +293,9 @@ df = pd.read_csv(chemin_fichier_csv)
 
 # Créer une colonne 'geometry' avec les coordonnées X et Y sous forme de GeoJSON
 df['geometry'] = df.apply(lambda row: {"type": "Point", "coordinates": [row['X'], row['Y']]}, axis=1)
+
+# Valeur seuil
+SEUIL_DE_VALEUR_ELEVEE = 23  # Définissez votre seuil ici
 
 # Créer une carte avec le service WMTS
 carte = Map(center=(43.611015, 3.876733), zoom=9)
@@ -316,15 +332,92 @@ geojson_layer = GeoJSON(data=geojson_data, style={'color': 'red', 'opacity': 0.8
 carte.add_layer(geojson_layer)
 
 # Ajouter les marqueurs à la carte
+# Ajouter les marqueurs à la carte
 for marker in high_value_markers:
     carte.add_layer(marker)
+
 
 # Créer une légende
 legend = widgets.VBox([
     widgets.HTML(value="<b>Légende</b>"),
-    widgets.HTML(value='<div style="background-color: red; width: 20px; height: 20px; border: 1px solid black; display: inline-block;"></div> Valeur élevée'),
+   widgets.HTML(value=f'<div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 20px solid red; display: inline-block;"></div> Valeur élevée (> {SEUIL_DE_VALEUR_ELEVEE})'),
     # Ajoutez d'autres lignes ci-dessus pour d'autres valeurs de pollution
 ])
 
 # Afficher la carte avec la légende
 display(widgets.HBox([carte, legend]))
+
+# Trouver l'indice de la valeur maximale dans la colonne 'valeur'
+indice_max = df['valeur'].idxmax()
+
+# Obtenir les coordonnées X et Y pour l'emplacement de la valeur maximale
+coordonnees_max = df.loc[indice_max, ['X', 'Y']]
+
+print("Coordonnées de l'endroit avec la valeur la plus élevée:", coordonnees_max)
+
+
+
+# %%
+import requests
+import matplotlib.pyplot as plt
+
+# Remplacez le nom du jeu de données (dataset-name) et les filtres (facet et refine) par les valeurs appropriées
+url_api = "https://public.opendatasoft.com/api/records/1.0/search/?dataset=donnees-synop-essentielles-omm&rows=100&facet=nom_reg&refine.nom_reg=Occitanie&facet=temps_present&refine.temps_present=Averse(s)%20de%20pluie"
+
+# Faites la requête API
+response = requests.get(url_api)
+data = response.json()
+
+# Exemple : Représentation d'une colonne "temps_present" en fonction de l'index
+temps_present_values = [record['fields']['temps_present'] for record in data['records']]
+index = range(len(temps_present_values))
+
+# Créez un diagramme à barres
+plt.bar(index, temps_present_values)
+plt.xlabel('Index')
+plt.ylabel('Temps Présent')
+plt.title('Représentation du temps présent')
+plt.show()
+
+#%%
+#données météo du site 
+
+import requests
+import pandas as pd
+import matplotlib.pyplot as plt
+from datetime import datetime, timedelta
+import random
+
+# Remplacez le nom du jeu de données (dataset-name) et les filtres (facet et refine) par les valeurs appropriées
+url_api = "https://public.opendatasoft.com/api/records/1.0/search/?dataset=donnees-synop-essentielles-omm&rows=100&facet=nom_reg&refine.nom_reg=Occitanie"
+
+# Faites la requête API
+response = requests.get(url_api)
+data = response.json()
+
+# Créer un DataFrame à partir des données
+df = pd.DataFrame([record['fields'] for record in data['records']])
+
+# Ajout d'une colonne temporelle pour la démonstration (à remplacer par votre propre colonne)
+df['datetime'] = [datetime.now() - timedelta(days=random.randint(1, 365)) for _ in range(len(df))]
+
+# Convertir la colonne 'datetime' en format datetime
+df['datetime'] = pd.to_datetime(df['datetime'])
+
+# Vérifier la structure des données
+print(df.head())
+
+# Représentation graphique
+if 'temps_present' in df.columns:
+    plt.figure(figsize=(12, 6))
+    plt.plot(df['datetime'], df['temps_present'], marker='o', linestyle='-')
+    plt.title('Représentation Temporelle du Dataset')
+    plt.xlabel('Date et Heure')
+    plt.ylabel('Temps Présent')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
+else:
+    print("La colonne 'temps_present' n'est pas présente dans le DataFrame.")
+
+# %%
