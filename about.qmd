@@ -1,6 +1,8 @@
 ---
-title: "Carte intéractive"
+title: "Intéractivité"
 ---
+
+## Valeurs de pollution polluants
 
 
 ```{python,echo=FALSE}
@@ -67,7 +69,10 @@ display(widgets.HBox([carte]))
 ```
 **Carte interactive des mesures mensuelles de la région Occitanie des principaux polluants en microgramme par mètre cube**
 
-```{python}
+
+## Résultats moyenne, écart typé, valeur max 
+
+```{python, echo=FALSE}
 
 #pour calculer la valeur seuil 
 # Calculer la moyenne et l'écart type des valeurs de pollution
