@@ -1,0 +1,36 @@
+---
+title: "Projets Pollution"
+author: "BEX Roméo"
+format: revealjs
+---
+
+# Objectifs du projet 
+- Etablir une corrélation entre pollution et météo 
+- Etablir une hiérarchie des villes en fonction du taux de pollution
+
+## Compréhension du phénomène : 
+
+![](piege_pollution.png){width=110%}
+
+* Liste (non exhaustive) des risques associés 
+
+
+## Technicité et source 
+
+- Langage utilisé (python)
+- Diapositives en quarto
+- Sources 
+
+## Comment est ce qu'on a fait ? 
+
+-Pandas 
+-Image d'un data frame 
+-tri 
+
+# Analyse d'un graphique : 
+
+
+# Hiérarchie des villes en fonction des polluants : 
+
+- Graphiques de chaque grande ville pour chaque type de polluants 
+
