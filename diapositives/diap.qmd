@@ -9,9 +9,10 @@ format:
         data-background-color: "#447099"
 
 ---
-## title {background-color="skyblue" background-image="fond1.png" background-opacity="0.8"}
+## title 
 
 * Cette diapo est un test 
+* <img  src="https://upload.wikimedia.org/wikipedia/commons/e/ef/CamelCase.svg" width="65%" style="display: block; margin-right: auto; margin-left: auto;"></img>
 
 # Objectifs du projet 
 - Etablir une corrélation entre pollution et météo 
@@ -19,7 +20,7 @@ format:
 
 ## Compréhension du phénomène : 
 
-![](piege_pollution.png){width=110%}
+![image](1U6Qpdb01.svg){width=110%}
 
 * Liste (non exhaustive) des risques associés 
 
@@ -31,6 +32,30 @@ format:
 - Sources 
 
 ## Comment est-ce qu'on a fait ? 
+Exemple sur un jeu de données : 
+```{python}
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Remplacez 'votre_fichier.csv' par le chemin vers votre fichier CSV
+chemin_fichier_csv = 'Mesure_mensuelle_Region_Occitanie_Polluants_Principaux.csv'
+
+# Charger le fichier CSV dans un DataFrame
+df = pd.read_csv(chemin_fichier_csv)
+
+# Créer un diagramme à barres pour la variable 'nom_dept'
+plt.figure(figsize=(12, 6))
+sns.countplot(x='nom_dept', data=df)
+plt.title('Répartition des données par département')
+plt.xlabel('Département')
+plt.ylabel('Nombre d\'occurrences')
+plt.xticks(rotation=45, ha='right')  # Rotation des étiquettes sur l'axe x pour une meilleure lisibilité
+plt.show()
+
+
+```
+
 
 - Pandas 
 - Image d'un data frame 
