@@ -114,22 +114,64 @@
   {
     "objectID": "diapositives/diap.html#compréhension-du-phénomène",
     "href": "diapositives/diap.html#compréhension-du-phénomène",
-    "title": "Projets Pollution",
+    "title": "Projet Pollution",
     "section": "Compréhension du phénomène :",
     "text": "Compréhension du phénomène :\n\n\nListe (non exhaustive) des risques associés"
   },
   {
     "objectID": "diapositives/diap.html#technicité-et-source",
     "href": "diapositives/diap.html#technicité-et-source",
-    "title": "Projets Pollution",
+    "title": "Projet Pollution",
     "section": "Technicité et source",
     "text": "Technicité et source\n\nLangage utilisé (python)\nDiapositives en quarto\nSources"
   },
   {
     "objectID": "diapositives/diap.html#comment-est-ce-quon-a-fait",
     "href": "diapositives/diap.html#comment-est-ce-quon-a-fait",
+    "title": "Projet Pollution",
+    "section": "Comment est-ce qu’on a fait ?",
+    "text": "Comment est-ce qu’on a fait ?\n\nPandas\nImage d’un data frame\ntri"
+  },
+  {
+    "objectID": "diapositives/diap.html#slide-title",
+    "href": "diapositives/diap.html#slide-title",
+    "title": "Projet Pollution",
+    "section": "Slide Title",
+    "text": "Slide Title\n\nCette diapo est un test"
+  },
+  {
+    "objectID": "diapositives/diap.html#background-colorblue-background-size500px-background-opacity-0.2",
+    "href": "diapositives/diap.html#background-colorblue-background-size500px-background-opacity-0.2",
     "title": "Projets Pollution",
-    "section": "Comment est ce qu’on a fait ?",
-    "text": "Comment est ce qu’on a fait ?\n-Pandas -Image d’un data frame -tri"
+    "section": "{background-color=“blue” background-size=“500px” background opacity = “0.2” }",
+    "text": "{background-color=“blue” background-size=“500px” background opacity = “0.2” }"
+  },
+  {
+    "objectID": "diapositives/diap.html#section",
+    "href": "diapositives/diap.html#section",
+    "title": "Projets Pollution",
+    "section": "",
+    "text": "Cette diapo est un test"
+  },
+  {
+    "objectID": "diapositives/diap.html#projets-pollution",
+    "href": "diapositives/diap.html#projets-pollution",
+    "title": "Projet Pollution",
+    "section": "Projets Pollution",
+    "text": "Projets Pollution\n\nCette diapo est un test"
+  },
+  {
+    "objectID": "diapositives/diap.html#projet-pollution",
+    "href": "diapositives/diap.html#projet-pollution",
+    "title": "Projet Pollution",
+    "section": "Projet Pollution",
+    "text": "Projet Pollution\n\nCette diapo est un test"
+  },
+  {
+    "objectID": "diapositives/diap.html#title",
+    "href": "diapositives/diap.html#title",
+    "title": "Projet Pollution",
+    "section": "title",
+    "text": "title\n\nCette diapo est un test"
   }
 ]

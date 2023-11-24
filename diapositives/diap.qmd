@@ -1,8 +1,17 @@
 ---
-title: "Projets Pollution"
+title: "Projet Pollution"
 author: "BEX Roméo"
-format: revealjs
+date : today
+format:
+  revealjs: 
+    theme: default
+    title-slide-attributes:
+        data-background-color: "#447099"
+
 ---
+## title {background-color="skyblue" background-image="fond1.png" background-opacity="0.8"}
+
+* Cette diapo est un test 
 
 # Objectifs du projet 
 - Etablir une corrélation entre pollution et météo 
@@ -21,11 +30,11 @@ format: revealjs
 - Diapositives en quarto
 - Sources 
 
-## Comment est ce qu'on a fait ? 
+## Comment est-ce qu'on a fait ? 
 
--Pandas 
--Image d'un data frame 
--tri 
+- Pandas 
+- Image d'un data frame 
+- tri 
 -
 
 # Analyse d'un graphique : 
