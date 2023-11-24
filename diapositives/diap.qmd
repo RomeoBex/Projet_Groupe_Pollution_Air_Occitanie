@@ -26,9 +26,11 @@ format: revealjs
 -Pandas 
 -Image d'un data frame 
 -tri 
+-
 
 # Analyse d'un graphique : 
 
+-
 
 # Hiérarchie des villes en fonction des polluants : 
 
