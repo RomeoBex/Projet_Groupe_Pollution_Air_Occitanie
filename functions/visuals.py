@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from datetime import datetime as dt
 
 
-def visualize_df(df, city, value, nom_poll):
+def visualize_df(df, city, nom_poll):
     """visualize the dataframe"""
 
     # Filter and sort DataFrame by timestamp
@@ -16,14 +16,14 @@ def visualize_df(df, city, value, nom_poll):
 
     # Extract the timestamp and value columns
     timestamps = viz_df["start"]
-    values = viz_df[value]
+    values = viz_df['values']
 
     # Plot the time series
     plt.figure(figsize=(10, 6))
     plt.plot(timestamps, values, marker="o", linestyle="-")
     plt.title(f"Time Series {city}")
     plt.xlabel("Timestamp")
-    plt.ylabel(f"{value}")
+    plt.ylabel(f"{nom_poll} Value")
     plt.grid(True)
     plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
     plt.tight_layout()
