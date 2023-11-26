@@ -53,3 +53,8 @@ def extract_data_to_df(data: dict) -> pd.DataFrame:
     df_data["end"] = df_data["end"].apply(lambda x: dt.fromtimestamp(x / 1e3))
 
     return df_data
+
+
+def get_unique_cities(df) -> list:
+    """takes df and returns unique list of cities"""
+    return df.city.unique()
