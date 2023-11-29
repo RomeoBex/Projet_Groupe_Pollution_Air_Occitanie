@@ -3,7 +3,7 @@ title: "Carte intéractive"
 ---
 
 ```{python}
-
+#| echo: false
 #Carte interactive 
 from ipyleaflet import Map, TileLayer, basemaps
 

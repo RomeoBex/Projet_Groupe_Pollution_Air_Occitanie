@@ -19,11 +19,11 @@ En résumé, les conditions météorologiques peuvent influencer la dispersion, 
 
 Exemple : 
 
-![**Quantité de polluant pour la ville d'Alès pour l'année 2020**](diagramme_pollu.png){width=60%}
+![**Quantité de polluant pour la ville d'Alès pour l'année 2020**](diagramme_pollu.png){width=60%} 
 
 Source : 
 
 Autre Exemple : 
 
-![**Titre du grapphe**](graph4.png){width=100%}
+![**Titre du graphique**](graph4.png){width=100%}
 
