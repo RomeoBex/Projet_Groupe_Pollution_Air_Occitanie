@@ -2,11 +2,11 @@
 title: "Intéractivité"
 ---
 
-## Valeurs de pollution polluants
+## Carte de la pollution
 
 
 ```{python,echo=FALSE}
-
+%hide
 
 import pandas as pd
 from ipyleaflet import Map, TileLayer, GeoJSON, Marker
@@ -50,7 +50,14 @@ for index, row in df.iterrows():
 
     # Ajouter un marqueur si la valeur de pollution est élevée
     if row['valeur'] > SEUIL_DE_VALEUR_ELEVEE:
-        marker = Marker(location=(row['Y'], row['X']), draggable=False, title=f"Valeur: {row['valeur']}")
+        if row['valeur'] > moyenne_pollution + ecart_type_pollution :
+            if row['valeur']>moyenne_pollution + 2 * ecart_type_pollution :
+                marker = Marker(location=(row['Y'], row['X']), draggable=False, title=f"Valeur: {row['valeur']}", icon=AwesomeIcon(name='check', marker_color='red'))  
+            else:
+                marker = Marker(location=(row['Y'], row['X']), draggable=False, title=f"Valeur: {row['valeur']}", icon=AwesomeIcon(name='check', marker_color='orange'))
+        else:
+            marker = Marker(location=(row['Y'], row['X']), draggable=False, title=f"Valeur: {row['valeur']}", icon=AwesomeIcon(name='check', marker_color='yellow'))
+
         high_value_markers.append(marker)
 
 # Créer une couche GeoJSON pour les zones polluées
@@ -67,10 +74,10 @@ for marker in high_value_markers:
 # Afficher la carte 
 display(widgets.HBox([carte]))
 ```
-**Carte interactive des mesures mensuelles de la région Occitanie des principaux polluants en microgramme par mètre cube**
+**Carte**
 
 
-## Résultats moyenne, écart typé, valeur max 
+## Résultats généraux
 
 ```{python, echo=FALSE}
 

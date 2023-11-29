@@ -266,7 +266,6 @@ print("Seuil de valeur élevée:", seuil_valeur_elevee)
 
 
 # %%
-
 #pour calculer la valeur seuil 
 # Calculer la moyenne et l'écart type des valeurs de pollution
 moyenne_pollution = df['valeur'].mean()
@@ -287,7 +286,7 @@ from IPython.display import display
 
 # Charger le fichier CSV dans un DataFrame
 chemin_fichier_csv = 'Mesure_mensuelle_Region_Occitanie_Polluants_Principaux.csv'
-df = pd.read_csv(chemin_fichier_csv))
+df = pd.read_csv(chemin_fichier_csv)
 
 # Créer une colonne 'geometry' avec les coordonnées X et Y sous forme de GeoJSON
 df['geometry'] = df.apply(lambda row: {"type": "Point", "coordinates": [row['X'], row['Y']]}, axis=1)
@@ -304,10 +303,7 @@ wmts_layer = TileLayer(url=wmts_url, name="WMTS Layer")
 carte.add_layer(wmts_layer)
 
 # Créer une GeoJSON FeatureCollection à partir des données de votre DataFrame
-geojson_data = {
-    "type": "FeatureCollection",
-    "features": []
-}
+geojson_data = {"type": "FeatureCollection", "features": []}
 
 # Marqueurs pour les valeurs élevées
 high_value_markers = []
@@ -343,9 +339,7 @@ for marker in high_value_markers:
 
 
 # Créer une légende
-legend = widgets.VBox([
-    widgets.HTML(value="<b>Légende</b>"),
-   widgets.HTML(value=f'<div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 20px solid red; display: inline-block;"></div> Valeur élevée (> {SEUIL_DE_VALEUR_ELEVEE})'),
+legend = widgets.VBox([widgets.HTML(value="<b>Légende</b>"), widgets.HTML(value=f'<div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 20px solid red; display: inline-block;"></div> Valeur élevée (> {SEUIL_DE_VALEUR_ELEVEE})'),
     # Ajoutez d'autres lignes ci-dessus pour d'autres valeurs de pollution
 ])
 
