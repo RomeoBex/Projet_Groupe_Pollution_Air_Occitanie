@@ -6,10 +6,10 @@ title: "Intéractivité"
 
 
 ```{python,echo=FALSE}
-%hide
+#| echo: FALSE
 
 import pandas as pd
-from ipyleaflet import Map, TileLayer, GeoJSON, Marker
+from ipyleaflet import Map, TileLayer, GeoJSON, Marker, AwesomeIcon
 import ipywidgets as widgets
 from IPython.display import display
 
@@ -20,8 +20,9 @@ df = pd.read_csv(chemin_fichier_csv)
 # Créer une colonne 'geometry' avec les coordonnées X et Y sous forme de GeoJSON
 df['geometry'] = df.apply(lambda row: {"type": "Point", "coordinates": [row['X'], row['Y']]}, axis=1)
 
-# Valeur seuil
-SEUIL_DE_VALEUR_ELEVEE = 23.7  # Définissez votre seuil ici
+
+
+
 
 # Créer une carte avec le service WMTS
 carte = Map(center=(43.611015, 3.876733), zoom=9)
@@ -39,6 +40,13 @@ geojson_data = {
 
 # Marqueurs pour les valeurs élevées
 high_value_markers = []
+#pour calculer la valeur seuil 
+# Calculer la moyenne et l'écart type des valeurs de pollution
+moyenne_pollution = df['valeur'].mean()
+ecart_type_pollution = df['valeur'].std()
+
+# Définir le seuil comme la moyenne plus 2 fois l'écart type
+seuil_valeur_elevee = moyenne_pollution + 2 * ecart_type_pollution
 
 for index, row in df.iterrows():
     feature = {
@@ -49,14 +57,14 @@ for index, row in df.iterrows():
     geojson_data['features'].append(feature)
 
     # Ajouter un marqueur si la valeur de pollution est élevée
-    if row['valeur'] > SEUIL_DE_VALEUR_ELEVEE:
+    if row['valeur'] > moyenne_pollution:
         if row['valeur'] > moyenne_pollution + ecart_type_pollution :
-            if row['valeur']>moyenne_pollution + 2 * ecart_type_pollution :
+            if row['valeur']> seuil_valeur_elevee :
                 marker = Marker(location=(row['Y'], row['X']), draggable=False, title=f"Valeur: {row['valeur']}", icon=AwesomeIcon(name='check', marker_color='red'))  
             else:
                 marker = Marker(location=(row['Y'], row['X']), draggable=False, title=f"Valeur: {row['valeur']}", icon=AwesomeIcon(name='check', marker_color='orange'))
         else:
-            marker = Marker(location=(row['Y'], row['X']), draggable=False, title=f"Valeur: {row['valeur']}", icon=AwesomeIcon(name='check', marker_color='yellow'))
+            marker = Marker(location=(row['Y'], row['X']), draggable=False, title=f"Valeur: {row['valeur']}", icon=AwesomeIcon(name='check', marker_color='blue'))
 
         high_value_markers.append(marker)
 
@@ -80,15 +88,6 @@ display(widgets.HBox([carte]))
 ## Résultats généraux
 
 ```{python, echo=FALSE}
-
-#pour calculer la valeur seuil 
-# Calculer la moyenne et l'écart type des valeurs de pollution
-moyenne_pollution = df['valeur'].mean()
-ecart_type_pollution = df['valeur'].std()
-
-# Définir le seuil comme la moyenne plus 2 fois l'écart type
-seuil_valeur_elevee = moyenne_pollution + 2 * ecart_type_pollution
-
 print("Moyenne de la pollution:", moyenne_pollution)
 print("Écart type de la pollution:", ecart_type_pollution)
 print("Seuil de valeur élevée:", seuil_valeur_elevee)
