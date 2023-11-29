@@ -25,8 +25,6 @@ print(dataframe.head())
 print(dataframe.head())
 
 
-
-
 #%%
 import matplotlib.pyplot as plt
 
@@ -283,13 +281,13 @@ print("Seuil de valeur élevée:", seuil_valeur_elevee)
 
 
 import pandas as pd
-from ipyleaflet import Map, TileLayer, GeoJSON, Marker
+from ipyleaflet import Map, TileLayer, GeoJSON, Marker, AwesomeIcon
 import ipywidgets as widgets
 from IPython.display import display
 
 # Charger le fichier CSV dans un DataFrame
 chemin_fichier_csv = 'Mesure_mensuelle_Region_Occitanie_Polluants_Principaux.csv'
-df = pd.read_csv(chemin_fichier_csv)
+df = pd.read_csv(chemin_fichier_csv))
 
 # Créer une colonne 'geometry' avec les coordonnées X et Y sous forme de GeoJSON
 df['geometry'] = df.apply(lambda row: {"type": "Point", "coordinates": [row['X'], row['Y']]}, axis=1)
@@ -324,7 +322,14 @@ for index, row in df.iterrows():
 
     # Ajouter un marqueur si la valeur de pollution est élevée
     if row['valeur'] > SEUIL_DE_VALEUR_ELEVEE:
-        marker = Marker(location=(row['Y'], row['X']), draggable=False, title=f"Valeur: {row['valeur']}")
+        if row['valeur'] > moyenne_pollution + ecart_type_pollution :
+            if row['valeur']>moyenne_pollution + 2 * ecart_type_pollution :
+                marker = Marker(location=(row['Y'], row['X']), draggable=False, title=f"Valeur: {row['valeur']}", icon=AwesomeIcon(name='check', marker_color='red'))  
+            else:
+                marker = Marker(location=(row['Y'], row['X']), draggable=False, title=f"Valeur: {row['valeur']}", icon=AwesomeIcon(name='check', marker_color='orange'))
+        else:
+            marker = Marker(location=(row['Y'], row['X']), draggable=False, title=f"Valeur: {row['valeur']}", icon=AwesomeIcon(name='check', marker_color='yellow'))
+
         high_value_markers.append(marker)
 
 # Créer une couche GeoJSON pour les zones polluées
