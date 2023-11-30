@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Pollution Occitanie – exploration</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Pollution Occitanie</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html" rel="" target="">
+ <span class="menu-text">Pollution</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about2.html" rel="" target="">
+ <span class="menu-text">Données météos</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html" rel="" target="">
+ <span class="menu-text">Intéractivité</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>load_ext autoreload</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>autoreload <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime <span class="im">as</span> dt</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> dataprep <span class="im">as</span> dp</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> visuals <span class="im">as</span> viz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tj <span class="op">=</span> <span class="st">"https://services9.arcgis.com/7Sr9Ek9c1QTKmbwr/arcgis/rest/services/Mesure_horaire_(30j)_Region_Occitanie_Polluants_Reglementaires_1/FeatureServer/0/query?where=1%3D1&amp;outFields=*&amp;outSR=4326&amp;f=json"</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>mensuelle <span class="op">=</span> <span class="st">"https://services9.arcgis.com/7Sr9Ek9c1QTKmbwr/arcgis/rest/services/mesures_occitanie_mensuelle_poll_princ/FeatureServer/0/query?where=1%3D1&amp;outFields=*&amp;outSR=4326&amp;f=json"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(mensuelle)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> response.json()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>tj <span class="op">=</span> <span class="st">"https://services9.arcgis.com/7Sr9Ek9c1QTKmbwr/arcgis/rest/services/Mesure_horaire_(30j)_Region_Occitanie_Polluants_Reglementaires_1/FeatureServer/0/query?where=1%3D1&amp;outFields=*&amp;outSR=4326&amp;f=json"</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(tj)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>j <span class="op">=</span> response.json()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>j.keys()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>dict_keys(['objectIdFieldName', 'uniqueIdField', 'globalIdFieldName', 'geometryType', 'spatialReference', 'fields', 'exceededTransferLimit', 'features'])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>noms<span class="op">=</span>[]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> element <span class="kw">in</span> j[<span class="st">"features"</span>]:</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    noms<span class="op">+=</span>[element.get(<span class="st">'attributes'</span>).get(<span class="st">'nom_com'</span>)]</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>u_noms<span class="op">=</span>np.unique(noms)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> u <span class="kw">in</span> u_noms:</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>u<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>noms<span class="sc">.</span>count(u)<span class="sc">}</span><span class="ss">"</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>AGDE 79
+ALBI 4
+ALES 12
+ARGELES-GAZOST 3
+AUCH 105
+BELESTA-EN-LAURAGAIS 7
+BEZIERS 52
+BLAGNAC 9
+CASTRES 27
+CORNEILHAN 22
+GAUDONVILLE 27
+LA CALMETTE 23
+LATTES 19
+LOURDES 28
+LUNEL-VIEL 6
+MIRAMONT-DE-COMMINGES 5
+MONTAUBAN 14
+MONTGISCARD 11
+MONTPELLIER 278
+NIMES 16
+PERPIGNAN 93
+PEYRUSSE-VIEILLE 13
+RODEZ 21
+SAINT-GAUDENS 3
+SAINT-GELY-DU-FESC 14
+SAINT-GIRONS 3
+SAZE 13
+TARBES 18
+TOULOUSE 75</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>j[<span class="st">"features"</span>][<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>{'attributes': {'nom_dept': 'TARN-ET-GARONNE',
+  'nom_com': 'MONTAUBAN',
+  'insee_com': 82121,
+  'nom_station': 'Montauban - Ramierou Urbain',
+  'code_station': 'FR50060',
+  'typologie': 'Urbaine',
+  'influence': 'Fond',
+  'nom_poll': 'NOX',
+  'id_poll_ue': 9,
+  'valeur': 6.7,
+  'unite': 'ug.m-3',
+  'metrique': 'horaire',
+  'date_debut': 1700913600000,
+  'date_fin': 1700917200000,
+  'statut_valid': 't',
+  'x_l93': 569728,
+  'y_l93': 6325102,
+  'ObjectId': 3},
+ 'geometry': {'x': 1.3753099999999996, 'y': 44.01289999999996}}</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>j[<span class="st">"features"</span>][<span class="dv">9</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>{'attributes': {'nom_dept': 'PYRENEES-ORIENTALES',
+  'nom_com': 'PERPIGNAN',
+  'insee_com': 66136,
+  'nom_station': 'Perpignan-Pyrenees Trafic',
+  'code_station': 'FR50224',
+  'typologie': 'Urbaine',
+  'influence': 'Trafic',
+  'nom_poll': 'NOX',
+  'id_poll_ue': 9,
+  'valeur': 58.5,
+  'unite': 'ug.m-3',
+  'metrique': 'horaire',
+  'date_debut': 1699819200000,
+  'date_fin': 1699822800000,
+  'statut_valid': 't',
+  'x_l93': 690848,
+  'y_l93': 6177376,
+  'ObjectId': 10},
+ 'geometry': {'x': 2.8884499999999997, 'y': 42.695899999999995}}</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>cities<span class="op">=</span>[]</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>starts<span class="op">=</span>[]</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>ends<span class="op">=</span>[]</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>val<span class="op">=</span>[]</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>poll_ue<span class="op">=</span>[]</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> element <span class="kw">in</span> j[<span class="st">"features"</span>]:</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    cities<span class="op">+=</span>[element.get(<span class="st">'attributes'</span>).get(<span class="st">'nom_com'</span>)]</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    starts<span class="op">+=</span>[element.get(<span class="st">'attributes'</span>).get(<span class="st">'date_debut'</span>)]</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    ends<span class="op">+=</span>[element.get(<span class="st">'attributes'</span>).get(<span class="st">'date_fin'</span>)]</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    val<span class="op">+=</span>[element.get(<span class="st">'attributes'</span>).get(<span class="st">'valeur'</span>)]</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    poll_ue<span class="op">+=</span>[element.get(<span class="st">'attributes'</span>).get(<span class="st">'id_poll_ue'</span>)]</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>cities_u<span class="op">=</span>np.unique(cities)</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>df_data <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>df_data[<span class="st">'city'</span>]<span class="op">=</span>cities</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>df_data[<span class="st">'start'</span>]<span class="op">=</span>starts</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>df_data[<span class="st">'end'</span>]<span class="op">=</span>ends</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>df_data[<span class="st">'values'</span>]<span class="op">=</span>val</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>df_data[<span class="st">'poll_ue'</span>]<span class="op">=</span>poll_ue</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(index<span class="op">=</span>cities_u)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_data[<span class="st">'start'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: dt.fromtimestamp(x<span class="op">/</span><span class="fl">1e3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>0     2023-11-25 10:00:00
+1     2023-11-25 12:00:00
+2     2023-11-25 13:00:00
+3     2023-11-25 14:00:00
+4     2023-11-25 15:00:00
+              ...        
+995   2023-11-13 12:00:00
+996   2023-11-15 11:00:00
+997   2023-11-16 19:00:00
+998   2023-11-19 07:00:00
+999   2023-11-21 13:00:00
+Name: start, Length: 1000, dtype: datetime64[ns]</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>dt.fromtimestamp(<span class="dv">1699873200000</span><span class="op">/</span><span class="fl">1e3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>datetime.datetime(2023, 11, 13, 12, 0)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="71">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df_m <span class="op">=</span> dp.extract_data_to_df(data<span class="op">=</span>m)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>df_j <span class="op">=</span> dp.extract_data_to_df(data<span class="op">=</span>j)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="75">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df_j[df_j[<span class="st">'city'</span>]<span class="op">==</span><span class="st">"MONTPELLIER"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="75">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">city</th>
+<th data-quarto-table-cell-role="th">start</th>
+<th data-quarto-table-cell-role="th">end</th>
+<th data-quarto-table-cell-role="th">values</th>
+<th data-quarto-table-cell-role="th">poll_ue</th>
+<th data-quarto-table-cell-role="th">nom_poll</th>
+<th data-quarto-table-cell-role="th">influence</th>
+<th data-quarto-table-cell-role="th">typology</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">134</td>
+<td>MONTPELLIER</td>
+<td>2023-11-14 04:00:00</td>
+<td>2023-11-14 05:00:00</td>
+<td>72.5</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">135</td>
+<td>MONTPELLIER</td>
+<td>2023-11-14 08:00:00</td>
+<td>2023-11-14 09:00:00</td>
+<td>585.9</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">136</td>
+<td>MONTPELLIER</td>
+<td>2023-11-14 11:00:00</td>
+<td>2023-11-14 12:00:00</td>
+<td>182.5</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">137</td>
+<td>MONTPELLIER</td>
+<td>2023-11-14 12:00:00</td>
+<td>2023-11-14 13:00:00</td>
+<td>144.4</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">138</td>
+<td>MONTPELLIER</td>
+<td>2023-11-14 13:00:00</td>
+<td>2023-11-14 14:00:00</td>
+<td>186.9</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">924</td>
+<td>MONTPELLIER</td>
+<td>2023-11-02 04:00:00</td>
+<td>2023-11-02 05:00:00</td>
+<td>6.8</td>
+<td>8</td>
+<td>NO2</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">952</td>
+<td>MONTPELLIER</td>
+<td>2023-11-02 05:00:00</td>
+<td>2023-11-02 06:00:00</td>
+<td>12.0</td>
+<td>5</td>
+<td>PM10</td>
+<td>Fond</td>
+<td>Urbaine</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">970</td>
+<td>MONTPELLIER</td>
+<td>2023-11-02 05:00:00</td>
+<td>2023-11-02 06:00:00</td>
+<td>10.9</td>
+<td>5</td>
+<td>PM10</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">986</td>
+<td>MONTPELLIER</td>
+<td>2023-11-02 05:00:00</td>
+<td>2023-11-02 06:00:00</td>
+<td>13.8</td>
+<td>9</td>
+<td>NOX</td>
+<td>Fond</td>
+<td>Urbaine</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">987</td>
+<td>MONTPELLIER</td>
+<td>2023-11-02 05:00:00</td>
+<td>2023-11-02 06:00:00</td>
+<td>6.6</td>
+<td>9</td>
+<td>NOX</td>
+<td>Fond</td>
+<td>Urbaine</td>
+</tr>
+</tbody>
+</table>
+
+<p>278 rows × 8 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="86">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df_j[(df_j[<span class="st">'city'</span>]<span class="op">==</span><span class="st">'MONTPELLIER'</span>)<span class="op">&amp;</span>(df[<span class="st">'nom_poll'</span>]<span class="op">==</span><span class="st">'NOX'</span>)].sort_values(by<span class="op">=</span><span class="st">'start'</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co">#df[(df['city']=='MONTPELLIER')&amp;(df['nom_poll']=='NOX')].sort_values(by='start')</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="86">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">city</th>
+<th data-quarto-table-cell-role="th">start</th>
+<th data-quarto-table-cell-role="th">end</th>
+<th data-quarto-table-cell-role="th">values</th>
+<th data-quarto-table-cell-role="th">poll_ue</th>
+<th data-quarto-table-cell-role="th">nom_poll</th>
+<th data-quarto-table-cell-role="th">influence</th>
+<th data-quarto-table-cell-role="th">typology</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">924</td>
+<td>MONTPELLIER</td>
+<td>2023-11-02 04:00:00</td>
+<td>2023-11-02 05:00:00</td>
+<td>6.8</td>
+<td>8</td>
+<td>NO2</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">987</td>
+<td>MONTPELLIER</td>
+<td>2023-11-02 05:00:00</td>
+<td>2023-11-02 06:00:00</td>
+<td>6.6</td>
+<td>9</td>
+<td>NOX</td>
+<td>Fond</td>
+<td>Urbaine</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">986</td>
+<td>MONTPELLIER</td>
+<td>2023-11-02 05:00:00</td>
+<td>2023-11-02 06:00:00</td>
+<td>13.8</td>
+<td>9</td>
+<td>NOX</td>
+<td>Fond</td>
+<td>Urbaine</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">134</td>
+<td>MONTPELLIER</td>
+<td>2023-11-14 04:00:00</td>
+<td>2023-11-14 05:00:00</td>
+<td>72.5</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">135</td>
+<td>MONTPELLIER</td>
+<td>2023-11-14 08:00:00</td>
+<td>2023-11-14 09:00:00</td>
+<td>585.9</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">137</td>
+<td>MONTPELLIER</td>
+<td>2023-11-14 12:00:00</td>
+<td>2023-11-14 13:00:00</td>
+<td>144.4</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">139</td>
+<td>MONTPELLIER</td>
+<td>2023-11-14 14:00:00</td>
+<td>2023-11-14 15:00:00</td>
+<td>179.0</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">140</td>
+<td>MONTPELLIER</td>
+<td>2023-11-14 15:00:00</td>
+<td>2023-11-14 16:00:00</td>
+<td>188.4</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">141</td>
+<td>MONTPELLIER</td>
+<td>2023-11-14 16:00:00</td>
+<td>2023-11-14 17:00:00</td>
+<td>417.0</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">369</td>
+<td>MONTPELLIER</td>
+<td>2023-11-15 06:00:00</td>
+<td>2023-11-15 07:00:00</td>
+<td>21.3</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">376</td>
+<td>MONTPELLIER</td>
+<td>2023-11-15 22:00:00</td>
+<td>2023-11-15 23:00:00</td>
+<td>210.8</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">377</td>
+<td>MONTPELLIER</td>
+<td>2023-11-16 00:00:00</td>
+<td>2023-11-16 01:00:00</td>
+<td>66.5</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">378</td>
+<td>MONTPELLIER</td>
+<td>2023-11-16 01:00:00</td>
+<td>2023-11-16 02:00:00</td>
+<td>61.0</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">379</td>
+<td>MONTPELLIER</td>
+<td>2023-11-16 02:00:00</td>
+<td>2023-11-16 03:00:00</td>
+<td>33.2</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">372</td>
+<td>MONTPELLIER</td>
+<td>2023-11-16 09:00:00</td>
+<td>2023-11-16 10:00:00</td>
+<td>236.7</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">170</td>
+<td>MONTPELLIER</td>
+<td>2023-11-17 04:00:00</td>
+<td>2023-11-17 05:00:00</td>
+<td>12.9</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">188</td>
+<td>MONTPELLIER</td>
+<td>2023-11-17 08:00:00</td>
+<td>2023-11-17 09:00:00</td>
+<td>157.1</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">389</td>
+<td>MONTPELLIER</td>
+<td>2023-11-17 10:00:00</td>
+<td>2023-11-17 11:00:00</td>
+<td>59.0</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">382</td>
+<td>MONTPELLIER</td>
+<td>2023-11-17 16:00:00</td>
+<td>2023-11-17 17:00:00</td>
+<td>39.8</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">383</td>
+<td>MONTPELLIER</td>
+<td>2023-11-18 04:00:00</td>
+<td>2023-11-18 05:00:00</td>
+<td>30.9</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">384</td>
+<td>MONTPELLIER</td>
+<td>2023-11-18 06:00:00</td>
+<td>2023-11-18 07:00:00</td>
+<td>49.3</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">385</td>
+<td>MONTPELLIER</td>
+<td>2023-11-18 07:00:00</td>
+<td>2023-11-18 08:00:00</td>
+<td>72.5</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">386</td>
+<td>MONTPELLIER</td>
+<td>2023-11-18 08:00:00</td>
+<td>2023-11-18 09:00:00</td>
+<td>131.2</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">437</td>
+<td>MONTPELLIER</td>
+<td>2023-11-19 21:00:00</td>
+<td>2023-11-19 22:00:00</td>
+<td>206.4</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">187</td>
+<td>MONTPELLIER</td>
+<td>2023-11-20 10:00:00</td>
+<td>2023-11-20 11:00:00</td>
+<td>219.7</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">431</td>
+<td>MONTPELLIER</td>
+<td>2023-11-22 15:00:00</td>
+<td>2023-11-22 16:00:00</td>
+<td>16.1</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">450</td>
+<td>MONTPELLIER</td>
+<td>2023-11-22 18:00:00</td>
+<td>2023-11-22 19:00:00</td>
+<td>25.6</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">451</td>
+<td>MONTPELLIER</td>
+<td>2023-11-22 19:00:00</td>
+<td>2023-11-22 20:00:00</td>
+<td>25.1</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">452</td>
+<td>MONTPELLIER</td>
+<td>2023-11-23 08:00:00</td>
+<td>2023-11-23 09:00:00</td>
+<td>383.4</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">453</td>
+<td>MONTPELLIER</td>
+<td>2023-11-23 09:00:00</td>
+<td>2023-11-23 10:00:00</td>
+<td>356.1</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">445</td>
+<td>MONTPELLIER</td>
+<td>2023-11-23 21:00:00</td>
+<td>2023-11-23 22:00:00</td>
+<td>71.5</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">449</td>
+<td>MONTPELLIER</td>
+<td>2023-11-24 02:00:00</td>
+<td>2023-11-24 03:00:00</td>
+<td>52.2</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">456</td>
+<td>MONTPELLIER</td>
+<td>2023-11-24 10:00:00</td>
+<td>2023-11-24 11:00:00</td>
+<td>65.3</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">244</td>
+<td>MONTPELLIER</td>
+<td>2023-11-24 11:00:00</td>
+<td>2023-11-24 12:00:00</td>
+<td>28.3</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">246</td>
+<td>MONTPELLIER</td>
+<td>2023-11-24 13:00:00</td>
+<td>2023-11-24 14:00:00</td>
+<td>36.2</td>
+<td>9</td>
+<td>NOX</td>
+<td>Trafic</td>
+<td>Urbaine</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df[(df[<span class="st">'city'</span>]<span class="op">==</span><span class="st">'MONTPELLIER'</span>)<span class="op">&amp;</span>(df[<span class="st">'nom_poll'</span>]<span class="op">==</span><span class="st">'PM2.5'</span>)].shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="34">
+<pre><code>(14, 8)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="68">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df[(df[<span class="st">'city'</span>]<span class="op">==</span><span class="st">'MONTPELLIER'</span>)<span class="op">&amp;</span>(df[<span class="st">'nom_poll'</span>]<span class="op">==</span><span class="st">'PM10'</span>)].sort_values(by<span class="op">=</span><span class="st">'start'</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'start'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: df.loc[df[<span class="st">'start'</span>] <span class="op">==</span> x, <span class="st">'values'</span>].mean())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="70">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>dp.get_unique_cities(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="70">
+<pre><code>array(['TOULOUSE', 'BESSIERES', 'ALES', 'ALBI', 'TARBES',
+       'PEYRUSSE-VIEILLE', 'AGDE', 'SAINT-GIRONS', 'LOURDES',
+       'LUNEL-VIEL', 'RODEZ', 'BLAGNAC', 'MONTAUBAN', 'CASTRES',
+       'MONTPELLIER', 'LATTES', 'NIMES', 'PERPIGNAN',
+       'SAINT-GELY-DU-FESC', 'SAZE', 'BEZIERS', 'BELESTA-EN-LAURAGAIS',
+       'MIRAMONT-DE-COMMINGES', 'MONTGISCARD', 'ARGELES-GAZOST', 'AUCH',
+       'SAINT-ESTEVE', 'LA CALMETTE'], dtype=object)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="84">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>viz.visualize_df(df<span class="op">=</span>df_j, city<span class="op">=</span><span class="st">'MONTPELLIER'</span>, nom_poll<span class="op">=</span><span class="st">"NOX"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="exploration_files/figure-html/cell-21-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> average_duplicate_timestamps(dataframe, timestamp_column, value_column):</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Group by timestamp and calculate the average value</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    averaged_df <span class="op">=</span> dataframe.groupby(timestamp_column)[value_column].mean().reset_index()</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> averaged_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -46,6 +46,7 @@ plt.title('Quantité de polluant par polluant pour CA Alès')
 plt.xlabel('Polluants')
 plt.ylabel('Somme des valeurs')
 plt.xticks(rotation=45, ha='right')  # Rotation des étiquettes sur l'axe x pour une meilleure lisibilité
+plt.savefig('graphique1.svg', format='svg')
 plt.show()
 
 chemin_enregistrement = os.path.join(os.path.expanduser('~'), 'Desktop', 'diagramme_polluants.svg')
@@ -75,10 +76,11 @@ carte.add_layer(wmts_layer)
 carte
 
 # %%
-
+#fonctionne 
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
 
 # Remplacez 'votre_fichier.csv' par le chemin vers votre fichier CSV
 chemin_fichier_csv = 'Mesure_mensuelle_Region_Occitanie_Polluants_Principaux.csv'
@@ -93,9 +95,16 @@ plt.title('Répartition des données par département')
 plt.xlabel('Département')
 plt.ylabel('Nombre d\'occurrences')
 plt.xticks(rotation=45, ha='right')  # Rotation des étiquettes sur l'axe x pour une meilleure lisibilité
+
+dossier_diapositives = "diapositives"
+chemin_fichier_svg = os.path.join(dossier_diapositives, 'graph1.svg')
+plt.savefig(chemin_fichier_svg, format='svg')
+
 plt.show()
 
 #%%
+
+#fonctionne mais pas ouf 
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -116,9 +125,13 @@ plt.legend(title='Département', bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.show()
 
 # %%
+
+#fonctionne camembert dégradé de couleur 
 import pandas as pd
 import matplotlib.pyplot as plt
+from matplotlib.colors import LinearSegmentedColormap
 import seaborn as sns
+import os 
 
 # Remplacez 'votre_fichier.csv' par le chemin vers votre fichier CSV
 chemin_fichier_csv = 'Mesure_mensuelle_Region_Occitanie_Polluants_Principaux.csv'
@@ -126,16 +139,26 @@ chemin_fichier_csv = 'Mesure_mensuelle_Region_Occitanie_Polluants_Principaux.csv
 # Charger le fichier CSV dans un DataFrame
 df = pd.read_csv(chemin_fichier_csv)
 
-# Compter le nombre d'occurrences de chaque typologie
-typologie_counts = df['typologie'].value_counts()
+# Créer un dégradé de couleurs pour la palette
+couleurs = sns.color_palette("coolwarm", as_cmap=True)
 
-# Créer un graphique à secteurs
-plt.figure(figsize=(8, 8))
-plt.pie(typologie_counts, labels=typologie_counts.index, autopct='%1.1f%%', startangle=140, colors=sns.color_palette('pastel'))
-plt.title('Répartition des stations par typologie')
+# Créer un diagramme circulaire (camembert) pour la variable 'nom_dept'
+plt.figure(figsize=(10, 8))
+sns.set(style="whitegrid")  # Style de fond pour une meilleure lisibilité
+
+# Tracer le camembert avec le dégradé de couleurs
+df['nom_dept'].value_counts().plot.pie(autopct='%1.1f%%', startangle=140, cmap=couleurs)
+
+plt.title('Répartition des données par département')
+plt.axis('equal')  # Assure que le camembert est dessiné comme un cercle
+plt.ylabel('')  # Supprimer l'étiquette de l'axe y pour plus de clarté
+
 plt.show()
 
+
 # %%
+
+#fonctionne mais incompréhensible 
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -211,7 +234,7 @@ plt.show()
 
 
 # %%
-
+#pas le bon
 import pandas as pd
 from ipyleaflet import Map, TileLayer, basemaps, GeoJSON
 
@@ -269,7 +292,7 @@ print("Seuil de valeur élevée:", seuil_valeur_elevee)
 
 # %%
 
-#pour calculer la valeur seuil 
+#calcule de la valeur seuil 
 # Calculer la moyenne et l'écart type des valeurs de pollution
 moyenne_pollution = df['valeur'].mean()
 ecart_type_pollution = df['valeur'].std()
@@ -421,3 +444,80 @@ else:
     print("La colonne 'temps_present' n'est pas présente dans le DataFrame.")
 
 # %%
+import pandas as pd
+from ipyleaflet import Map, TileLayer, GeoJSON, Marker, AwesomeIcon
+import ipywidgets as widgets
+from IPython.display import display
+
+# Remplacez 'votre_fichier.csv' par le chemin vers votre fichier CSV
+chemin_fichier_csv = 'Mesure_mensuelle_Region_Occitanie_Polluants_Principaux.csv'
+df = pd.read_csv(chemin_fichier_csv)
+
+# Créer une colonne 'geometry' avec les coordonnées X et Y sous forme de GeoJSON
+df['geometry'] = df.apply(lambda row: {"type": "Point", "coordinates": [row['X'], row['Y']]}, axis=1)
+
+# Valeur seuil
+SEUIL_DE_VALEUR_ELEVEE = 23  
+
+# Créer une carte avec le service WMTS
+carte = Map(center=(43.611015, 3.876733), zoom=9)
+
+# Ajouter une couche WMTS à la carte
+wmts_url = "https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/WMTS"
+wmts_layer = TileLayer(url=wmts_url, name="WMTS Layer")
+carte.add_layer(wmts_layer)
+
+# Créer une GeoJSON FeatureCollection à partir des données de votre DataFrame
+geojson_data = {
+    "type": "FeatureCollection",
+    "features": []
+}
+
+# Marqueurs pour les valeurs élevées
+high_value_markers = []
+
+for index, row in df.iterrows():
+    feature = {
+        "type": "Feature",
+        "geometry": row['geometry'],
+        "properties": {"nom_dept": row['nom_dept'], "valeur": row['valeur']}
+    }
+    geojson_data['features'].append(feature)
+
+    # Ajouter un marqueur si la valeur de pollution est élevée
+    if row['valeur'] > SEUIL_DE_VALEUR_ELEVEE:
+        marker = Marker(location=(row['Y'], row['X']), draggable=False, title=f"Valeur: {row['valeur']}")
+        high_value_markers.append(marker)
+
+# Trouver l'indice de la valeur maximale dans la colonne 'valeur'
+indice_max = df['valeur'].idxmax()
+
+# Obtenir les coordonnées X et Y pour l'emplacement de la valeur maximale
+coordonnees_max = df.loc[indice_max, ['X', 'Y']]
+
+# Créer un marqueur pour l'emplacement avec la valeur la plus élevée
+max_value_marker = Marker(location=(coordonnees_max['Y'], coordonnees_max['X']),
+                         draggable=False,
+                         title=f"Valeur maximale: {df.loc[indice_max, 'valeur']}",
+                         icon=AwesomeIcon(name='star', marker_color='green', icon_color='white', spin=False))
+
+# Ajouter les marqueurs à la carte
+for marker in high_value_markers:
+    carte.add_layer(marker)
+
+# Créer une couche GeoJSON pour les zones polluées
+geojson_layer = GeoJSON(data=geojson_data, style={'color': 'red', 'opacity': 0.8, 'weight': 1.5})
+carte.add_layer(geojson_layer)
+
+# Ajouter le marqueur pour la valeur maximale à la carte
+carte.add_layer(max_value_marker)
+
+# Créer une légende
+legend = widgets.VBox([
+    widgets.HTML(value="<b>Légende</b>"),
+    widgets.HTML(value=f'<div style="width: 20px; height: 20px; background-color: red; display: inline-block; border-radius: 50%; margin-right: 5px;"></div> Valeur élevée (> {SEUIL_DE_VALEUR_ELEVEE})'),
+    # Ajoutez d'autres lignes ci-dessus pour d'autres valeurs de pollution
+])
+
+# Afficher la carte avec la légende
+display(widgets.HBox([carte, legend]))
