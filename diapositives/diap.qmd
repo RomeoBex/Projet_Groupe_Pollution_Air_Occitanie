@@ -6,25 +6,33 @@ format:
   revealjs: 
     theme: default
     title-slide-attributes:
-        data-background-color: "#447099"
-
+        data-background-image: bg_slides.svg 
+    transition: slide
 ---
 
-# Objectifs du projet {background-color="#E3FEF6"}
-- Etablir une corrélation entre pollution et météo 
-- Etablir une hiérarchie des villes en fonction du taux de pollution pour les principaux polluants 
+# Objectifs du projet {background-color="#CAFFEF"}
+::: {.incremental}
+- Etablir une corrélation entre pollution en Occitanie et météo 
+- Etablir une hiérarchie des villes en fonction du taux de pollution des principaux polluants 
+:::
 
 
-## Technicité et source {background-color="#E3FEF6"}
-
-- Bibilothèques : pandas, matplotlib, seaborn, os 
+## Technicité et source {background-color="#CAFFEF"}
+:::{.incremental}
+- Bibilothèques : 
+    + pandas
+    + matplotlib
+    + seaborn
+    + os
+    + geojson
+  
 - Diapositives : [Quarto](https://quarto.org/)
 - Sources : [données SYNOP](https://public.opendatasoft.com/explore/dataset/donnees-synop-essentielles-omm/api/?sort=date)
            et [Atmo Occitanie](https://data-atmo-occitanie.opendata.arcgis.com/pages/liste-des-flux)
-  
+:::
 
 
-# Analyse du code {background-color="#E3FEF6"}
+# Analyse du code {background-color="#CAFFEF"}
 ```{.python code-line-numbers="2,3,4,5,6|9|12|15|18,19|22,23,24,25|27"}
 
 import pandas as pd
@@ -55,7 +63,7 @@ plt.ylabel('')  # Supprimer l'étiquette de l'axe y pour plus de clarté
 plt.show()
 ```
 
-## Résultat : {background-color="#E3FEF6"}
+## Résultat : {background-color="#CAFFEF"}
 
 ```{python}
 
@@ -89,7 +97,7 @@ plt.ylabel('')  # Supprimer l'étiquette de l'axe y pour plus de clarté
 plt.show()
 ```
 
-# Code carte intéractive : {background-color="#E3FEF6"}
+# Code carte intéractive : {background-color="#CAFFEF"}
 
 ```{.python code-line-numbers="2,3|6,7,8|11,12|15|24,25,26|59|68"}
 #calcule de la valeur seuil 
@@ -165,7 +173,7 @@ display(widgets.HBox([carte]))
 ```
 
 
-# Résultat : {background-color="#E3FEF6"}
+# Résultat : {background-color="#CAFFEF"}
 
 ```{python}
 
@@ -255,7 +263,7 @@ print("Coordonnées de l'endroit avec la valeur la plus élevée:", coordonnees_
 
 
 
-# Hiérarchie des villes en fonction des polluants : {background-color="#E3FEF6"}
+# Hiérarchie des villes en fonction des polluants : {background-color="#CAFFEF"}
 
-- Graphiques de chaque grande ville pour chaque type de polluants 
+Tableau des scores 
 
