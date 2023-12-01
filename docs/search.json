@@ -235,7 +235,7 @@
     "href": "Toulouse.html",
     "title": "Toulouse",
     "section": "",
-    "text": "Toulouse, la ville rose\n\n\n\nNombres d’habitants : 471 945\nDensité : 4 209,7 (nombre d’habitants au \\(km^2\\))\nDépartement : Haute-Garonne (31)\n\n\nOn peut observer une très forte décroissance de la pollution de 2019 à 2020, surement lié à l’épidémie de la COVID 19, puis une augmentation de 2020 à 2021 et une décroissance jusqu’à 2023."
+    "text": "Toulouse, la ville rose\n\n\n\nNombres d’habitants : 471 945\nDensité : 4 209,7 (nombre d’habitants au \\(km^2\\))\nDépartement : Haute-Garonne (31)\n\n\nOn peut observer une très forte décroissance de la pollution totale de 2019 à 2020, surement lié à l’épidémie de la COVID 19, puis une augmentation de 2020 à 2021 et une décroissance jusqu’à 2023.\n\n\n\n                                                \n\n\n\n\n\n                                                \n\n\nD’après le Ministère de la Transition écologique et de la cohésion des territoires le seuil critique du polluant NOX est de 200 \\(\\mu.m^{-3}\\). Ainsi on peut voir qu’en 2018 et 2019 le seuil est quasiment atteint."
   },
   {
     "objectID": "Montpellier.html",
@@ -250,5 +250,12 @@
     "title": "Perpignan",
     "section": "",
     "text": "Perpignan\n\n\n\nNombres d’habitants : 277 639\nDensité : 5 258,4 (nombre d’habitants au \\(km^2\\))\nDépartement : Pyrénées-Orientales (34)"
+  },
+  {
+    "objectID": "Agde.html",
+    "href": "Agde.html",
+    "title": "Agde",
+    "section": "",
+    "text": "Agde\n\n\n\nNombres d’habitants : 26 946\nDensité : 574,7 (nombre d’habitants au \\(km^2\\))\nDépartement : Hérault (34)\n\n\n\n\n                                                \n\n\nLe polluant le plus important est l’\\(O_3\\). Au fil des années on peut s’apercevoir qu’il n’y a pas de grosses variations excepté une légère baisse pendant la période de l’épidémie de la COVID 19."
   }
 ]

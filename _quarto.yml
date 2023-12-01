@@ -19,6 +19,7 @@ website:
           - Toulouse.qmd
           - Montpellier.qmd
           - Perpignan.qmd
+          - Agde.qmd
     tools:
       - icon: github
         menu:
@@ -27,6 +28,6 @@ website:
 
 format:
   html:
-    theme: green
+    theme: cerulean
     css: styles.css
     toc: true

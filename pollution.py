@@ -653,7 +653,20 @@ fig.show()
 # %%
 #Commande utilse pour savoir les villes de mon fich csv
 
-print(data['nom_com'].unique())
+import pandas as pd
+
+# Remplacez 'chemin/vers/votre/fichier.csv' par le chemin réel de votre fichier CSV
+chemin_fichier_csv = ('Mesure_annuelle_Region_Occitanie_Polluants_Principaux.csv')
+
+# Charger le DataFrame depuis le fichier CSV
+df = pd.read_csv(chemin_fichier_csv)
+
+# Utiliser drop_duplicates pour obtenir une liste unique de noms de ville
+liste_villes_unique = df['nom_com'].drop_duplicates().tolist()
+
+# Afficher la liste unique
+print(liste_villes_unique)
+
 
 #%%
 #Graphique pour perpignan 
@@ -684,3 +697,80 @@ fig.update_layout(xaxis=dict(title='Année'), yaxis=dict(title='Concentration de
 
 # Afficher le graphique interactif
 fig.show()
+
+#%%
+#Graphique pour Agde 
+
+import pandas as pd
+import plotly.express as px
+
+# Charger le fichier CSV dans un DataFrame
+df = pd.read_csv('Mesure_annuelle_Region_Occitanie_Polluants_Principaux.csv')
+
+# Filtrer les données pour la ville d'Agde
+agde_data = df[df['nom_com'] == 'AGDE'].copy()  # Utiliser .copy() pour éviter le SettingWithCopyWarning
+
+# Convertir la colonne 'date_debut' en format datetime
+agde_data['date_debut'] = pd.to_datetime(agde_data['date_debut'])
+
+# Trier les données par date
+agde_data = agde_data.sort_values(by='date_debut')
+
+# Créer un graphique linéaire avec Plotly Express
+fig = px.line(agde_data, x='date_debut', y='valeur', color='nom_poll',
+              labels={'valeur': f'Concentration de pollution (ug.m-3)'},
+              title='Évolution des concentrations de pollution à Agde par année')
+
+# Personnaliser le graphique
+fig.update_layout(xaxis=dict(title='Année'), yaxis=dict(title='Concentration de pollution (ug.m-3)'))
+
+# Afficher le graphique interactif
+fig.show()
+
+#%%
+# à rajouter pour Toulouse 
+import pandas as pd
+import plotly.express as px
+
+# Charger le fichier CSV dans un DataFrame
+df = pd.read_csv('Mesure_annuelle_Region_Occitanie_Polluants_Principaux.csv')
+
+# Filtrer les données pour la ville de Toulouse
+toulouse_data = df[df['nom_com'] == 'TOULOUSE'].copy()  # Utiliser .copy() pour éviter le SettingWithCopyWarning
+
+# Convertir la colonne 'date_debut' en format datetime
+toulouse_data['date_debut'] = pd.to_datetime(toulouse_data['date_debut'])
+
+# Trier les données par date
+toulouse_data = toulouse_data.sort_values(by='date_debut')
+
+# Obtenir la valeur maximale de chaque polluant pour chaque année
+max_values = toulouse_data.groupby(['date_debut', 'nom_poll'])['valeur'].max().reset_index()
+
+# Créer un graphique en barres avec Plotly Express
+fig = px.bar(max_values, x='date_debut', y='valeur', color='nom_poll',
+             labels={'valeur': f'Concentration maximale de pollution (ug.m-3)'},
+             title='Concentration maximale de pollution à Toulouse par année')
+
+# Personnaliser le graphique
+fig.update_layout(xaxis=dict(title='Année'), yaxis=dict(title='Concentration maximale de pollution (ug.m-3)'))
+
+# Afficher le graphique interactif
+fig.show()
+
+
+# même si ça a atteint des seuils presque critiques la pollution totale de Toulouse diminue d'année en année, Bonne nouvelle ? 
+# + interprétation des seuils critiques dictés par ministère écologie énérgie territoires 
+
+#%%
+#Villes à faire :
+
+
+#Montauban
+#Nimes 
+#Lourdes 
+#Lattes
+#Beziers
+#Rodez 
+#Albi
+#LUNEL-VIEL
