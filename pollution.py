@@ -586,3 +586,101 @@ plt.show()
 
 
 # %%
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Remplacez 'votre_fichier.csv' par le chemin complet de votre fichier CSV
+chemin_du_fichier = 'Mesure_annuelle_Region_Occitanie_Polluants_Principaux.csv'
+
+# Charger le fichier CSV dans un DataFrame
+dataframe = pd.read_csv(chemin_du_fichier)
+
+# Filtrer les données pour Montpellier
+montpellier_data = dataframe[dataframe['nom_com'] == 'Montpellier']
+
+# Convertir la colonne 'Année' en type datetime pour s'assurer qu'elle est reconnue comme une année
+montpellier_data['Année'] = pd.to_datetime(montpellier_data['Année'], format='%Y')
+
+# Trier les données par année
+montpellier_data = montpellier_data.sort_values(by='Année')
+
+# Créer un graphique
+plt.figure(figsize=(10, 6))
+plt.plot(montpellier_data['Année'], montpellier_data['NO2'], label='NO2', marker='o')
+plt.plot(montpellier_data['Année'], montpellier_data['PM10'], label='PM10', marker='o')
+plt.plot(montpellier_data['Année'], montpellier_data['O3'], label='O3', marker='o')
+
+# Ajouter des titres et des étiquettes
+plt.title('Pollution à Montpellier au fil des années')
+plt.xlabel('Année')
+plt.ylabel('Concentration (µg/m³)')
+plt.legend()
+
+# Afficher le graphique
+plt.show()
+
+# %%
+
+#Fonctionne pour mtp (polluant PM10)
+
+import pandas as pd
+import plotly.express as px
+
+# Charger le fichier CSV dans un DataFrame
+df = pd.read_csv('Mesure_annuelle_Region_Occitanie_Polluants_Principaux.csv')
+
+# Filtrer les données pour la ville de Montpellier
+montpellier_data = df[df['nom_com'] == 'MONTPELLIER']
+
+# Convertir la colonne 'date_debut' en format datetime
+montpellier_data['date_debut'] = pd.to_datetime(montpellier_data['date_debut'])
+
+# Trier les données par date
+montpellier_data = montpellier_data.sort_values(by='date_debut')
+
+# Créer le graphique interactif avec Plotly Express
+fig = px.line(montpellier_data, x='date_debut', y='valeur', markers=True,
+              labels={'valeur': f'Concentration de {montpellier_data["nom_poll"].iloc[0]} (ug.m-3)'},
+              title=f'Pollution à Montpellier au fil des années ({montpellier_data["nom_poll"].iloc[0]})')
+
+# Ajouter des labels aux points de données
+fig.update_traces(textposition='top center', text=montpellier_data['valeur'].round(2))
+
+# Afficher le graphique interactif
+fig.show()
+
+
+# %%
+#Commande utilse pour savoir les villes de mon fich csv
+
+print(data['nom_com'].unique())
+
+#%%
+#Graphique pour perpignan 
+
+import pandas as pd
+import plotly.express as px
+
+# Charger le fichier CSV dans un DataFrame
+df = pd.read_csv('Mesure_annuelle_Region_Occitanie_Polluants_Principaux.csv')
+
+# Filtrer les données pour la ville de Perpignan
+perpignan_data = df[df['nom_com'] == 'PERPIGNAN'].copy()  # Utiliser .copy() pour éviter le SettingWithCopyWarning
+
+# Convertir la colonne 'date_debut' en format datetime
+perpignan_data['date_debut'] = pd.to_datetime(perpignan_data['date_debut'])
+
+# Trier les données par date
+perpignan_data = perpignan_data.sort_values(by='date_debut')
+
+# Créer un graphique en barres empilées avec Plotly Express
+fig = px.bar(perpignan_data, x='date_debut', y='valeur', color='nom_poll',
+             labels={'valeur': f'Concentration de pollution (ug.m-3)'},
+             title='Répartition des concentrations de pollution à Perpignan par année',
+             barmode='stack')
+
+# Personnaliser le graphique
+fig.update_layout(xaxis=dict(title='Année'), yaxis=dict(title='Concentration de pollution (ug.m-3)'))
+
+# Afficher le graphique interactif
+fig.show()

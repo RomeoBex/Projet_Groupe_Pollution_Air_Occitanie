@@ -1,5 +1,12 @@
 ---
 title: "Toulouse"
+execute:
+  echo: false
+format:
+  html:
+    toc: true
+    grid:
+      margin-width: 150px
 ---
 
 ![*Toulouse, la ville rose*](toulouse.svg)
@@ -11,3 +18,29 @@ title: "Toulouse"
 ![](graph3.svg)
 
 On peut observer une très forte décroissance de la pollution de 2019 à 2020, surement lié à l'épidémie de la COVID 19, puis une augmentation de 2020 à 2021 et une décroissance jusqu'à 2023. 
+
+```{python}
+import pandas as pd
+import plotly.express as px
+
+# Charger le fichier CSV dans un DataFrame
+df = pd.read_csv('Mesure_annuelle_Region_Occitanie_Polluants_Principaux.csv')
+
+# Filtrer les données pour la ville de Toulouse
+toulouse_data = df[df['nom_com'] == 'TOULOUSE'].copy()  # Utiliser .copy() pour éviter le SettingWithCopyWarning
+
+# Convertir la colonne 'date_debut' en format datetime
+toulouse_data['date_debut'] = pd.to_datetime(toulouse_data['date_debut'])
+
+# Trier les données par date
+toulouse_data = toulouse_data.sort_values(by='date_debut')
+
+# Créer un graphique en secteurs avec Plotly Express
+fig = px.pie(toulouse_data, names='nom_poll', values='valeur',
+             title='Répartition des concentrations de pollution à Toulouse par année',
+             hover_data=['date_debut'])
+
+# Afficher le graphique interactif
+fig.show()
+
+```

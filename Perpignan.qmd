@@ -1,0 +1,52 @@
+---
+title: "Perpignan"
+execute:
+  echo: false
+format:
+  html:
+    toc: true
+    grid:
+      margin-width: 150px
+---
+![*Perpignan*](perpignan.svg)
+
+* **Nombres d'habitants** : 277 639
+* **Densité** : 5 258,4 (*nombre d'habitants au $km^2$*)
+* **Département** : Pyrénées-Orientales (34) 
+
+
+
+
+```{python}
+
+import pandas as pd
+import plotly.express as px
+
+# Charger le fichier CSV dans un DataFrame
+df = pd.read_csv('Mesure_annuelle_Region_Occitanie_Polluants_Principaux.csv')
+
+# Filtrer les données pour la ville de Perpignan
+perpignan_data = df[df['nom_com'] == 'PERPIGNAN'].copy()  # Utiliser .copy() pour éviter le SettingWithCopyWarning
+
+# Convertir la colonne 'date_debut' en format datetime
+perpignan_data['date_debut'] = pd.to_datetime(perpignan_data['date_debut'])
+
+# Trier les données par date
+perpignan_data = perpignan_data.sort_values(by='date_debut')
+
+# Créer un graphique en barres empilées avec Plotly Express
+fig = px.bar(perpignan_data, x='date_debut', y='valeur', color='nom_poll',
+             labels={'valeur': f'Concentration de pollution (ug.m-3)'},
+             title='Répartition des concentrations de pollution à Perpignan par année',
+             barmode='stack')
+
+# Personnaliser le graphique
+fig.update_layout(xaxis=dict(title='Année'), yaxis=dict(title='Concentration de pollution (ug.m-3)'))
+
+# Afficher le graphique interactif
+fig.show()
+
+
+
+
+```

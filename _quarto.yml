@@ -18,6 +18,7 @@ website:
         menu:
           - Toulouse.qmd
           - Montpellier.qmd
+          - Perpignan.qmd
     tools:
       - icon: github
         menu:
