@@ -1,6 +1,8 @@
 ---
 title: "Pollution en Occitanie"
 ---
+## Meteo vs Pollution  
+
 
 Voici une page web qui nous en apprendra sur le lien entre les conditions météorologiques et la pollution :
 
@@ -17,7 +19,7 @@ Voici une page web qui nous en apprendra sur le lien entre les conditions mété
 
 En résumé, les conditions météorologiques peuvent influencer la dispersion, l'accumulation et la formation de polluants atmosphériques, ce qui a un impact direct sur la qualité de l'air. 
 
-Exemple : 
+**Exemple : **
 
 ![**Pourcentage de pollution de 5 principaux polluants pour chaque département**](graph2.svg){width=120%}
 

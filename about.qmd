@@ -2,12 +2,9 @@
 title: "Intéractivité"
 ---
 
-## Valeurs de pollution polluants
-
+## Carte intéractive
 
 ```{python,echo=FALSE}
-
-
 import pandas as pd
 from ipyleaflet import Map, TileLayer, GeoJSON, Marker
 import ipywidgets as widgets
@@ -70,11 +67,9 @@ display(widgets.HBox([carte]))
 **Carte interactive des mesures mensuelles de la région Occitanie des principaux polluants en microgramme par mètre cube**
 
 
-## Résultats moyenne, écart typé, valeur max 
+## Résultats moyenne, écart type, valeur max 
 
-```{python, echo=FALSE}
-
-#pour calculer la valeur seuil 
+```{python}
 # Calculer la moyenne et l'écart type des valeurs de pollution
 moyenne_pollution = df['valeur'].mean()
 ecart_type_pollution = df['valeur'].std()
@@ -84,5 +79,5 @@ seuil_valeur_elevee = moyenne_pollution + 2 * ecart_type_pollution
 
 print("Moyenne de la pollution:", moyenne_pollution)
 print("Écart type de la pollution:", ecart_type_pollution)
-print("Seuil de valeur élevée:", seuil_valeur_elevee)
+print("Valeur la plus élevée:", seuil_valeur_elevee)
 ```

@@ -1,15 +1,33 @@
 project:
   type: website
   output-dir: docs
+
 website:
+  
+  repo-url: https://github.com/quarto-dev/quarto-demo
+  repo-actions: [edit, issue]
+  
   title: Pollution Occitanie 
   navbar:
     left: 
+      - text: "Pollutions par grandes villes"
+        menu:
+          - Toulouse.qmd
       - href: index.qmd
         text: Pollution
+        menu: 
+          - Toulouse.qmd
+      
       - about2.qmd
       - about.qmd
-      - about3.qmd
+    tools:
+      - icon: github
+        menu:
+          - text: Code source
+            url:  https://code.com
+          - text: Signaler un bug
+            url:  https://bugs.com
+
 format:
   html:
     theme: green
