@@ -13,11 +13,11 @@ format:
 
 * **Nombres d'habitants** : 277 639
 * **Densité** : 5 258,4 (*nombre d'habitants au $km^2$*)
-* **Département** : Hérault (34)
+* **Département** : Hérault (34) 
 
 ```{python}
 import pandas as pd
-import plotly.express as px
+import plotly.express as px 
 
 # Charger le fichier CSV dans un DataFrame
 df = pd.read_csv('Mesure_annuelle_Region_Occitanie_Polluants_Principaux.csv')
