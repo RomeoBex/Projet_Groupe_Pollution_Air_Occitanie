@@ -1,1 +1,23 @@
 /* css styles */
+body {
+    background-color: #f5f5f5; /* Couleur de fond */
+    color: #333; /* Couleur du texte principal */
+}
+
+h1, h2, h3 {
+    color: #007bff; /* Couleur des titres */
+}
+
+a {
+    color: #28a745; /* Couleur des liens */
+}
+body {
+    font-family: 'Roboto', sans-serif; /* Remplacez 'Roboto' par la police de votre choix */
+}
+
+.container {
+    max-width: 1200px; /* Limite la largeur du contenu pour une lecture plus facile */
+    margin: 0 auto; /* Centre le contenu */
+    padding: 20px; /* Ajoute une marge intérieure au contenu */
+}
+

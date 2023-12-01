@@ -25,8 +25,6 @@ print(dataframe.head())
 print(dataframe.head())
 
 
-
-
 #%%
 import matplotlib.pyplot as plt
 
@@ -46,16 +44,13 @@ plt.title('Quantité de polluant par polluant pour CA Alès')
 plt.xlabel('Polluants')
 plt.ylabel('Somme des valeurs')
 plt.xticks(rotation=45, ha='right')  # Rotation des étiquettes sur l'axe x pour une meilleure lisibilité
-plt.savefig('graphique1.svg', format='svg')
+
+dossier_diapositives = "diapositives"
+chemin_fichier_svg = os.path.join(dossier_diapositives, 'graph2.svg')
+plt.savefig(chemin_fichier_svg, format='svg')
+
 plt.show()
 
-chemin_enregistrement = os.path.join(os.path.expanduser('~'), 'Desktop', 'diagramme_polluants.svg')
-
-# Enregistrez le diagramme en tant que fichier SVG
-plt.savefig(chemin_enregistrement, format='svg')
-
-# Affichez le diagramme
-plt.show()
 
 # %%
 
@@ -152,6 +147,10 @@ df['nom_dept'].value_counts().plot.pie(autopct='%1.1f%%', startangle=140, cmap=c
 plt.title('Répartition des données par département')
 plt.axis('equal')  # Assure que le camembert est dessiné comme un cercle
 plt.ylabel('')  # Supprimer l'étiquette de l'axe y pour plus de clarté
+
+dossier_diapositives = "diapositives"
+chemin_fichier_svg = os.path.join(dossier_diapositives, 'graph2.svg')
+plt.savefig(chemin_fichier_svg, format='svg')
 
 plt.show()
 
@@ -521,3 +520,69 @@ legend = widgets.VBox([
 
 # Afficher la carte avec la légende
 display(widgets.HBox([carte, legend]))
+
+#%%
+
+#1-faire un dataframe des mesures annuelles et voir si il y a des améliorations du taux de pollution par ville au fil des années
+#2- faire des graphiques originaux peut être 
+#%%
+import pandas as pd
+
+# Remplacez 'votre_fichier.csv' par le chemin complet de votre fichier CSV
+chemin_du_fichier = 'Mesure_annuelle_Region_Occitanie_Polluants_Principaux.csv'
+
+# Charger le fichier CSV dans un DataFrame
+dataframe = pd.read_csv(chemin_du_fichier)
+
+# Afficher les premières lignes du DataFrame pour vérifier le chargement
+print(dataframe.head())
+
+#%%
+
+#bis
+#Je charge Mesure annuelle dans un df, et stock le nom des villes dans liste_villes
+
+import pandas as pd
+
+# Charger le fichier CSV dans un DataFrame
+nom_fichier_csv = 'Mesure_annuelle_Region_Occitanie_Polluants_Principaux.csv'  # Remplacez par le chemin de votre fichier CSV
+data = pd.read_csv(nom_fichier_csv)
+
+# Assurez-vous que la colonne contenant les noms de ville est correcte
+colonne_ville = 'nom_com'  # Remplacez par le nom de votre colonne
+
+# Utiliser un ensemble pour stocker les noms de ville uniques
+ensemble_villes = set(data[colonne_ville])
+
+# Convertir l'ensemble en liste (si nécessaire)
+liste_villes = list(ensemble_villes)
+
+# Afficher la liste des villes uniques
+print(liste_villes)
+
+#32 villes 
+len(liste_villes)
+
+#Graphique pour Toulouse 
+
+df['date_debut'] = pd.to_datetime(df['date_debut'])
+
+# Tracer le graphique
+plt.figure(figsize=(10, 6))
+plt.plot(df['date_debut'], df['valeur'], marker='o')
+plt.title('Taux de pollution à Toulouse au fil des années')
+plt.xlabel('Année')
+plt.ylabel('Taux de pollution (ug.m-3)')
+plt.grid(True)
+
+dossier_diapositives = "diapositives"
+chemin_fichier_svg = os.path.join(dossier_diapositives, 'graph3.svg')
+plt.savefig(chemin_fichier_svg, format='svg')
+
+plt.show()
+
+#Graphique pour Montpellier 
+
+
+
+# %%

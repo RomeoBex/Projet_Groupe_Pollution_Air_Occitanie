@@ -9,6 +9,7 @@ website:
         text: Pollution
       - about2.qmd
       - about.qmd
+      - about3.qmd
 format:
   html:
     theme: green
