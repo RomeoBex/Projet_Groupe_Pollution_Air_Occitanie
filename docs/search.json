@@ -229,5 +229,19 @@
     "title": "Pollution en Occitanie",
     "section": "",
     "text": "Voici une page web qui nous en apprendra sur le lien entre les conditions météorologiques et la pollution :\n\nDispersion des polluants : Les conditions météorologiques, particulièrement la vitesse et la direction du vent, jouent un rôle essentiel dans la dispersion des polluants atmosphériques. Un vent fort peut disperser la pollution sur une grande surface, tandis qu’un vent faible peut entraîner l’accumulation de polluants près de leur source, aggravant ainsi la qualité de l’air.\nInversion thermique : L’inversion thermique, un phénomène météorologique, se produit lorsque l’air plus chaud reste piégé au-dessus de l’air plus froid, empêchant ainsi la montée des polluants. Cela peut entraîner une accumulation de pollution de l’air, surtout dans les zones urbaines.\nPrécipitations : Les précipitations, comme la pluie et la neige, nettoient l’air en entraînant les polluants vers le sol. Ainsi, après une période de précipitations, l’air tend à être plus propre.\nTempérature et réactions chimiques : Les réactions chimiques qui se produisent dans l’atmosphère, notamment la formation de smog, sont souvent influencées par la température. Les jours chauds et ensoleillés peuvent favoriser la formation de polluants photochimiques, tels que l’ozone troposphérique.\nFacteurs climatiques : Les phénomènes climatiques à long terme, comme les changements climatiques, peuvent aussi affecter la qualité de l’air. Des températures plus élevées peuvent favoriser la formation d’ozone troposphérique, un polluant atmosphérique nocif.\n\nEn résumé, les conditions météorologiques peuvent influencer la dispersion, l’accumulation et la formation de polluants atmosphériques, ce qui a un impact direct sur la qualité de l’air.\nExemple : \n\n\n\nPourcentage de pollution de 5 principaux polluants pour chaque département"
+  },
+  {
+    "objectID": "Toulouse.html",
+    "href": "Toulouse.html",
+    "title": "Toulouse",
+    "section": "",
+    "text": "Toulouse, la ville rose\n\n\n\nNombres d’habitants : 471 945\nDensité : 4 209,7 (nombre d’habitants au \\(km^2\\))\nDépartement : Haute-Garonne (31)\n\n\nOn peut observer une très forte décroissance de la pollution de 2019 à 2020, surement lié à l’épidémie de la COVID 19, puis une augmentation de 2020 à 2021 et une décroissance jusqu’à 2023."
+  },
+  {
+    "objectID": "Montpellier.html",
+    "href": "Montpellier.html",
+    "title": "Montpellier",
+    "section": "",
+    "text": "Montpellier\n\n\n\nNombres d’habitants : 277 639\nDensité : 5 258,4 (nombre d’habitants au \\(km^2\\))\nDépartement : Hérault (34)\n\n\n\nC:\\Users\\romeo\\AppData\\Local\\Temp\\ipykernel_7416\\1829693972.py:11: SettingWithCopyWarning:\n\n\nA value is trying to be set on a copy of a slice from a DataFrame.\nTry using .loc[row_indexer,col_indexer] = value instead\n\nSee the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy"
   }
 ]

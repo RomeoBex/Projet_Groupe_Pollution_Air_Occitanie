@@ -1,3 +1,13 @@
 ---
 title: "Toulouse"
 ---
+
+![*Toulouse, la ville rose*](toulouse.svg)
+
+* **Nombres d'habitants** : 471 945
+* **Densité** : 4 209,7 (*nombre d'habitants au $km^2$*)
+* **Département** : Haute-Garonne (31)
+
+![](graph3.svg)
+
+On peut observer une très forte décroissance de la pollution de 2019 à 2020, surement lié à l'épidémie de la COVID 19, puis une augmentation de 2020 à 2021 et une décroissance jusqu'à 2023. 

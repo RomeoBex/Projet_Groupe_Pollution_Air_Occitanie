@@ -10,23 +10,19 @@ website:
   title: Pollution Occitanie 
   navbar:
     left: 
+      - href: index.qmd
+        text: Pollution     
+      - about2.qmd
+      - about.qmd
       - text: "Pollutions par grandes villes"
         menu:
           - Toulouse.qmd
-      - href: index.qmd
-        text: Pollution
-        menu: 
-          - Toulouse.qmd
-      
-      - about2.qmd
-      - about.qmd
+          - Montpellier.qmd
     tools:
       - icon: github
         menu:
-          - text: Code source
-            url:  https://code.com
-          - text: Signaler un bug
-            url:  https://bugs.com
+          - text: Signaler une erreur 
+            url:  https://github.com/RomeoBex/Projet_Groupe_Pollution_Air_Occitanie
 
 format:
   html:

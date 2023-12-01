@@ -4,7 +4,8 @@ title: "Intéractivité"
 
 ## Carte intéractive
 
-```{python,echo=FALSE}
+```{python} 
+
 import pandas as pd
 from ipyleaflet import Map, TileLayer, GeoJSON, Marker
 import ipywidgets as widgets
