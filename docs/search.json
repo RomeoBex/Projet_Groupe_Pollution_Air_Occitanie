@@ -242,6 +242,6 @@
     "href": "Montpellier.html",
     "title": "Montpellier",
     "section": "",
-    "text": "Montpellier\n\n\n\nNombres d’habitants : 277 639\nDensité : 5 258,4 (nombre d’habitants au \\(km^2\\))\nDépartement : Hérault (34)\n\n\n\nC:\\Users\\romeo\\AppData\\Local\\Temp\\ipykernel_7416\\1829693972.py:11: SettingWithCopyWarning:\n\n\nA value is trying to be set on a copy of a slice from a DataFrame.\nTry using .loc[row_indexer,col_indexer] = value instead\n\nSee the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy"
+    "text": "Montpellier\n\n\n\nNombres d’habitants : 277 639\nDensité : 5 258,4 (nombre d’habitants au \\(km^2\\))\nDépartement : Hérault (34)"
   }
 ]

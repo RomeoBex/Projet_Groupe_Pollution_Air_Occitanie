@@ -23,7 +23,7 @@ import plotly.express as px
 df = pd.read_csv('Mesure_annuelle_Region_Occitanie_Polluants_Principaux.csv')
 
 # Filtrer les données pour la ville de Montpellier
-montpellier_data = df[df['nom_com'] == 'MONTPELLIER']
+montpellier_data = df[df['nom_com'] == 'MONTPELLIER'].copy()  # Utiliser .copy() pour éviter le SettingWithCopyWarning
 
 # Convertir la colonne 'date_debut' en format datetime
 montpellier_data['date_debut'] = pd.to_datetime(montpellier_data['date_debut'])
