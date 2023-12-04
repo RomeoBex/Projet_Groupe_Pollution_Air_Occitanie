@@ -18,7 +18,7 @@
     "href": "about.html",
     "title": "Intéractivité",
     "section": "",
-    "text": "C:\\Users\\romeo\\anaconda3\\lib\\site-packages\\jupyter_client\\session.py:718: UserWarning:\n\nMessage serialization failed with:\nOut of range float values are not JSON compliant\nSupporting this message is deprecated in jupyter-client 7, please make sure your message is JSON-compliant\n\n\n\n\n\n\nCarte interactive des mesures mensuelles de la région Occitanie des principaux polluants en microgramme par mètre cube"
+    "text": "En passant la souris sur les différents pointeurs on a le taux moyen de pollution des 5 principaux polluants."
   },
   {
     "objectID": "carte_interactive.html",
@@ -206,8 +206,8 @@
     "objectID": "about.html#carte-intéractive",
     "href": "about.html#carte-intéractive",
     "title": "Intéractivité",
-    "section": "",
-    "text": "C:\\Users\\romeo\\anaconda3\\lib\\site-packages\\jupyter_client\\session.py:718: UserWarning:\n\nMessage serialization failed with:\nOut of range float values are not JSON compliant\nSupporting this message is deprecated in jupyter-client 7, please make sure your message is JSON-compliant\n\n\n\n\n\n\nCarte interactive des mesures mensuelles de la région Occitanie des principaux polluants en microgramme par mètre cube"
+    "section": "Carte intéractive",
+    "text": "Carte intéractive\n\n\nC:\\Users\\romeo\\anaconda3\\lib\\site-packages\\jupyter_client\\session.py:718: UserWarning:\n\nMessage serialization failed with:\nOut of range float values are not JSON compliant\nSupporting this message is deprecated in jupyter-client 7, please make sure your message is JSON-compliant\n\n\n\n\n\n\nCarte interactive des mesures mensuelles de la région Occitanie des principaux polluants en microgramme par mètre cube"
   },
   {
     "objectID": "about.html#résultats-moyenne-écart-type-valeur-max",
@@ -257,5 +257,33 @@
     "title": "Agde",
     "section": "",
     "text": "Agde\n\n\n\nNombres d’habitants : 26 946\nDensité : 574,7 (nombre d’habitants au \\(km^2\\))\nDépartement : Hérault (34)\n\n\n\n\n                                                \n\n\nLe polluant le plus important est l’\\(O_3\\). Au fil des années on peut s’apercevoir qu’il n’y a pas de grosses variations excepté une légère baisse pendant la période de l’épidémie de la COVID 19."
+  },
+  {
+    "objectID": "about4.html",
+    "href": "about4.html",
+    "title": "Classement général",
+    "section": "",
+    "text": "Voici le classement général de la ville la plus polluée en Occitanie :\n\n\n\n    \n    \n    \n    About Page"
+  },
+  {
+    "objectID": "Montauban.html",
+    "href": "Montauban.html",
+    "title": "Montauban",
+    "section": "",
+    "text": "Montauban\n\n\n\nNombres d’habitants : 59 982\nDensité : 456,3 (nombre d’habitants au \\(km^2\\))\nDépartement : Tarn-et-Garonne (82)\n\n\ntest"
+  },
+  {
+    "objectID": "Lourdes.html",
+    "href": "Lourdes.html",
+    "title": "Lourdes",
+    "section": "",
+    "text": "Lourdes\n\n\n\nNombres d’habitants : 13 946\nDensité : 348,6 (nombre d’habitants au \\(km^2\\))\nDépartement : Haute-Pyrénées (65)"
+  },
+  {
+    "objectID": "Montauban.html#slide-title",
+    "href": "Montauban.html#slide-title",
+    "title": "Montauban",
+    "section": "",
+    "text": "Montauban\n\n\n\nNombres d’habitants : 59 982\nDensité : 456,3 (nombre d’habitants au \\(km^2\\))\nDépartement : Tarn-et-Garonne (82)"
   }
 ]

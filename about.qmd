@@ -12,6 +12,9 @@ format:
     backgroundcolor: pink
 ---
 
+**En passant la souris sur les différents pointeurs on a le taux moyen de pollution des 5 principaux polluants.** 
+
+
 ## Carte intéractive
 
 ```{python} 

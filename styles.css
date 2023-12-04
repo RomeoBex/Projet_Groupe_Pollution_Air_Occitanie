@@ -21,3 +21,9 @@ body {
     margin: 0 auto; /* Centre le contenu */
     padding: 20px; /* Ajoute une marge intérieure au contenu */
 }
+
+body.about4 {
+    background-image: url('podi.svg');
+    background-size: cover; /* Ajustez selon vos besoins */
+    /* Autres styles d'arrière-plan et de mise en page */
+}

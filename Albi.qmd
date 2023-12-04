@@ -1,11 +1,13 @@
 ---
-title: "Données Météos"
+title: "Albi"
 execute:
   echo: false
 format:
   html:
+    theme: cosmo
     toc: true
     grid:
       margin-width: 150px
+    fontcolor: pink
+    backgroundcolor: pink
 ---
-

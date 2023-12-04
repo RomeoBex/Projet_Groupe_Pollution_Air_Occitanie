@@ -1,0 +1,25 @@
+---
+title: "Classement général"
+execute:
+  echo: false
+format:
+  html:
+    background-image: podium.svg
+---
+
+**Voici le classement général de la ville la plus polluée en Occitanie :**
+
+```{=html}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>About Page</title>
+</head>
+<body class="about4">
+    <!-- Contenu de la page about4.qmd -->
+</body>
+
+```

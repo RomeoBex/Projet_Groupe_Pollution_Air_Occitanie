@@ -11,15 +11,24 @@ website:
   navbar:
     left: 
       - href: index.qmd
-        text: Pollution     
-      - about2.qmd
-      - about.qmd
+      - text: Salle des trophées 
+        menu:
+          - about4.qmd    
       - text: "Pollutions par grandes villes"
         menu:
           - Toulouse.qmd
           - Montpellier.qmd
           - Perpignan.qmd
           - Agde.qmd
+          - Montauban.qmd
+          - Nimes.qmd
+          - Lourdes.qmd 
+          - Rodez.qmd 
+          - Albi.qmd 
+          - Lattes.qmd 
+          - Beziers.qmd 
+      - about.qmd
+      - about2.qmd
     tools:
       - icon: github
         menu:
