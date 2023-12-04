@@ -1,11 +1,22 @@
 ---
 title: "Intéractivité"
+execute:
+  echo: false
+format:
+  html:
+    theme: cosmo
+    toc: true
+    grid:
+      margin-width: 150px
+    fontcolor: pink
+    backgroundcolor: pink
 ---
 
 ## Carte intéractive
 
 ```{python} 
 
+# noinspection PyTypeChecker
 import pandas as pd
 from ipyleaflet import Map, TileLayer, GeoJSON, Marker
 import ipywidgets as widgets
