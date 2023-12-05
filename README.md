@@ -62,7 +62,7 @@ The name « Pandas » is a contraction of the term « Panel Data », referring t
 * Importation des données avec le site meteo
 
 
-```{=mermaid}
+```mermaid
 
 gantt
     title Exemple de Diagramme de Gantt
