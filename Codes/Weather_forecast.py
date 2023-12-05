@@ -15,7 +15,7 @@ from xgboost import XGBRegressor, DMatrix, train as xgb_train
 #%%
 # Data Acquisition
 # load data
-file_path = 'C:/Users/SCD-UM/OneDrive/Bureau/Project/Projet_Groupe_Pollution_Air_Occitanie/Weather_forecast_data.csv'
+file_path = 'Weather_forecast_data.csv'
 data = pd.read_csv(file_path,delimiter=';')
 #%%
 data.head()
@@ -77,7 +77,6 @@ axs[2].set_title('Wind Speed Trend')
 axs[2].set_ylabel('Wind Speed (km/h)')
 
 plt.tight_layout()
-plt.savefig(r'C:/Users/SCD-UM/OneDrive/Bureau/Project/Projet_Groupe_Pollution_Air_Occitanie/weather_trends.svg')
 plt.show()
 
 # Heatmap of Correlation Matrix with Significance
@@ -162,6 +161,7 @@ fig = go.Figure(data=data, layout=layout)
 fig.show()
 
 #%%
+# fonctionne pas 
 # Predictive Analysis
 # Function to create time series features from datetime index
 def create_features(df):
@@ -204,6 +204,7 @@ y = weather_data['Température (°C)']
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 #%% 
+#fonctionne pas 
 # Split data into training and testing sets along with dates
 X_train, X_test, y_train, y_test, dates_train, dates_test = train_test_split(X_scaled, y, dates, test_size=0.2, random_state=42)
 
