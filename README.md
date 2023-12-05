@@ -34,7 +34,7 @@ Objective : create an interactive website giving the pollution of the previous m
 * https://paintmaps.com/map-charts/232c/Occitanie-map-chart (carte)
 * https://docs.python.org/fr/3.5/tutorial/ (aide python)
 * https://support.zendesk.com/hc/fr/articles/4408846544922-Formatage-de-texte-avec-Markdown (text markdown) 
-
+ 
 
 ```mermaid
 gantt
