@@ -28,18 +28,6 @@ Objective : create an interactive website giving the pollution of the previous m
 * At least two branches must be used during the project
 
 
-## Packages/Software description for the project :
-
-**Numpy** : NumPy is very useful for mathematical calculations involving arrays and matrixes. Thanks to this package operations are far more quick and efficient than with Python lists.
-
-**os** : With the os module, operations can be made independently of the operaing system, which simplifies group work, as people can more easily work from different operating systems.  
-
-**pandas** : library specialised in data manipulation and analysis 
-The name « Pandas » is a contraction of the term « Panel Data », referring to the datasets including observations during multiple periods. This library was created as an advanced tool for Python analysis.
-
-**Matplotlib** : Matplotlib is a Python library intended for graph representation of data. It can be combined with NumPy and other pyhton libraries.
-
-
 
 ## Links to the documentation :
 
@@ -48,22 +36,7 @@ The name « Pandas » is a contraction of the term « Panel Data », referring t
 * https://support.zendesk.com/hc/fr/articles/4408846544922-Formatage-de-texte-avec-Markdown (text markdown) 
 
 
-
-![Objectif](github_actions.jpg)
-
-
-## Choses à faire : 
-
-* Corrélation entre températures et pollutions dans chaque ville
-* Possiblités de faire des graphs ? 
-* Réussir à ne pas afficher le code dans l'onglet "Carte intéractive"
-* Création d'une classe ? laquelle ? 
-* Titre du graphe pour les 4 graphes + les expliquer brièvement
-* Importation des données avec le site meteo
-
-
 ```mermaid
-
 gantt
     title Exemple de Diagramme de Gantt
     dateFormat YYYY-MM-DD
@@ -77,14 +50,15 @@ gantt
 
     section Repository
     Création de contenu : a3, 2023-10-07, 10d
-    Ajout d'un Readme : a4, 2023-10-17, 7d
+    Ajout d'un Readme : a4, 2023-10-17, 10d
     Ajout de index html : a5, 2023-10-24, 10d
 
     section Pages web
     Création de la page web : a6, 2023-10-31, 10d
     Ajout de la carte : a7, 2023-11-08, 12d
+    Diapositives quarto : a9, 2023-11-30, 13d
     Ajout d'interactivité : a8, 2023-11-18, 22d
-    Embellissement de la page : a9, 2023-11-01, 30d
+    Embellissement de la page : a9, 2023-11-01, 40d
 
 ```
 
