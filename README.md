@@ -45,7 +45,7 @@ gantt
 
     section Dates importantes
     Fin du projet :crit, 2023-12-10, 5d
-    Présentation Orale :crit, 2023-12-15, 8d
+    Présentation Orale :crit, 2023-12-15, 8d  
 
 
     section Repository
