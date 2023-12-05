@@ -26,17 +26,17 @@ format:
 
 ```{=html}
 <div style="text-align: center; opacity: 0.9; margin-top: 100px;">
-  <img src="logo_toulouse.svg" alt="Logo MTP" width="200" height="170" style="margin-left: 200px; margin-top: -20px;">
+  <img src="logo_toulouse.svg" alt="Logo MTP" width="200" height="170" style="margin-left: 200px; margin-top: -35px;">
 </div>
 
 
 <div style="text-align: center; opacity: 0.8">
-  <img src="logo_mtp.svg" alt="Logo MTP" width="200" height="180" style="margin-left: -200px; margin-top: -180px;">
+  <img src="logo_mtp.svg" alt="Logo MTP" width="200" height="180" style="margin-left: -200px; margin-top: -160px;">
 </div>
 
 
 <div style="text-align: center; margin-top: -90px">
-  <img src="logo_perpignan.svg" alt="Logo MTP" width="190" style="margin-left: 560px; margin-top: -90px;">
+  <img src="logo_perpignan.svg" alt="Logo MTP" width="190" style="margin-left: 560px; margin-top: -70px;">
 </div>
 
 ```
