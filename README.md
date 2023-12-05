@@ -38,7 +38,7 @@ Objective : create an interactive website giving the pollution of the previous m
 
 ```mermaid
 gantt
-    title Exemple de Diagramme de Gantt
+    title Exemple de Diagramme de Gantt 
     dateFormat YYYY-MM-DD
     title Diagramme de Gantt 
     axisFormat %d-%m
