@@ -10,7 +10,7 @@ L'**industrie** et la **pollution** sont souvent liées en raison des processus 
   <img src="johnny-automatic-industry.svg" alt="Logo MTP" width="2500" height="180" style="margin-left: -900px; margin-top: -20px;">
 </div>
 ```
- 
+  
 ## Meteo vs Pollution  
 
 
