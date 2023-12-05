@@ -23,6 +23,11 @@ format:
 
 On peut observer une très forte décroissance de la pollution totale de 2019 à 2020, surement lié à l'épidémie de la COVID 19, puis une augmentation de 2020 à 2021 et une décroissance jusqu'à 2023. 
 
+# Utilisation des graphiques :
+
+* Pour utiliser les graphiques à leurs plein potentiels il suffit de cocher les polluants qui nous intéresse sur la légende. 
+  
+
 ```{python}
 import pandas as pd
 import plotly.express as px
@@ -81,5 +86,5 @@ fig.show()
 
 ```
 
-D'après le Ministère de la Transition écologique et de la cohésion des territoires le seuil critique du polluant NOX est de 200 $\mu.m^{-3}$. Ainsi on peut voir qu'en 2018 et 2019 le seuil est quasiment atteint. 
+D'après le **Ministère de la Transition écologique et de la cohésion des territoires** le seuil critique du polluant NOX est de 200 $\mu.m^{-3}$. Ainsi on peut voir qu'en 2018 et 2019 le seuil est quasiment atteint. 
 
