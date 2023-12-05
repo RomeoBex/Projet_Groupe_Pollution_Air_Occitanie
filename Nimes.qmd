@@ -11,3 +11,9 @@ format:
     fontcolor: pink
     backgroundcolor: pink
 ---
+
+![](nimes.svg){width=600px}
+
+* **Nombres d'habitants** : 
+* **Densité** :  (*nombre d'habitants au $km^2$*)
+* **Département** : Gard (30)

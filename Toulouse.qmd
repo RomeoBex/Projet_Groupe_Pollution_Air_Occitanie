@@ -13,7 +13,7 @@ format:
 ---
 
 
-![*Toulouse, la ville rose*](toulouse.svg)
+![*Toulouse, la ville rose*](toulouse.svg){width=600px}
 
 * **Nombres d'habitants** : 471 945
 * **Densité** : 4 209,7 (*nombre d'habitants au $km^2$*)
