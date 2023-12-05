@@ -10,7 +10,7 @@ format:
 ---
 
 
-![*Agde*](agde.svg)
+![*Agde*](agde.svg){width=600}
 
 * **Nombres d'habitants** : 26 946
 * **Densité** : 574,7 (*nombre d'habitants au $km^2$*)
