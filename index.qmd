@@ -3,14 +3,14 @@ title: "Pollution en Occitanie"
 ---
 
 L'**industrie** et la **pollution** sont souvent liées en raison des processus de production qui peuvent entraîner des émissions de substances polluantes dans l'air, l'eau et le sol. 
-
+ 
 
 ```{=html}
 <div style="text-align: center; margin-top: 100px;">
   <img src="johnny-automatic-industry.svg" alt="Logo MTP" width="2500" height="180" style="margin-left: -900px; margin-top: -20px;">
 </div>
 ```
-
+ 
 ## Meteo vs Pollution  
 
 
