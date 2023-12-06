@@ -58,3 +58,10 @@ def extract_data_to_df(data: dict) -> pd.DataFrame:
 def get_unique_cities(df) -> list:
     """takes df and returns unique list of cities"""
     return df.city.unique()
+
+
+def data_prep(time):
+    data = get_data(time=time)
+    df = extract_data_to_df(data=data)
+    return df
+
