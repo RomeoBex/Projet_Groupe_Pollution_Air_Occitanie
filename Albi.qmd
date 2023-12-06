@@ -11,3 +11,29 @@ format:
     fontcolor: pink
     backgroundcolor: pink
 ---
+
+* **Nombres d'habitants** : 49 094
+* **Densité** : 1 109 (*nombre d'habitants au $km^2$*)
+* **Département** : Tarn (81) 
+
+```{python}
+from functions import visuals as viz
+from functions import dataprep as dp
+
+# Show NOX Pollution Values of the last 30 days
+df_j=dp.data_prep(time='tj')
+viz.visualize_df(df=df_j, city='ALBI', nom_poll="NOX")
+
+```
+
+
+```{python}
+from functions import dataprep as dp
+url = "https://services9.arcgis.com/7Sr9Ek9c1QTKmbwr/arcgis/rest/services/Mesure_horaire_(30j)_Region_Occitanie_Polluants_Reglementaires_1/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json"
+response = requests.get(url)
+data = response.json()
+
+df = dp.extract_data_to_df(data=data)
+print(df.head(5))
+
+```
