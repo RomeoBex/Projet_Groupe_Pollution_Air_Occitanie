@@ -58,6 +58,8 @@ viz.visualize_df(df=df_j, city='MONTPELLIER', nom_poll="NOX")
 ```{python}
 # Show NOX Pollution Values of the last months
 df_m=dp.data_prep(time='m')
-viz.visualize_df(df=df_j, city='MONTPELLIER', nom_poll="NOX")
+viz.visualize_df(df=df_m, city='MONTPELLIER', nom_poll="NOX")
 
 ```
+
+test
