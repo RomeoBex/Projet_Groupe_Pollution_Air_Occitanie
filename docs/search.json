@@ -18,7 +18,7 @@
     "href": "about.html",
     "title": "Intéractivité",
     "section": "",
-    "text": "En passant la souris sur les différents pointeurs on a le taux moyen de pollution des 5 principaux polluants."
+    "text": "Carte pour se donner une idée du nombre d’habitant et de la densité.\n\n\nMake this Notebook Trusted to load map: File -&gt; Trust Notebook\n\n\nEn passant la souris sur les différents pointeurs on a le taux moyen de pollution des 5 principaux polluants.\n\n\nC:\\Users\\romeo\\anaconda3\\lib\\site-packages\\jupyter_client\\session.py:718: UserWarning:\n\nMessage serialization failed with:\nOut of range float values are not JSON compliant\nSupporting this message is deprecated in jupyter-client 7, please make sure your message is JSON-compliant\n\n\n\n\n\n\nCarte interactive des mesures mensuelles de la région Occitanie des principaux polluants en microgramme par mètre cube"
   },
   {
     "objectID": "carte_interactive.html",
@@ -318,8 +318,8 @@
     "objectID": "about.html#cartes-intéractives",
     "href": "about.html#cartes-intéractives",
     "title": "Intéractivité",
-    "section": "Cartes intéractives",
-    "text": "Cartes intéractives\n\n\nMake this Notebook Trusted to load map: File -&gt; Trust Notebook\n\n\n\n\nC:\\Users\\romeo\\anaconda3\\lib\\site-packages\\jupyter_client\\session.py:718: UserWarning:\n\nMessage serialization failed with:\nOut of range float values are not JSON compliant\nSupporting this message is deprecated in jupyter-client 7, please make sure your message is JSON-compliant\n\n\n\n\n\n\nCarte interactive des mesures mensuelles de la région Occitanie des principaux polluants en microgramme par mètre cube"
+    "section": "",
+    "text": "Carte pour se donner une idée du nombre d’habitant et de la densité.\n\n\nMake this Notebook Trusted to load map: File -&gt; Trust Notebook\n\n\nEn passant la souris sur les différents pointeurs on a le taux moyen de pollution des 5 principaux polluants.\n\n\nC:\\Users\\romeo\\anaconda3\\lib\\site-packages\\jupyter_client\\session.py:718: UserWarning:\n\nMessage serialization failed with:\nOut of range float values are not JSON compliant\nSupporting this message is deprecated in jupyter-client 7, please make sure your message is JSON-compliant\n\n\n\n\n\n\nCarte interactive des mesures mensuelles de la région Occitanie des principaux polluants en microgramme par mètre cube"
   },
   {
     "objectID": "Villes/Agde.html",

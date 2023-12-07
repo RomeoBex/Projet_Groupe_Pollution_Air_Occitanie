@@ -31,7 +31,7 @@ format:
 
 
 <div style="text-align: center; opacity: 0.8">
-  <img src="logo_mtp.svg" alt="Logo MTP" width="200" height="180" style="margin-left: -220px; margin-top: -160px;">
+  <img src="logo_mtp.svg" alt="Logo MTP" width="200" height="180" style="margin-left: -225px; margin-top: -160px;">
 </div>
 
 

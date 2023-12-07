@@ -12,10 +12,10 @@ format:
     backgroundcolor: pink
 ---
 
-**En passant la souris sur les différents pointeurs on a le taux moyen de pollution des 5 principaux polluants.** 
-
 
 ## Cartes intéractives
+
+**Carte pour se donner une idée du nombre d'habitant et de la densité.**
 
 ```{python}
 #test d'une carte des densités, interactive 
@@ -82,6 +82,9 @@ carte_occitanie
 
 ```
 
+
+
+**En passant la souris sur les différents pointeurs on a le taux moyen de pollution des 5 principaux polluants.** 
 
 
 ```{python} 
