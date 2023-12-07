@@ -88,3 +88,21 @@ fig.show()
 
 D'après le **Ministère de la Transition écologique et de la cohésion des territoires** le seuil critique du polluant NOX est de 200 $\mu.m^{-3}$. Ainsi on peut voir qu'en 2018 et 2019 le seuil est quasiment atteint. 
 
+Données récentes sur la pollition NOX à Toulouse
+```{python}
+from functions import visuals as viz
+from functions import dataprep as dp
+
+# Show NOX Pollution Values of the last 30 days
+df_j=dp.data_prep(time='tj')
+viz.visualize_df(df=df_j, city='TOULOUSE', nom_poll="NOX")
+
+```
+
+Données mensuelles sur la pollition NOX à Toulouse
+```{python}
+# Show NOX Pollution Values of the last months
+df_m=dp.data_prep(time='m')
+viz.visualize_df(df=df_m, city='TOULOUSE', nom_poll="NOX")
+
+```
