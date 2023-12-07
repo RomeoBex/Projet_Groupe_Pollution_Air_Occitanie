@@ -11,3 +11,10 @@ format:
     fontcolor: pink
     backgroundcolor: pink
 ---
+
+![](beziers.svg){width=600px}
+
+
+* **Nombres d'habitants** : 75 999
+* **Densité** : 824,1 (*nombre d'habitants au $km^2$*)
+* **Département** : Hérault(34)
