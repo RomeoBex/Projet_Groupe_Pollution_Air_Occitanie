@@ -1,0 +1,65 @@
+---
+title: "Montpellier"
+execute:
+  echo: false
+format:
+  html:
+    toc: true
+    grid:
+      margin-width: 150px
+---
+
+![*Montpellier*](Montpellier.svg)
+
+* **Nombres d'habitants** : 277 639
+* **Densité** : 5 258,4 (*nombre d'habitants au $km^2$*)
+* **Département** : Hérault (34) 
+
+```{python}
+import pandas as pd
+import plotly.express as px 
+
+# Charger le fichier CSV dans un DataFrame
+df = pd.read_csv('Mesure_annuelle_Region_Occitanie_Polluants_Principaux.csv')
+
+# Filtrer les données pour la ville de Montpellier
+montpellier_data = df[df['nom_com'] == 'MONTPELLIER'].copy()  # Utiliser .copy() pour éviter le SettingWithCopyWarning
+
+# Convertir la colonne 'date_debut' en format datetime
+montpellier_data['date_debut'] = pd.to_datetime(montpellier_data['date_debut'])
+
+# Trier les données par date
+montpellier_data = montpellier_data.sort_values(by='date_debut')
+
+# Créer le graphique interactif avec Plotly Express
+fig = px.line(montpellier_data, x='date_debut', y='valeur', markers=True,
+              labels={'valeur': f'Concentration de {montpellier_data["nom_poll"].iloc[0]} (ug.m-3)'},
+              title=f'Pollution à Montpellier au fil des années ({montpellier_data["nom_poll"].iloc[0]})')
+
+# Ajouter des labels aux points de données
+fig.update_traces(textposition='top center', text=montpellier_data['valeur'].round(2))
+
+# Afficher le graphique interactif
+fig.show()
+
+
+```
+
+Données récentes sur la pollition NOX à Montpellier
+```{python}
+from functions import visuals as viz
+from functions import dataprep as dp
+
+# Show NOX Pollution Values of the last days
+df_j=dp.data_prep(time='tj')
+viz.visualize_df(df=df_j, city='MONTPELLIER', nom_poll="NOX")
+
+```
+
+Données mensuelles sur la pollition NOX à Montpellier
+```{python}
+# Show NOX Pollution Values of the last months
+df_m=dp.data_prep(time='m')
+viz.visualize_df(df=df_m, city='MONTPELLIER', nom_poll="NOX")
+
+```

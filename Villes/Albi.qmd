@@ -1,0 +1,31 @@
+---
+title: "Albi"
+execute:
+  echo: false
+format:
+  html:
+    theme: cosmo
+    toc: true
+    grid:
+      margin-width: 150px
+    fontcolor: pink
+    backgroundcolor: pink
+---
+
+
+![](albi.svg){width=600px}
+
+
+* **Nombres d'habitants** : 49 094
+* **Densité** : 1 109 (*nombre d'habitants au $km^2$*)
+* **Département** : Tarn (81) 
+
+```{python}
+from functions import visuals as viz
+from functions import dataprep as dp
+
+# Show NOX Pollution Values of the last 30 days
+df_j=dp.data_prep(time='tj')
+viz.visualize_df(df=df_j, city='ALBI', nom_poll="NOX")
+
+```
