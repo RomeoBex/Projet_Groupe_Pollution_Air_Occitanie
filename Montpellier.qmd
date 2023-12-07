@@ -45,3 +45,35 @@ fig.show()
 
 ```
 
+#Visualisation de tous les polluants : 
+
+```{python}
+import pandas as pd
+import plotly.express as px
+
+# Charger le fichier CSV dans un DataFrame
+df = pd.read_csv('Mesure_annuelle_Region_Occitanie_Polluants_Principaux.csv')
+
+# Filtrer les données pour la ville de Montpellier
+montpellier_data = df[df['nom_com'] == 'MONTPELLIER'].copy()
+
+# Convertir la colonne 'date_debut' en format datetime
+montpellier_data['date_debut'] = pd.to_datetime(montpellier_data['date_debut'])
+
+# Créer un graphique en nuage de points en 3D avec Plotly Express
+fig_3d_montpellier = px.scatter_3d(montpellier_data, x='date_debut', y='nom_poll', z='valeur',
+                                   color='valeur',
+                                   labels={'valeur': 'Concentration de pollution (ug.m-3)'},
+                                   title='Concentration de polluants à Montpellier en 3D')
+
+# Personnaliser le graphique
+fig_3d_montpellier.update_layout(scene=dict(xaxis_title='Année', yaxis_title='Polluants', zaxis_title='Concentration de pollution (ug.m-3)'))
+
+# Ajuster la taille du graphique
+fig_3d_montpellier.update_layout(height=700, width=1000)
+
+# Afficher le graphique interactif
+fig_3d_montpellier.show()
+
+
+```
