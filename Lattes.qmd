@@ -18,4 +18,36 @@ format:
 * **Densité** : 635,2 (*nombre d'habitants au $km^2$*)
 * **Département** : Hérault (34) 
 
-Données récentes sur la pollition NOX à Lattes
+
+```{python}
+import pandas as pd
+import plotly.express as px
+
+# Charger le fichier CSV dans un DataFrame
+df = pd.read_csv('Mesure_annuelle_Region_Occitanie_Polluants_Principaux.csv')
+
+# Filtrer les données pour la ville de LATTES
+lattes_data = df[df['nom_com'] == 'LATTES'].copy()  # Utiliser .copy() pour éviter le SettingWithCopyWarning
+
+# Convertir la colonne 'date_debut' en format datetime
+lattes_data['date_debut'] = pd.to_datetime(lattes_data['date_debut'])
+
+# Trier les données par date
+lattes_data = lattes_data.sort_values(by='date_debut')
+
+# Obtenir la valeur maximale de chaque polluant pour chaque année
+max_values_lattes = lattes_data.groupby(['date_debut', 'nom_poll'])['valeur'].max().reset_index()
+
+# Créer un graphique en barres avec Plotly Express
+fig = px.bar(max_values_lattes, x='date_debut', y='valeur', color='nom_poll',
+             labels={'valeur': f'Concentration maximale de pollution (ug.m-3)'},
+             title='Concentration maximale de pollution à LATTES par année')
+
+# Personnaliser le graphique
+fig.update_layout(xaxis=dict(title='Année'), yaxis=dict(title='Concentration maximale de pollution (ug.m-3)'))
+
+# Afficher le graphique interactif
+fig.show()
+
+
+```

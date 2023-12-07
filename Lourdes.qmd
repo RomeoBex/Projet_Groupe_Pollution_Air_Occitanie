@@ -18,4 +18,38 @@ format:
 * **Densité** : 348,6 (*nombre d'habitants au $km^2$*)
 * **Département** : Haute-Pyrénées (65)
 
-Données récentes sur la pollition NOX à Lourdes
+Données récentes sur la pollition à Lourdes : 
+
+```{python}
+
+import pandas as pd
+import plotly.express as px
+
+# Charger le fichier CSV dans un DataFrame
+df = pd.read_csv('Mesure_annuelle_Region_Occitanie_Polluants_Principaux.csv')
+
+# Filtrer les données pour la ville de LOURDES
+lourdes_data = df[df['nom_com'] == 'LOURDES'].copy()
+
+# Convertir la colonne 'date_debut' en format datetime
+lourdes_data['date_debut'] = pd.to_datetime(lourdes_data['date_debut'])
+
+# Trier les données par date
+lourdes_data = lourdes_data.sort_values(by='date_debut')
+
+# Calculer la concentration moyenne de chaque polluant pour chaque année
+avg_values_lourdes = lourdes_data.groupby(['date_debut', 'nom_poll'])['valeur'].mean().reset_index()
+
+# Créer un graphique de ligne avec Plotly Express
+fig = px.line(avg_values_lourdes, x='date_debut', y='valeur', color='nom_poll',
+              labels={'valeur': f'Concentration moyenne de pollution (ug.m-3)'},
+              title='Évolution de la concentration moyenne de pollution à LOURDES par année')
+
+# Personnaliser le graphique
+fig.update_layout(xaxis=dict(title='Année'), yaxis=dict(title='Concentration moyenne de pollution (ug.m-3)'))
+
+# Afficher le graphique interactif
+fig.show()
+
+
+```
