@@ -242,7 +242,7 @@
     "href": "Montpellier.html",
     "title": "Montpellier",
     "section": "",
-    "text": "Montpellier\n\n\n\nNombres d’habitants : 277 639\nDensité : 5 258,4 (nombre d’habitants au \\(km^2\\))\nDépartement : Hérault (34)\n\n\n\n\n                                                \n\n\n\n\n\n\n\n\n\n\n\n\ntest"
+    "text": "Montpellier\n\n\n\nNombres d’habitants : 277 639\nDensité : 5 258,4 (nombre d’habitants au \\(km^2\\))\nDépartement : Hérault (34)"
   },
   {
     "objectID": "Perpignan.html",
@@ -256,7 +256,7 @@
     "href": "Agde.html",
     "title": "Agde",
     "section": "",
-    "text": "Agde\n\n\n\nNombres d’habitants : 26 946\nDensité : 574,7 (nombre d’habitants au \\(km^2\\))\nDépartement : Hérault (34)\n\n\n\n\n                                                \n\n\nLe polluant le plus important est l’\\(O_3\\). Au fil des années on peut s’apercevoir qu’il n’y a pas de grosses variations excepté une légère baisse pendant la période de l’épidémie de la COVID 19."
+    "text": "Agde\n\n\n\nNombres d’habitants : 26 946\nDensité : 574,7 (nombre d’habitants au \\(km^2\\))\nDépartement : Hérault (34)\n\n\n\n\n                                                \n\n\nLe polluant le plus important est l’\\(O_3\\). Au fil des années on peut s’apercevoir qu’il n’y a pas de grosses variations excepté une légère baisse pendant la période de l’épidémie de la COVID 19.\nDonnées récentes sur la pollition NOX à Agde\nDonnées mensuelles sur la pollition NOX à Agde"
   },
   {
     "objectID": "about4.html",
@@ -270,14 +270,14 @@
     "href": "Montauban.html",
     "title": "Montauban",
     "section": "",
-    "text": "Montauban\n\n\n\nNombres d’habitants : 59 982\nDensité : 456,3 (nombre d’habitants au \\(km^2\\))\nDépartement : Tarn-et-Garonne (82)\n\n\ntest"
+    "text": "Montauban\n\n\n\nNombres d’habitants : 59 982\nDensité : 456,3 (nombre d’habitants au \\(km^2\\))\nDépartement : Tarn-et-Garonne (82)\n\n\ntest\nDonnées récentes sur la pollition NOX à Montauban"
   },
   {
     "objectID": "Lourdes.html",
     "href": "Lourdes.html",
     "title": "Lourdes",
     "section": "",
-    "text": "Lourdes\n\n\n\nNombres d’habitants : 13 946\nDensité : 348,6 (nombre d’habitants au \\(km^2\\))\nDépartement : Haute-Pyrénées (65)"
+    "text": "Lourdes\n\n\n\nNombres d’habitants : 13 946\nDensité : 348,6 (nombre d’habitants au \\(km^2\\))\nDépartement : Haute-Pyrénées (65)\n\nDonnées récentes sur la pollition NOX à Lourdes"
   },
   {
     "objectID": "Montauban.html#slide-title",
@@ -291,7 +291,7 @@
     "href": "Nimes.html",
     "title": "Nîmes",
     "section": "",
-    "text": "Nombres d’habitants :\nDensité : (nombre d’habitants au \\(km^2\\))\nDépartement : Gard (30)"
+    "text": "Nombres d’habitants :\nDensité : (nombre d’habitants au \\(km^2\\))\nDépartement : Gard (30)\n\nDonnées récentes sur la pollition NOX à Nîmes"
   },
   {
     "objectID": "Albi.html",
@@ -305,13 +305,104 @@
     "href": "Lattes.html",
     "title": "Lattes",
     "section": "",
-    "text": "Nombres d’habitants : 16 298\nDensité : 635,2 (nombre d’habitants au \\(km^2\\))\nDépartement : Hérault (34)"
+    "text": "Nombres d’habitants : 16 298\nDensité : 635,2 (nombre d’habitants au \\(km^2\\))\nDépartement : Hérault (34)\n\nDonnées récentes sur la pollition NOX à Lattes"
   },
   {
     "objectID": "Beziers.html",
     "href": "Beziers.html",
     "title": "Beziers",
     "section": "",
-    "text": "Nombres d’habitants : 75 999\nDensité : 824,1 (nombre d’habitants au \\(km^2\\))\nDépartement : Hérault(34)"
+    "text": "Nombres d’habitants : 78 683\nDensité : 824 (nombre d’habitants au \\(km^2\\))\nDépartement : Herault (34)"
+  },
+  {
+    "objectID": "about.html#cartes-intéractives",
+    "href": "about.html#cartes-intéractives",
+    "title": "Intéractivité",
+    "section": "Cartes intéractives",
+    "text": "Cartes intéractives\n\n\nC:\\Users\\romeo\\anaconda3\\lib\\site-packages\\jupyter_client\\session.py:718: UserWarning:\n\nMessage serialization failed with:\nOut of range float values are not JSON compliant\nSupporting this message is deprecated in jupyter-client 7, please make sure your message is JSON-compliant\n\n\n\n\n\n\nCarte interactive des mesures mensuelles de la région Occitanie des principaux polluants en microgramme par mètre cube"
+  },
+  {
+    "objectID": "Villes/Agde.html",
+    "href": "Villes/Agde.html",
+    "title": "Agde",
+    "section": "",
+    "text": "Agde\n\n\n\nNombres d’habitants : 26 946\nDensité : 574,7 (nombre d’habitants au \\(km^2\\))\nDépartement : Hérault (34)\n\n\n\n\n                                                \n\n\nLe polluant le plus important est l’\\(O_3\\). Au fil des années on peut s’apercevoir qu’il n’y a pas de grosses variations excepté une légère baisse pendant la période de l’épidémie de la COVID 19.\nDonnées récentes sur la pollition NOX à Agde\nDonnées mensuelles sur la pollition NOX à Agde"
+  },
+  {
+    "objectID": "Villes/Albi.html",
+    "href": "Villes/Albi.html",
+    "title": "Albi",
+    "section": "",
+    "text": "Nombres d’habitants : 49 094\nDensité : 1 109 (nombre d’habitants au \\(km^2\\))\nDépartement : Tarn (81)"
+  },
+  {
+    "objectID": "Villes/Beziers.html",
+    "href": "Villes/Beziers.html",
+    "title": "Beziers",
+    "section": "",
+    "text": "Nombres d’habitants : 78 683\nDensité : 824 (nombre d’habitants au \\(km^2\\))\nDépartement : Herault (34)"
+  },
+  {
+    "objectID": "Villes/Lattes.html",
+    "href": "Villes/Lattes.html",
+    "title": "Lattes",
+    "section": "",
+    "text": "Nombres d’habitants : 16 298\nDensité : 635,2 (nombre d’habitants au \\(km^2\\))\nDépartement : Hérault (34)\n\nDonnées récentes sur la pollition NOX à Lattes"
+  },
+  {
+    "objectID": "Villes/Lourdes.html",
+    "href": "Villes/Lourdes.html",
+    "title": "Lourdes",
+    "section": "",
+    "text": "Lourdes\n\n\n\nNombres d’habitants : 13 946\nDensité : 348,6 (nombre d’habitants au \\(km^2\\))\nDépartement : Haute-Pyrénées (65)\n\nDonnées récentes sur la pollition NOX à Lourdes"
+  },
+  {
+    "objectID": "Villes/Montauban.html",
+    "href": "Villes/Montauban.html",
+    "title": "Montauban",
+    "section": "",
+    "text": "Montauban\n\n\n\nNombres d’habitants : 59 982\nDensité : 456,3 (nombre d’habitants au \\(km^2\\))\nDépartement : Tarn-et-Garonne (82)\n\n\ntest\nDonnées récentes sur la pollition NOX à Montauban"
+  },
+  {
+    "objectID": "Villes/Montpellier.html",
+    "href": "Villes/Montpellier.html",
+    "title": "Montpellier",
+    "section": "",
+    "text": "Montpellier\n\n\n\nNombres d’habitants : 277 639\nDensité : 5 258,4 (nombre d’habitants au \\(km^2\\))\nDépartement : Hérault (34)"
+  },
+  {
+    "objectID": "Villes/Nimes.html",
+    "href": "Villes/Nimes.html",
+    "title": "Nîmes",
+    "section": "",
+    "text": "Nombres d’habitants :\nDensité : (nombre d’habitants au \\(km^2\\))\nDépartement : Gard (30)\n\nDonnées récentes sur la pollition NOX à Nîmes"
+  },
+  {
+    "objectID": "Villes/Perpignan.html",
+    "href": "Villes/Perpignan.html",
+    "title": "Perpignan",
+    "section": "",
+    "text": "Perpignan\n\n\n\nNombres d’habitants : 277 639\nDensité : 5 258,4 (nombre d’habitants au \\(km^2\\))\nDépartement : Pyrénées-Orientales (34)"
+  },
+  {
+    "objectID": "Villes/Rodez.html",
+    "href": "Villes/Rodez.html",
+    "title": "Rodez",
+    "section": "",
+    "text": "Nombres d’habitants : 24 397\nDensité : 2 182 (nombre d’habitants au \\(km^2\\))\nDépartement : Aveyron (12)"
+  },
+  {
+    "objectID": "Villes/Toulouse.html",
+    "href": "Villes/Toulouse.html",
+    "title": "Toulouse",
+    "section": "",
+    "text": "Toulouse, la ville rose\n\n\n\nNombres d’habitants : 471 945\nDensité : 4 209,7 (nombre d’habitants au \\(km^2\\))\nDépartement : Haute-Garonne (31)\n\n\nOn peut observer une très forte décroissance de la pollution totale de 2019 à 2020, surement lié à l’épidémie de la COVID 19, puis une augmentation de 2020 à 2021 et une décroissance jusqu’à 2023.\n\nUtilisation des graphiques :\n\nPour utiliser les graphiques à leurs plein potentiels il suffit de cocher les polluants qui nous intéresse sur la légende.\n\n\n\n\n                                                \n\n\n\n\n\n                                                \n\n\nD’après le Ministère de la Transition écologique et de la cohésion des territoires le seuil critique du polluant NOX est de 200 \\(\\mu.m^{-3}\\). Ainsi on peut voir qu’en 2018 et 2019 le seuil est quasiment atteint."
+  },
+  {
+    "objectID": "Rodez.html",
+    "href": "Rodez.html",
+    "title": "Rodez",
+    "section": "",
+    "text": "Nombres d’habitants : 24 397\nDensité : 2 182 (nombre d’habitants au \\(km^2\\))\nDépartement : Aveyron (12)"
   }
 ]

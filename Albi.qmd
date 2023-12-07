@@ -1,0 +1,25 @@
+---
+title: "Albi"
+execute:
+  echo: false
+format:
+  html:
+    theme: cosmo
+    toc: true
+    grid:
+      margin-width: 150px
+    fontcolor: pink
+    backgroundcolor: pink
+---
+
+
+![](albi.svg){width=600px}
+
+
+* **Nombres d'habitants** : 49 094
+* **Densité** : 1 109 (*nombre d'habitants au $km^2$*)
+* **Département** : Tarn (81) 
+
+```{python}
+
+```

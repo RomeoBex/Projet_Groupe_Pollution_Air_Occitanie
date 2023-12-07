@@ -1,0 +1,24 @@
+---
+title: "Beziers"
+execute:
+  echo: false
+format:
+  html:
+    theme: cosmo
+    toc: true
+    grid:
+      margin-width: 150px
+    fontcolor: pink
+    backgroundcolor: pink
+---
+
+![](beziers.svg){width=600px}
+
+
+* **Nombres d'habitants** : 78 683
+* **Densité** : 824 (*nombre d'habitants au $km^2$*)
+* **Département** : Herault (34) 
+
+
+
+

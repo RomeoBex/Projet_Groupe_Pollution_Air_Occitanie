@@ -16,21 +16,3 @@ format:
 * **Densité** : 2 182 (*nombre d'habitants au $km^2$*)
 * **Département** : Aveyron (12)
 
-Données récentes sur la pollition NOX à Rodez
-```{python}
-from functions import visuals as viz
-from functions import dataprep as dp
-
-# Show NOX Pollution Values of the last 30 days
-df_j=dp.data_prep(time='tj')
-viz.visualize_df(df=df_j, city='RODEZ', nom_poll="NOX")
-
-```
-
-Données mensuelles sur la pollition NOX à Rodez
-```{python}
-# Show NOX Pollution Values of the last months
-df_m=dp.data_prep(time='m')
-viz.visualize_df(df=df_m, city='RODEZ', nom_poll="NOX")
-
-```

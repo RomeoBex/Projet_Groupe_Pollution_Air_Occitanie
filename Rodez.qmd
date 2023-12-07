@@ -1,0 +1,18 @@
+---
+title: "Rodez"
+execute:
+  echo: false
+format:
+  html:
+    theme: cosmo
+    toc: true
+    grid:
+      margin-width: 150px
+    fontcolor: pink
+    backgroundcolor: pink
+---
+
+* **Nombres d'habitants** : 24 397
+* **Densité** : 2 182 (*nombre d'habitants au $km^2$*)
+* **Département** : Aveyron (12)
+

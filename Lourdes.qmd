@@ -1,0 +1,21 @@
+---
+title: "Lourdes"
+execute:
+  echo: false
+format:
+  html:
+    theme: cosmo
+    toc: true
+    grid:
+      margin-width: 150px
+    fontcolor: pink
+    backgroundcolor: pink
+---
+
+![*Lourdes*](lourdes.svg){width=600}
+
+* **Nombres d'habitants** : 13 946
+* **Densité** : 348,6 (*nombre d'habitants au $km^2$*)
+* **Département** : Haute-Pyrénées (65)
+
+Données récentes sur la pollition NOX à Lourdes

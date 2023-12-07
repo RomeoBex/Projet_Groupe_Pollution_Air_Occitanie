@@ -51,20 +51,6 @@ Le polluant le plus important est l'$O_3$. Au fil des années on peut s'apercevo
 
 
 Données récentes sur la pollition NOX à Agde
-```{python}
-from functions import visuals as viz
-from functions import dataprep as dp
 
-# Show NOX Pollution Values of the last days
-df_j=dp.data_prep(time='tj')
-viz.visualize_df(df=df_j, city='AGDE', nom_poll="NOX")
-
-```
 
 Données mensuelles sur la pollition NOX à Agde
-```{python}
-# Show NOX Pollution Values of the last months
-df_m=dp.data_prep(time='m')
-viz.visualize_df(df=df_m, city='AGDE', nom_poll="NOX")
-
-```

@@ -19,20 +19,3 @@ format:
 * **Département** : Hérault (34) 
 
 Données récentes sur la pollition NOX à Lattes
-```{python}
-from functions import visuals as viz
-from functions import dataprep as dp
-
-# Show NOX Pollution Values of the last 30 days
-df_j=dp.data_prep(time='tj')
-viz.visualize_df(df=df_j, city='LATTES', nom_poll="NOX")
-
-```
-
-Données mensuelles sur la pollition NOX à Lattes
-```{python}
-# Show NOX Pollution Values of the last months
-df_m=dp.data_prep(time='m')
-viz.visualize_df(df=df_m, city='LATTES', nom_poll="NOX")
-
-```

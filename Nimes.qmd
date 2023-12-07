@@ -1,0 +1,21 @@
+---
+title: "Nîmes"
+execute:
+  echo: false
+format:
+  html:
+    theme: cosmo
+    toc: true
+    grid:
+      margin-width: 150px
+    fontcolor: pink
+    backgroundcolor: pink
+---
+
+![](nimes.svg){width=600px}
+
+* **Nombres d'habitants** : 
+* **Densité** :  (*nombre d'habitants au $km^2$*)
+* **Département** : Gard (30)
+
+Données récentes sur la pollition NOX à Nîmes

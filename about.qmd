@@ -15,10 +15,10 @@ format:
 **En passant la souris sur les différents pointeurs on a le taux moyen de pollution des 5 principaux polluants.** 
 
 
-## Carte intéractive
+## Cartes intéractives
+
 
 ```{python} 
-
 # noinspection PyTypeChecker
 import pandas as pd
 from ipyleaflet import Map, TileLayer, GeoJSON, Marker

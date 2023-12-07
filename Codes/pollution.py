@@ -777,3 +777,104 @@ fig.show()
 
 #%%
 
+#Perpignan interactif 
+
+import pandas as pd
+import plotly.express as px
+
+# Charger le fichier CSV dans un DataFrame
+df = pd.read_csv('Mesure_annuelle_Region_Occitanie_Polluants_Principaux.csv')
+
+# Filtrer les données pour la ville de Perpignan
+perpignan_data = df[df['nom_com'] == 'PERPIGNAN'].copy()
+
+# Convertir la colonne 'date_debut' en format datetime
+perpignan_data['date_debut'] = pd.to_datetime(perpignan_data['date_debut'])
+
+# Trier les données par date
+perpignan_data = perpignan_data.sort_values(by='date_debut')
+
+# Créer un graphique de barres empilées animé avec Plotly Express
+fig = px.bar(perpignan_data, x='date_debut', y='valeur', color='nom_poll',
+             labels={'valeur': f'Concentration de pollution (ug.m-3)'},
+             title='Évolution des concentrations de pollution à Perpignan par année',
+             barmode='stack',
+             animation_frame='nom_poll')
+
+# Personnaliser le graphique
+fig.update_layout(xaxis=dict(title='Année'), yaxis=dict(title='Concentration de pollution (ug.m-3)'))
+
+# Ajuster la vitesse de l'animation
+fig.update_layout(updatemenus=[dict(type='buttons', showactive=False,
+                                      buttons=[dict(label='Play',
+                                                    method='animate',
+                                                    args=[None, dict(frame=dict(duration=1000, redraw=True), fromcurrent=True)])])])
+
+# Afficher le graphique interactif
+fig.show()
+
+#%%
+#test d'une carte des densités, interactive 
+import folium
+from branca.colormap import linear
+
+# Coordonnées et populations des grandes villes de l'Occitanie (Latitude, Longitude, Population)
+grandes_villes_occitanie = {
+    'Toulouse': (43.6047, 1.4442, 479553),
+    'Montpellier': (43.6110, 3.8767, 285121),
+    'Nîmes': (43.8374, 4.3601, 151001),
+    'Perpignan': (42.6986, 2.8954, 121875),
+    'Carcassonne': (43.2130, 2.3491, 47038),
+    'Albi': (43.9291, 2.1483, 49236),
+    'Tarbes': (43.2328, 0.0716, 40356),
+    'Auch': (43.6460, 0.5857, 23853),
+}
+
+# Coordonnées du centre de l'Occitanie
+centre_occitanie = (43.5912, 1.4466)
+
+# Créer une carte centrée sur l'Occitanie
+carte_occitanie = folium.Map(location=centre_occitanie, zoom_start=8, tiles='Stamen Terrain')
+folium.Marker(centre_occitanie, popup='Centre de l\'Occitanie', icon=folium.Icon(color='red')).add_to(carte_occitanie)
+folium.TileLayer('openstreetmap').add_to(carte_occitanie)  # Ajouter une couche OpenStreetMap en arrière-plan
+
+# Créer une colormap en fonction de la population
+colormap = linear.YlOrRd_09.scale(min(grandes_villes_occitanie.values(), key=lambda x: x[2])[2],
+                                  max(grandes_villes_occitanie.values(), key=lambda x: x[2])[2])
+
+# Ajouter des marqueurs pour chaque grande ville avec une couleur correspondant à la population
+for ville, coordonnees in grandes_villes_occitanie.items():
+    if coordonnees[2] > 300000:
+        icon = folium.Icon(color='blue', icon='star')
+    elif coordonnees[2] > 100000:
+        icon = folium.Icon(color='green', icon='cloud')
+    else:
+        icon = folium.Icon(color='red', icon='info-sign')
+
+    folium.Marker(
+        location=coordonnees[:2],
+        popup=f"{ville}: {coordonnees[2]} habitants",
+        icon=icon
+    ).add_to(carte_occitanie)
+
+# Utiliser une échelle log pour le rayon des cercles
+for ville, coordonnees in grandes_villes_occitanie.items():
+    folium.CircleMarker(
+        location=coordonnees[:2],
+        radius=coordonnees[2] / 50000,
+        popup=f"{ville}: {coordonnees[2]} habitants",
+        color=colormap(coordonnees[2]),
+        fill=True,
+        fill_color=colormap(coordonnees[2]),
+    ).add_to(carte_occitanie)
+
+# Personnaliser la légende
+colormap.caption = 'Population et densité des grandes villes en Occitanie'
+colormap.add_to(carte_occitanie)
+
+# Afficher la carte dans le notebook
+carte_occitanie
+
+
+
+# %%
