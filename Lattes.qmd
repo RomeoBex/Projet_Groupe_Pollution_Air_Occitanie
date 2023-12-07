@@ -11,3 +11,10 @@ format:
     fontcolor: pink
     backgroundcolor: pink
 ---
+
+![](lattes.svg){width=600px}
+
+* **Nombres d'habitants** : 16 298 
+* **Densité** : 635,2 (*nombre d'habitants au $km^2$*)
+* **Département** : Hérault (34) 
+
