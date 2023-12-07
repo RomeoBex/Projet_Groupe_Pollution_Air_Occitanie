@@ -1,0 +1,90 @@
+---
+title: "Toulouse"
+execute:
+  echo: false
+format:
+  html:
+    theme: cosmo
+    toc: true
+    grid:
+      margin-width: 150px
+    fontcolor: pink
+    backgroundcolor: pink
+---
+
+
+![*Toulouse, la ville rose*](toulouse.svg){width=600px}
+
+* **Nombres d'habitants** : 471 945
+* **Densité** : 4 209,7 (*nombre d'habitants au $km^2$*)
+* **Département** : Haute-Garonne (31)
+
+![](graph3.svg)
+
+On peut observer une très forte décroissance de la pollution totale de 2019 à 2020, surement lié à l'épidémie de la COVID 19, puis une augmentation de 2020 à 2021 et une décroissance jusqu'à 2023. 
+
+# Utilisation des graphiques :
+
+* Pour utiliser les graphiques à leurs plein potentiels il suffit de cocher les polluants qui nous intéresse sur la légende. 
+  
+
+```{python}
+import pandas as pd
+import plotly.express as px
+
+# Charger le fichier CSV dans un DataFrame
+df = pd.read_csv('Mesure_annuelle_Region_Occitanie_Polluants_Principaux.csv')
+
+# Filtrer les données pour la ville de Toulouse
+toulouse_data = df[df['nom_com'] == 'TOULOUSE'].copy()  # Utiliser .copy() pour éviter le SettingWithCopyWarning
+
+# Convertir la colonne 'date_debut' en format datetime
+toulouse_data['date_debut'] = pd.to_datetime(toulouse_data['date_debut'])
+
+# Trier les données par date
+toulouse_data = toulouse_data.sort_values(by='date_debut')
+
+# Créer un graphique en secteurs avec Plotly Express
+fig = px.pie(toulouse_data, names='nom_poll', values='valeur',
+             title='Répartition des concentrations de pollution à Toulouse par année',
+             hover_data=['date_debut'])
+
+# Afficher le graphique interactif
+fig.show()
+
+```
+
+```{python}
+import pandas as pd
+import plotly.express as px
+
+# Charger le fichier CSV dans un DataFrame
+df = pd.read_csv('Mesure_annuelle_Region_Occitanie_Polluants_Principaux.csv')
+
+# Filtrer les données pour la ville de Toulouse
+toulouse_data = df[df['nom_com'] == 'TOULOUSE'].copy()  # Utiliser .copy() pour éviter le SettingWithCopyWarning
+
+# Convertir la colonne 'date_debut' en format datetime
+toulouse_data['date_debut'] = pd.to_datetime(toulouse_data['date_debut'])
+
+# Trier les données par date
+toulouse_data = toulouse_data.sort_values(by='date_debut')
+
+# Obtenir la valeur maximale de chaque polluant pour chaque année
+max_values = toulouse_data.groupby(['date_debut', 'nom_poll'])['valeur'].max().reset_index()
+
+# Créer un graphique en barres avec Plotly Express
+fig = px.bar(max_values, x='date_debut', y='valeur', color='nom_poll',
+             labels={'valeur': f'Concentration maximale de pollution (ug.m-3)'},
+             title='Concentration maximale de pollution à Toulouse par année')
+
+# Personnaliser le graphique
+fig.update_layout(xaxis=dict(title='Année'), yaxis=dict(title='Concentration maximale de pollution (ug.m-3)'))
+
+# Afficher le graphique interactif
+fig.show()
+
+```
+
+D'après le **Ministère de la Transition écologique et de la cohésion des territoires** le seuil critique du polluant NOX est de 200 $\mu.m^{-3}$. Ainsi on peut voir qu'en 2018 et 2019 le seuil est quasiment atteint. 
+
