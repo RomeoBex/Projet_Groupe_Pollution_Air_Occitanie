@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 
-
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -204,6 +204,53 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="about2_files/figure-html/cell-2-output-1.png" width="949" height="585"></p>
 </div>
 </div>
+
+
+<section id="analyse-temperature">
+  <!-- Description du graphique -->
+  <div class="description-graphique">
+      <h3>Tendances Météorologiques dans l'Hérault</h3>
+      <p>Cette visualisation interactive présente les variations de température, d'humidité, et de vitesse du vent dans l'Hérault. Avec des lignes colorées pour chaque paramètre, elle permet aux utilisateurs d'explorer les données météorologiques sur différentes périodes. Ce graphique aide à comprendre les tendances climatiques de la région, essentielles pour la planification et la gestion environnementale.</p>
+  </div>
+
+  <!-- Graphique Plotly intégré -->
+  <div>
+    
+      <iframe src="weather_trends.html" style="width:100%; height:500px;"></iframe>
+    
+    </div>
+</section>
+
+
+<section id="analyse-temperature">
+  <!-- Description du graphique -->
+  <div class="description-graphique">
+      <h3>Température réelle vs Température prévue</h3>
+      <p>Ce graphique interactif présente une comparaison entre les températures réelles et les températures prévues au fil du temps. La ligne bleue représente les températures réellement enregistrées, tandis que la ligne rouge indique les températures prévues selon notre modèle de prévision. Les utilisateurs peuvent interagir avec le graphique pour explorer différentes périodes, allant du dernier mois à l'ensemble des données. Cette visualisation est essentielle pour comprendre la précision de nos prévisions de température et identifier d'éventuelles divergences significatives entre les données réelles et prévues.</p>
+  </div>
+
+  <!-- Graphique Plotly intégré -->
+  <div>
+    
+      <iframe src="plot.html" style="width:100%; height:500px;"></iframe>
+    
+    </div>
+</section>
+
+<section id="analyse-temperature">
+  <!-- Description du graphique -->
+  <div class="description-graphique">
+      <h3>Prévisions de Température Futures : Novembre à Décembre 2023</h3>
+      <p>Ce graphique interactif affiche les prévisions de température du 30 novembre au 30 décembre 2023, actualisées toutes les trois heures. Il met en évidence les variations de température attendues à travers une ligne orange, facilitant l'anticipation des conditions météorologiques futures. Idéal pour la planification personnelle et professionnelle, il offre une expérience utilisateur enrichissante grâce à des détails précis sur les températures à chaque survol des points.</p>
+  </div>
+
+  <!-- Graphique Plotly intégré -->
+  <div>
+    
+      <iframe src="predicted_future_temps.html" style="width:100%; height:500px;"></iframe>
+    
+    </div>
+</section>
 
 
 
