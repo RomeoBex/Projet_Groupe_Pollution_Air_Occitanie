@@ -286,7 +286,8 @@ for vector in vecteur_cartes:
 wmts_url = "https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/WMTS"
 wmts_layer = TileLayer(url=wmts_url, name="WMTS Layer") 
 
-maps_box = widgets.VBox()
+nom_cartes=["carte de l'ozone","carte du monoxyde d'azote","carte du monoxyde d'azote","carte des autres oxyde d'azote","carte du sulfure d'hydrogène","carte des particules de diamètre inférieur à 10 µm","carte des particules de diamètre inférieur à 2.5 µm","carte du dioxyde de soufre"]
+elements_to_display = []
 i=0
 for cartes in v_cartes:
     cartes.add_layer(wmts_layer)
@@ -298,11 +299,14 @@ for cartes in v_cartes:
             title=f"Valeur: {moyenne}"
         )
         cartes.add_layer(marker)
-
+    # Ajouter un titre entre les cartes
+    title_html=f"""<h3>{nom_cartes[i]}</h3>"""
+    
+    display(HTML(title_html))
     # Add the map to the horizontal box
-    maps_box.children += (cartes,)
-    i=i+1
+    display(cartes)
 
-display(maps_box)
+    
+    i+=1
 
 ```
