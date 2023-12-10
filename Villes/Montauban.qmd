@@ -20,7 +20,7 @@ format:
 * **Densité** : 456,3 (*nombre d'habitants au $km^2$*)
 * **Département** : Tarn-et-Garonne (82)
 
-
+ 
 ```{python}
 import pandas as pd
 import plotly.express as px
