@@ -904,3 +904,36 @@ Mesure_annuelle_Region_Occitanie_Polluants_Principaux.csv
 
 
 # %%
+import pandas as pd
+import plotly.express as px
+
+# Charger le fichier CSV dans un DataFrame
+df = pd.read_csv('Mesure_annuelle_Region_Occitanie_Polluants_Principaux.csv')
+
+# Filtrer les données pour la ville de Montauban
+montauban_data = df[df['nom_com'] == 'MONTAUBAN'].copy()
+
+# Convertir la colonne 'date_debut' en format datetime
+montauban_data['date_debut'] = pd.to_datetime(montauban_data['date_debut'])
+
+# Trier les données par date
+montauban_data = montauban_data.sort_values(by='date_debut')
+
+# Créer un graphique de barres empilées animé avec Plotly Express
+fig = px.bar(montauban_data, x='date_debut', y='valeur', color='nom_poll',
+             labels={'valeur': f'Concentration de pollution (ug.m-3)'},
+             title='Évolution des concentrations de pollution à Montauban par année',
+             barmode='stack',
+             animation_frame='nom_poll')
+
+# Personnaliser le graphique
+fig.update_layout(xaxis=dict(title='Année'), yaxis=dict(title='Concentration de pollution (ug.m-3)'))
+
+# Ajuster la vitesse de l'animation
+fig.update_layout(updatemenus=[dict(type='buttons', showactive=False,
+                                      buttons=[dict(label='Play',
+                                                    method='animate',
+                                                    args=[None, dict(frame=dict(duration=1000, redraw=True), fromcurrent=True)])])])
+
+# Afficher le graphique interactif
+fig.show()
