@@ -10,22 +10,22 @@ import numpy as np
 import datetime
 from plotly.subplots import make_subplots
 #%%
-weather_file_path = 'C:/Users/SCD-UM/OneDrive/Bureau/Project/Projet_Groupe_Pollution_Air_Occitanie/Mesure_mensuelle_Region_Occitanie_Polluants_Principaux.csv'
+weather_file_path = 'C:/Users/SCD-UM/OneDrive/Bureau/Project/Projet_Groupe_Pollution_Air_Occitanie/Donnees/Mesure_mensuelle_Region_Occitanie_Polluants_Principaux.csv'
 df = pd.read_csv(weather_file_path, delimiter=',')
 df.head()
 #%%
 # Describe the 'nom_dept' column
 nom_dept_description = df['nom_dept'].describe()
 nom_dept_description
-df['nom_dept'].unique
+
 #%%
 # Filter the DataFrame for rows where 'nom_dept' is 'HERAULT'
-df_HAUTES_PYRENEES = df[df['nom_dept'] == 'HAUTES-PYRENEES']
+df_HAUTES_PYRENEES= df[df['nom_dept'] == 'HAUTES-PYRENEES']
 
 df_HAUTES_PYRENEES.head()
-# %%
 
 # %%
+
 
 # %%
 # Load the weather data
@@ -50,6 +50,7 @@ combined_data = pd.merge(df_HAUTES_PYRENEES, weather_data, left_index=True, righ
 # Check the combined data
 print(combined_data.head())
 
+
 # %%
 # Check for missing values
 missing_values = combined_data.isnull().sum()
@@ -71,10 +72,10 @@ if isinstance(df_HAUTES_PYRENEES.index, pd.DatetimeIndex):
 # Now merge df_HERAULT with weather_data
 # Assuming the weather data is already aggregated to the same time frequency (e.g., monthly)
 combined_data = pd.merge(df_HAUTES_PYRENEES, weather_data, left_on='date_debut', right_index=True, how='inner')
-
+#%%
 # Check if 'date_debut' is now in the combined_data
 print(combined_data.columns)
-
+#%%
 # Proceed with selecting your relevant columns
 relevant_columns = ['date_debut', 'nom_poll', 'valeur', 'date_fin', 'Température', 'Humidité', 
                     'Vitesse du vent moyen 10 mn', 'nom_station', 'typologie', 'influence']
@@ -104,9 +105,7 @@ print("Missing Values after filling with mean:\n", missing_values_after)
 # Basic descriptive statistics
 descriptive_stats = sub_dataframe.describe()
 print(descriptive_stats)
-#%%
 
-#%%
 # %%
 
 # Descriptive Statistics
@@ -242,23 +241,21 @@ def heatmap_with_annotations(data, p_values, threshold=0.05):
 heatmap_with_annotations(correlation_matrix, p_values)
 
 #%%
-import matplotlib.pyplot as plt
 
 # Assuming 'nom_poll' is the pollutant name and 'valeur' is its value
 sub_dataframe.groupby('nom_poll')['valeur'].mean().plot(kind='bar')
-plt.title('Average Distribution of Pollutants in Hérault')
+plt.title('Average Distribution of Pollutants in Hautes-Pyrenées')
 plt.xlabel('Pollutant')
 plt.ylabel('Average Value')
 plt.show()
 
 # %%
-sub_dataframe.groupby('nom_poll')['valeur'].mean().plot(kind='pie', autopct='%1.1f%%')
-plt.title('Proportion of Different Pollutants in Hérault')
+sub_dataframe.groupby('nom_poll')['valeur'].sum().plot(kind='pie', autopct='%1.1f%%')
+plt.title('Proportion of Different Pollutants in Hautes-Pyrenées')
 plt.ylabel('')  # Hide the y-label
 plt.show()
 
 # %%
-import seaborn as sns
 
 # Example: Relationship between Temperature and Pollution Value
 sns.scatterplot(data=sub_dataframe, x='Température', y='valeur')
@@ -268,23 +265,22 @@ plt.ylabel('Pollution Value')
 plt.show()
 # %%
 sub_dataframe.resample('Y')['valeur'].mean().plot(kind='line')
-plt.title('Yearly Trend of Pollution in Hérault')
+plt.title('Yearly Trend of Pollution in Hautes-Pyrenées')
 plt.xlabel('Year')
 plt.ylabel('Average Pollution Value')
 plt.show()
 # %%
-import plotly.express as px
 
 # Assuming 'latitude' and 'longitude' are your geospatial columns
 fig = px.scatter_geo(, lat='latitude', lon='longitude', color='valeur')
-fig.update_layout(title='Pollution Levels in Hérault')
+fig.update_layout(title='Pollution Levels in Hautes-Pyrenées')
 fig.show()
 
 # %%
 
 # %%
 sub_dataframe['valeur'].plot(kind='hist', bins=20)
-plt.title('Frequency Distribution of Pollution Values in Hérault')
+plt.title('Frequency Distribution of Pollution Values in Hautes-Pyrenées')
 plt.xlabel('Pollution Value')
 plt.ylabel('Frequency')
 plt.show()
@@ -311,10 +307,6 @@ fig.update_layout(
 # Display the figure
 fig.show()
 fig.write_html('C:/Users/SCD-UM/OneDrive/Bureau/Project/Projet_Groupe_Pollution_Air_Occitanie/docs/Hautes_Pyrenées_pie_chart.html',full_html=False, include_plotlyjs='cdn')
-# %%
-
-
-
 
 # %%
 # Convert 'date_debut' to month-year format for easier grouping

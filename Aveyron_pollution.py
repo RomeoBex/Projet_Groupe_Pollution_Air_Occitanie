@@ -10,45 +10,39 @@ import numpy as np
 import datetime
 from plotly.subplots import make_subplots
 #%%
-weather_file_path = 'C:/Users/SCD-UM/OneDrive/Bureau/Project/Projet_Groupe_Pollution_Air_Occitanie/Mesure_mensuelle_Region_Occitanie_Polluants_Principaux.csv'
+weather_file_path = 'C:/Users/SCD-UM/OneDrive/Bureau/Project/Projet_Groupe_Pollution_Air_Occitanie/Donnees/Mesure_mensuelle_Region_Occitanie_Polluants_Principaux.csv'
 df = pd.read_csv(weather_file_path, delimiter=',')
 df.head()
 #%%
 # Describe the 'nom_dept' column
 nom_dept_description = df['nom_dept'].describe()
 nom_dept_description
+df['nom_dept'].unique
 #%%
-# Filter the DataFrame for rows where 'nom_dept' is 'HERAULT'
-df_HAUTE_GARONNE = df[df['nom_dept'] == 'HAUTE-GARONNE']
+# Filter the DataFrame for rows where 'nom_dept' is 'AVEYRON'
+df_AVEYRON= df[df['nom_dept'] == 'AVEYRON']
 
-# Display the first few rows of the new DataFrame
-df_HAUTE_GARONNE.head()
-# %%
-df_HAUTE_GARONNE()
+df_AVEYRON.head()
 
-# %%
-# Save df_HERAULT as a CSV file
-output_file_path = 'C:/Users/SCD-UM/OneDrive/Bureau/Project/Projet_Groupe_Pollution_Air_Occitanie/df_HAUTE_GARONNE.csv'
-df_HAUTE_GARONNE.to_csv(output_file_path, index=False)
 # %%
 # Load the weather data
-weather_file_path = 'C:/Users/SCD-UM/OneDrive/Bureau/Project/Projet_Groupe_Pollution_Air_Occitanie/Haute_Garonne.csv'
+weather_file_path = 'C:/Users/SCD-UM/OneDrive/Bureau/Project/Projet_Groupe_Pollution_Air_Occitanie/Aveyron_meteo.csv'
 weather_data = pd.read_csv(weather_file_path, delimiter=';')
 
 # Convert 'date_debut' in df_HERAULT and 'Date' in weather_data to datetime
-df_HAUTE_GARONNE['date_debut'] = pd.to_datetime(df_HAUTE_GARONNE['date_debut'], utc=True)
+df_AVEYRON['date_debut'] = pd.to_datetime(df_AVEYRON['date_debut'], utc=True)
 weather_data['Date'] = pd.to_datetime(weather_data['Date'], utc=True)
 
 # Convert both indices to timezone-naive datetime (remove timezone)
-df_HAUTE_GARONNE['date_debut'] = df_HAUTE_GARONNE['date_debut'].dt.tz_localize(None)
+df_AVEYRON['date_debut'] = df_AVEYRON['date_debut'].dt.tz_localize(None)
 weather_data['Date'] = weather_data['Date'].dt.tz_localize(None)
 
 # Set 'date_debut' and 'Date' as the indices
-df_HAUTE_GARONNE.set_index('date_debut', inplace=True)
+df_AVEYRON.set_index('date_debut', inplace=True)
 weather_data.set_index('Date', inplace=True)
 
 # Merge the datasets
-combined_data = pd.merge(df_HAUTE_GARONNE, weather_data, left_index=True, right_index=True, how='inner')
+combined_data = pd.merge(df_AVEYRON, weather_data, left_index=True, right_index=True, how='inner')
 
 # Check the combined data
 print(combined_data.head())
@@ -68,12 +62,12 @@ print(combined_data.head())
 # Assuming df_HERAULT and weather_data are your original datasets
 
 # Reset index of df_HERAULT if 'date_debut' is set as index
-if isinstance(df_HAUTE_GARONNE.index, pd.DatetimeIndex):
-    df_HAUTE_GARONNE = df_HAUTE_GARONNE.reset_index()
+if isinstance(df_AVEYRON.index, pd.DatetimeIndex):
+    df_AVEYRON = df_AVEYRON.reset_index()
 
 # Now merge df_HERAULT with weather_data
 # Assuming the weather data is already aggregated to the same time frequency (e.g., monthly)
-combined_data = pd.merge(df_HAUTE_GARONNE, weather_data, left_on='date_debut', right_index=True, how='inner')
+combined_data = pd.merge(df_AVEYRON, weather_data, left_on='date_debut', right_index=True, how='inner')
 
 # Check if 'date_debut' is now in the combined_data
 print(combined_data.columns)
@@ -107,9 +101,7 @@ print("Missing Values after filling with mean:\n", missing_values_after)
 # Basic descriptive statistics
 descriptive_stats = sub_dataframe.describe()
 print(descriptive_stats)
-#%%
 
-#%%
 # %%
 
 # Descriptive Statistics
@@ -210,17 +202,17 @@ def create_interactive_dual_axis_plot(x, y1, y2, y1_label, y2_label, y1_color, y
 create_interactive_dual_axis_plot(sub_dataframe['date_debut'], sub_dataframe['Température'], sub_dataframe['valeur'],
                                   'Temperature (°C)', 'Pollution Value', 'red', 'purple',
                                   'Interactive Plot: Temperature vs Pollution Levels',
-                                  'Haute_Garonne_Temperature_vs_Pollution_Levels')
+                                  'AVEYRON_Temperature_vs_Pollution_Levels')
 
 create_interactive_dual_axis_plot(sub_dataframe['date_debut'], sub_dataframe['Humidité'], sub_dataframe['valeur'],
                                   'Humidity (%)', 'Pollution Value', 'blue', 'purple',
                                   'Interactive Plot: Humidity vs Pollution Levels',
-                                  'Haute_Garonne_Humidity_vs_Pollution_Levels')
+                                  'AVEYRON_Humidity_vs_Pollution_Levels')
 
 create_interactive_dual_axis_plot(sub_dataframe['date_debut'], sub_dataframe['Vitesse du vent moyen 10 mn'], sub_dataframe['valeur'],
                                   'Wind Speed (km/h)', 'Pollution Value', 'green', 'purple',
                                   'Interactive Plot: Wind Speed vs Pollution Levels',
-                                  'Haute_Garonne_Wind_Speed_vs_Pollution_Levels')
+                                  'AVEYRON_Wind_Speed_vs_Pollution_Levels')
 # %%
 # Correlation study : 
 # Perform a correlation analysis
@@ -249,14 +241,14 @@ heatmap_with_annotations(correlation_matrix, p_values)
 
 # Assuming 'nom_poll' is the pollutant name and 'valeur' is its value
 sub_dataframe.groupby('nom_poll')['valeur'].mean().plot(kind='bar')
-plt.title('Average Distribution of Pollutants in Hautes Garonnes')
+plt.title('Average Distribution of Pollutants in Pyrenees Orientales')
 plt.xlabel('Pollutant')
 plt.ylabel('Average Value')
 plt.show()
 
 # %%
-sub_dataframe.groupby('nom_poll')['valeur'].mean().plot(kind='pie', autopct='%1.1f%%')
-plt.title('Proportion of Different Pollutants in Hautes Garonnes')
+sub_dataframe.groupby('nom_poll')['valeur'].sum().plot(kind='pie', autopct='%1.1f%%')
+plt.title('Proportion of Different Pollutants in Pyrenees Orientales')
 plt.ylabel('')  # Hide the y-label
 plt.show()
 
@@ -265,20 +257,16 @@ plt.show()
 
 # Example: Relationship between Temperature and Pollution Value
 sns.scatterplot(data=sub_dataframe, x='Température', y='valeur')
-plt.title('Temperature vs Pollution Value in Hautes Garonnes')
+plt.title('Temperature vs Pollution Value in Pyrenees Orientales')
 plt.xlabel('Temperature')
 plt.ylabel('Pollution Value')
 plt.show()
 # %%
 sub_dataframe.resample('Y')['valeur'].mean().plot(kind='line')
-plt.title('Yearly Trend of Pollution in Hérault')
+plt.title('Yearly Trend of Pollution in Pyrenees Orientales')
 plt.xlabel('Year')
 plt.ylabel('Average Pollution Value')
 plt.show()
-# %%
-
-
-
 
 
 # %%
@@ -289,12 +277,12 @@ plt.ylabel('Frequency')
 plt.show()
 
 # %%
-# Assuming your sub_dataframe is already defined and contains the data for 'nom_poll' and 'valeur'
+# sub_dataframe is already defined and contains the data for 'nom_poll' and 'valeur'
 pollutant_concentration = sub_dataframe.groupby('nom_poll')['valeur'].sum().reset_index()
 
 # Creating an interactive pie chart
 fig = px.pie(pollutant_concentration, names='nom_poll', values='valeur', 
-             title="Répartition des concentrations de pollution à l'Haute Garonnes")
+             title="Répartition des concentrations de pollution aux Pyrenées Orientales")
 
 # Enhancements for a more stylish look
 fig.update_traces(textinfo='percent+label', marker=dict(line=dict(color='#000000', width=2)))
@@ -309,10 +297,10 @@ fig.update_layout(
 
 # Display the figure
 fig.show()
-fig.write_html('C:/Users/SCD-UM/OneDrive/Bureau/Project/Projet_Groupe_Pollution_Air_Occitanie/docs/Haute_Garonne_pie_chart.html',full_html=False, include_plotlyjs='cdn')
+fig.write_html('C:/Users/SCD-UM/OneDrive/Bureau/Project/Projet_Groupe_Pollution_Air_Occitanie/docs/AVEYRON_pie_chart.html',full_html=False, include_plotlyjs='cdn')
 # %%
 
-
+    
 
 
 # %%
@@ -341,7 +329,7 @@ for idx, poll in enumerate(monthly_concentration.columns):
 
 # Update layout for stacked bar chart
 fig.update_layout(
-    title="Concentration maximale de pollution à l'Hautes-Garonne par mois",
+    title="Concentration maximale de pollution à AVEYRON",
     xaxis_title="Mois",
     yaxis_title="Concentration de pollution (µg/m³)",
     barmode='stack',
@@ -361,6 +349,5 @@ fig.update_layout(legend=dict(
 
 # Display the figure
 fig.show()
-fig.write_html('C:/Users/SCD-UM/OneDrive/Bureau/Project/Projet_Groupe_Pollution_Air_Occitanie/docs/Haute_Garonne_bar_chart.html',full_html=False, include_plotlyjs='cdn')
-
+fig.write_html('C:/Users/SCD-UM/OneDrive/Bureau/Project/Projet_Groupe_Pollution_Air_Occitanie/docs/AVEYRON_bar_chart.html',full_html=False, include_plotlyjs='cdn')
 # %%
