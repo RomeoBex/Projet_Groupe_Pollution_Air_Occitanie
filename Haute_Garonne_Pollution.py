@@ -210,17 +210,17 @@ def create_interactive_dual_axis_plot(x, y1, y2, y1_label, y2_label, y1_color, y
 create_interactive_dual_axis_plot(sub_dataframe['date_debut'], sub_dataframe['Température'], sub_dataframe['valeur'],
                                   'Temperature (°C)', 'Pollution Value', 'red', 'purple',
                                   'Interactive Plot: Temperature vs Pollution Levels',
-                                  'Herault_Temperature_vs_Pollution_Levels')
+                                  'Haute_Garonne_Temperature_vs_Pollution_Levels')
 
 create_interactive_dual_axis_plot(sub_dataframe['date_debut'], sub_dataframe['Humidité'], sub_dataframe['valeur'],
                                   'Humidity (%)', 'Pollution Value', 'blue', 'purple',
                                   'Interactive Plot: Humidity vs Pollution Levels',
-                                  'Herault_Humidity_vs_Pollution_Levels')
+                                  'Haute_Garonne_Humidity_vs_Pollution_Levels')
 
 create_interactive_dual_axis_plot(sub_dataframe['date_debut'], sub_dataframe['Vitesse du vent moyen 10 mn'], sub_dataframe['valeur'],
                                   'Wind Speed (km/h)', 'Pollution Value', 'green', 'purple',
                                   'Interactive Plot: Wind Speed vs Pollution Levels',
-                                  'Herault_Wind_Speed_vs_Pollution_Levels')
+                                  'Haute_Garonne_Wind_Speed_vs_Pollution_Levels')
 # %%
 # Correlation study : 
 # Perform a correlation analysis
@@ -293,12 +293,16 @@ plt.ylabel('Frequency')
 plt.show()
 
 # %%
-# Pie chart for pollutant distribution
+# Assuming your sub_dataframe is already defined and contains the data for 'nom_poll' and 'valeur'
 pollutant_concentration = sub_dataframe.groupby('nom_poll')['valeur'].sum().reset_index()
-pie_chart = px.pie(pollutant_concentration, names='nom_poll', values='valeur', 
-                   title="Répartition des concentrations de pollution à l'Hérault")
-pie_chart.update_traces(textinfo='percent+label', marker=dict(line=dict(color='#000000', width=2)))
-pie_chart.update_layout(
+
+# Creating an interactive pie chart
+fig = px.pie(pollutant_concentration, names='nom_poll', values='valeur', 
+             title="Répartition des concentrations de pollution à l'Hérault")
+
+# Enhancements for a more stylish look
+fig.update_traces(textinfo='percent+label', marker=dict(line=dict(color='#000000', width=2)))
+fig.update_layout(
     title_font_size=20,
     showlegend=True,
     legend_title_text='Polluants',
@@ -309,7 +313,7 @@ pie_chart.update_layout(
 
 # Display the figure
 fig.show()
-fig.write_html('C:/Users/SCD-UM/OneDrive/Bureau/Project/Projet_Groupe_Pollution_Air_Occitanie/docs/Herault_pie_chart.html',full_html=False, include_plotlyjs='cdn')
+fig.write_html('C:/Users/SCD-UM/OneDrive/Bureau/Project/Projet_Groupe_Pollution_Air_Occitanie/docs/Haute_Garonne_pie_chart.html',full_html=False, include_plotlyjs='cdn')
 # %%
 
 
@@ -361,5 +365,5 @@ fig.update_layout(legend=dict(
 
 # Display the figure
 fig.show()
-fig.write_html('C:/Users/SCD-UM/OneDrive/Bureau/Project/Projet_Groupe_Pollution_Air_Occitanie/docs/Herault_bar_chart.html',full_html=False, include_plotlyjs='cdn')
+fig.write_html('C:/Users/SCD-UM/OneDrive/Bureau/Project/Projet_Groupe_Pollution_Air_Occitanie/docs/Haute_Garonne_bar_chart.html',full_html=False, include_plotlyjs='cdn')
 # %%
