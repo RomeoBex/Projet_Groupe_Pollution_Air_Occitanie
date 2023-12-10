@@ -166,7 +166,7 @@ print("Écart type de la pollution:", ecart_type_pollution)
 print("Valeur la plus élevée:", seuil_valeur_elevee)
 ```
 
-## carte des différents polluant
+## Carte des différents polluants
 
 ```{python,echo=FALSE}
 #| echo: FALSE
