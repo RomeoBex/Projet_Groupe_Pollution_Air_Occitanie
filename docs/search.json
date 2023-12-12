@@ -404,5 +404,26 @@
     "title": "Rodez",
     "section": "",
     "text": "Nombres d’habitants : 24 397\nDensité : 2 182 (nombre d’habitants au \\(km^2\\))\nDépartement : Aveyron (12)"
+  },
+  {
+    "objectID": "diapositives/diap.html#section-3",
+    "href": "diapositives/diap.html#section-3",
+    "title": "Projet Pollution",
+    "section": "",
+    "text": "Déploiment de la page web\n\n\nStructures de la page (.yml .css)\n\n\nDonnées et Nettoyages\n\n\nInterprétation"
+  },
+  {
+    "objectID": "diapositives/diap.html#section-2",
+    "href": "diapositives/diap.html#section-2",
+    "title": "Projet Pollution",
+    "section": "",
+    "text": "Déploiment de la page web\n\n\nStructures de la page (.yml .css)\n\n\nDonnées et Nettoyages\n\n\nInterprétation"
+  },
+  {
+    "objectID": "diapositives/diap.html#auto-animatetrue-auto-animate-easingease-in-out",
+    "href": "diapositives/diap.html#auto-animatetrue-auto-animate-easingease-in-out",
+    "title": "Projet Pollution",
+    "section": "{auto-animate=true auto-animate-easing=“ease-in-out”}",
+    "text": "{auto-animate=true auto-animate-easing=“ease-in-out”}\n\n\nDéploiment de la page web\n\n\nStructures de la page (.yml .css)\n\n\nDonnées et Nettoyages\n\n\nInterprétation"
   }
 ]

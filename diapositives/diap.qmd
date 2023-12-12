@@ -100,84 +100,215 @@ plt.ylabel('')  # Supprimer l'étiquette de l'axe y pour plus de clarté
 plt.show()
 ```
 
+# Graphique 3D de Rodez : {background-color="#CAFFEF"}
+
+```{.python code-line-numbers="2,3|6|9|12|15|18|21,22,23,24|27|31"}
+
+import pandas as pd
+import plotly.express as px
+
+# Charger le fichier CSV dans un DataFrame
+df = pd.read_csv('Mesure_annuelle_Region_Occitanie_Polluants_Principaux.csv')
+
+# Filtrer les données pour la ville de RODEZ
+rodez_data = df[df['nom_com'] == 'RODEZ'].copy()  # Utiliser .copy() pour éviter le SettingWithCopyWarning
+
+# Convertir la colonne 'date_debut' en format datetime
+rodez_data['date_debut'] = pd.to_datetime(rodez_data['date_debut'])
+
+# Trier les données par date
+rodez_data = rodez_data.sort_values(by='date_debut')
+
+# Obtenir la valeur maximale de chaque polluant pour chaque année
+max_values_rodez = rodez_data.groupby(['date_debut', 'nom_poll'])['valeur'].max().reset_index()
+
+# Créer un graphique en 3D avec Plotly Express
+fig_rodez = px.scatter_3d(max_values_rodez, x='date_debut', y='nom_poll', z='valeur', color='valeur',
+                          labels={'valeur': f'Concentration maximale de pollution (ug.m-3)'},
+                          title='Concentration maximale de pollution à RODEZ par année',
+                          size_max=18)
+
+# Personnaliser le graphique
+fig_rodez.update_layout(scene=dict(xaxis_title='Année', yaxis_title='Polluant', zaxis_title='Concentration maximale de pollution (ug.m-3)'),
+                        height=600, width=800)  # Ajustez ces valeurs en fonction de la taille souhaitée
+
+# Afficher le graphique interactif
+fig_rodez.show()
+``` 
+
+# Résultat : {background-color="#CAFFEF"}
+
+```{python}
+import pandas as pd
+import plotly.express as px
+
+# Charger le fichier CSV dans un DataFrame
+df = pd.read_csv('Mesure_annuelle_Region_Occitanie_Polluants_Principaux.csv')
+
+# Filtrer les données pour la ville de RODEZ
+rodez_data = df[df['nom_com'] == 'RODEZ'].copy()  # Utiliser .copy() pour éviter le SettingWithCopyWarning
+
+# Convertir la colonne 'date_debut' en format datetime
+rodez_data['date_debut'] = pd.to_datetime(rodez_data['date_debut'])
+
+# Trier les données par date
+rodez_data = rodez_data.sort_values(by='date_debut')
+
+# Obtenir la valeur maximale de chaque polluant pour chaque année
+max_values_rodez = rodez_data.groupby(['date_debut', 'nom_poll'])['valeur'].max().reset_index()
+
+# Créer un graphique en 3D avec Plotly Express
+fig_rodez = px.scatter_3d(max_values_rodez, x='date_debut', y='nom_poll', z='valeur', color='valeur',
+                          labels={'valeur': f'Concentration maximale de pollution (ug.m-3)'},
+                          title='Concentration maximale de pollution à RODEZ par année',
+                          size_max=18)
+
+# Personnaliser le graphique
+fig_rodez.update_layout(scene=dict(xaxis_title='Année', yaxis_title='Polluant', zaxis_title='Concentration maximale de pollution (ug.m-3)'),
+                        height=600, width=800)  # Ajustez ces valeurs en fonction de la taille souhaitée
+
+# Afficher le graphique interactif
+fig_rodez.show()
+
+```
+
+
 # Code carte intéractive : {background-color="#CAFFEF"}
 
 ```{.python code-line-numbers="2,3|6,7,8|11,12|15|24,25,26|59|68"}
-#calcule de la valeur seuil 
-moyenne_pollution = df['valeur'].mean()
-ecart_type_pollution = df['valeur'].std()
+#test d'une carte des densités, interactive 
+import folium
+from branca.colormap import linear
 
-
-print("Moyenne de la pollution:", moyenne_pollution)
-print("Écart type de la pollution:", ecart_type_pollution)
-print("Valeur la plus élevée:", seuil_valeur_elevee)
-
-# Charger le fichier CSV dans un DataFrame
-chemin_fichier_csv = 'Mesure_mensuelle_Region_Occitanie_Polluants_Principaux.csv'
-df = pd.read_csv(chemin_fichier_csv)
-
-# Créer une colonne 'geometry' avec les coordonnées X et Y sous forme de GeoJSON
-df['geometry'] = df.apply(lambda row: {"type": "Point", "coordinates": [row['X'], row['Y']]}, axis=1)
-
-# Valeur seuil
-SEUIL_DE_VALEUR_ELEVEE = 23  
-
-# Créer une carte avec le service WMTS
-carte = Map(center=(43.611015, 3.876733), zoom=9)
-
-# Ajouter une couche WMTS à la carte
-wmts_url = "https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/WMTS"
-wmts_layer = TileLayer(url=wmts_url, name="WMTS Layer")
-carte.add_layer(wmts_layer)
-
-# Créer une GeoJSON FeatureCollection à partir des données de votre DataFrame
-geojson_data = {
-    "type": "FeatureCollection",
-    "features": []
+# Coordonnées et populations des grandes villes de l'Occitanie (Latitude, Longitude, Population)
+grandes_villes_occitanie = {
+    'Toulouse': (43.6047, 1.4442, 479553),
+    'Montpellier': (43.6110, 3.8767, 285121),
+    'Nîmes': (43.8374, 4.3601, 151001),
+    'Perpignan': (42.6986, 2.8954, 121875),
+    'Carcassonne': (43.2130, 2.3491, 47038),
+    'Albi': (43.9291, 2.1483, 49236),
+    'Tarbes': (43.2328, 0.0716, 40356),
+    'Auch': (43.6460, 0.5857, 23853),
 }
 
-# Marqueurs pour les valeurs élevées
-high_value_markers = []
+# Coordonnées du centre de l'Occitanie
+centre_occitanie = (43.5912, 1.4466)
 
-for index, row in df.iterrows():
-    feature = {
-        "type": "Feature",
-        "geometry": row['geometry'],
-        "properties": {"nom_dept": row['nom_dept'], "valeur": row['valeur']}
-    }
-    geojson_data['features'].append(feature)
+# Créer une carte centrée sur l'Occitanie
+carte_occitanie = folium.Map(location=centre_occitanie, zoom_start=8, tiles='Stamen Terrain')
+folium.Marker(centre_occitanie, popup='Centre de l\'Occitanie', icon=folium.Icon(color='red')).add_to(carte_occitanie)
+folium.TileLayer('openstreetmap').add_to(carte_occitanie)  # Ajouter une couche OpenStreetMap en arrière-plan
 
-    # Ajouter un marqueur si la valeur de pollution est élevée
-    if row['valeur'] > SEUIL_DE_VALEUR_ELEVEE:
-        marker = Marker(location=(row['Y'], row['X']), draggable=False, title=f"Valeur: {row['valeur']}")
-        high_value_markers.append(marker)
+# Créer une colormap en fonction de la population
+colormap = linear.YlOrRd_09.scale(min(grandes_villes_occitanie.values(), key=lambda x: x[2])[2],
+                                  max(grandes_villes_occitanie.values(), key=lambda x: x[2])[2])
 
-# Créer une couche GeoJSON pour les zones polluées
-geojson_layer = GeoJSON(data=geojson_data, style={'color': 'red', 'opacity': 0.8, 'weight': 1.5})
-carte.add_layer(geojson_layer)
+# Ajouter des marqueurs pour chaque grande ville avec une couleur correspondant à la population
+for ville, coordonnees in grandes_villes_occitanie.items():
+    if coordonnees[2] > 300000:
+        icon = folium.Icon(color='blue', icon='star')
+    elif coordonnees[2] > 100000:
+        icon = folium.Icon(color='green', icon='cloud')
+    else:
+        icon = folium.Icon(color='red', icon='info-sign')
 
-# Ajouter les marqueurs à la carte
-for marker in high_value_markers:
-    carte.add_layer(marker)
+    folium.Marker(
+        location=coordonnees[:2],
+        popup=f"{ville}: {coordonnees[2]} habitants",
+        icon=icon
+    ).add_to(carte_occitanie)
 
-# Trouver l'indice de la valeur maximale dans la colonne 'valeur'
-indice_max = df['valeur'].idxmax()
+# Utiliser une échelle log pour le rayon des cercles
+for ville, coordonnees in grandes_villes_occitanie.items():
+    folium.CircleMarker(
+        location=coordonnees[:2],
+        radius=coordonnees[2] / 50000,
+        popup=f"{ville}: {coordonnees[2]} habitants",
+        color=colormap(coordonnees[2]),
+        fill=True,
+        fill_color=colormap(coordonnees[2]),
+    ).add_to(carte_occitanie)
 
-# Obtenir les coordonnées X et Y pour l'emplacement de la valeur maximale
-coordonnees_max = df.loc[indice_max, ['X', 'Y']]
+# Personnaliser la légende
+colormap.caption = 'Population et densité des grandes villes en Occitanie'
+colormap.add_to(carte_occitanie)
 
-print("Coordonnées de l'endroit avec la valeur la plus élevée:", coordonnees_max)
+# Afficher la carte dans le notebook
+carte_occitanie
 
-
-# Afficher la carte 
-display(widgets.HBox([carte]))
 
 
 ```
 
 # Résultat : {background-color="#CAFFEF"}
 
+```{python}
+#test d'une carte des densités, interactive 
+import folium
+from branca.colormap import linear
 
+# Coordonnées et populations des grandes villes de l'Occitanie (Latitude, Longitude, Population)
+grandes_villes_occitanie = {
+    'Toulouse': (43.6047, 1.4442, 479553),
+    'Montpellier': (43.6110, 3.8767, 285121),
+    'Nîmes': (43.8374, 4.3601, 151001),
+    'Perpignan': (42.6986, 2.8954, 121875),
+    'Carcassonne': (43.2130, 2.3491, 47038),
+    'Albi': (43.9291, 2.1483, 49236),
+    'Tarbes': (43.2328, 0.0716, 40356),
+    'Auch': (43.6460, 0.5857, 23853),
+}
+
+# Coordonnées du centre de l'Occitanie
+centre_occitanie = (43.5912, 1.4466)
+
+# Créer une carte centrée sur l'Occitanie
+carte_occitanie = folium.Map(location=centre_occitanie, zoom_start=8, tiles='Stamen Terrain')
+folium.Marker(centre_occitanie, popup='Centre de l\'Occitanie', icon=folium.Icon(color='red')).add_to(carte_occitanie)
+folium.TileLayer('openstreetmap').add_to(carte_occitanie)  # Ajouter une couche OpenStreetMap en arrière-plan
+
+# Créer une colormap en fonction de la population
+colormap = linear.YlOrRd_09.scale(min(grandes_villes_occitanie.values(), key=lambda x: x[2])[2],
+                                  max(grandes_villes_occitanie.values(), key=lambda x: x[2])[2])
+
+# Ajouter des marqueurs pour chaque grande ville avec une couleur correspondant à la population
+for ville, coordonnees in grandes_villes_occitanie.items():
+    if coordonnees[2] > 300000:
+        icon = folium.Icon(color='blue', icon='star')
+    elif coordonnees[2] > 100000:
+        icon = folium.Icon(color='green', icon='cloud')
+    else:
+        icon = folium.Icon(color='red', icon='info-sign')
+
+    folium.Marker(
+        location=coordonnees[:2],
+        popup=f"{ville}: {coordonnees[2]} habitants",
+        icon=icon
+    ).add_to(carte_occitanie)
+
+# Utiliser une échelle log pour le rayon des cercles
+for ville, coordonnees in grandes_villes_occitanie.items():
+    folium.CircleMarker(
+        location=coordonnees[:2],
+        radius=coordonnees[2] / 50000 * 10,  # Ajustez le facteur de multiplication ici
+        popup=f"{ville}: {coordonnees[2]} habitants",
+        color=colormap(coordonnees[2]),
+        fill=True,
+        fill_color=colormap(coordonnees[2]),
+    ).add_to(carte_occitanie)
+
+# Personnaliser la légende
+colormap.caption = 'Population et densité des grandes villes en Occitanie'
+colormap.add_to(carte_occitanie)
+
+# Afficher la carte dans le notebook
+carte_occitanie
+
+
+
+
+```
 
 
 
@@ -193,7 +324,56 @@ display(widgets.HBox([carte]))
 # Problèmes rencontrés : {background-image="brain1.svg" background-opacity="0.5" background-size="600px" background-position="bottom" }
 
 - Création de la page web 
-- Compréhension de quarto 
+- Compréhension de Quarto 
 - intégrer du code sans que le code ne s'Affiche
 - gérer un ficher .yml et .css
 - Importer les données météos 
+- Gérer le rangement sur le repository 
+- Nettoyage de fichier csv 
+ 
+
+## {auto-animate=true auto-animate-easing="ease-in-out"}{background-color="#CAFFEF"} 
+
+::: {.r-hstack}
+::: {data-id="box1" auto-animate-delay="0.1" style="background: #2780e3; width: 400px; height: 150px; margin: 10px;"}
+Déploiment de la page web 
+:::
+
+::: {data-id="box2" auto-animate-delay="0.1" style="background: #3fb618; width: 200px; height: 150px; margin: 10px;"}
+Structures de la page (.yml .css)
+:::
+
+::: {data-id="box3" auto-animate-delay="0.2" style="background: #e83e8c; width: 200px; height: 150px; margin: 10px;"}
+Données et Nettoyages
+:::
+
+::: {data-id="box4" auto-animate-delay="0.2" style="background: #461200; width: 200px; height: 150px; margin: 10px;"}
+Interprétation 
+:::
+
+
+
+
+
+:::
+
+## {auto-animate=true auto-animate-easing="ease-in-out"}
+
+::: {.r-stack}
+::: {data-id="box1" style="background: #2780e3; width: 350px; height: 350px; border-radius: 800px; opacity: 0.3;"}
+Déploiment de la page web 
+:::
+
+::: {data-id="box2" style="background: #3fb618; width: 250px; height: 250px; border-radius: 200px;"}
+Structures de la page (.yml .css)
+:::
+
+::: {data-id="box3" style="background: #e83e8c; width: 150px; height: 150px; border-radius: 200px;"}
+Données et Nettoyages
+:::
+
+::: {data-id="box4" style="background: #461200; width: 150px; height: 100px; border-radius: 200px; opacity: 0.7;"}
+Interprétation 
+:::
+
+::: 
