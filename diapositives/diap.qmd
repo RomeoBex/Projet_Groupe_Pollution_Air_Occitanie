@@ -194,6 +194,6 @@ display(widgets.HBox([carte]))
 
 - Création de la page web 
 - Compréhension de quarto 
-- intégrer du code pour pas que ça s'affiche 
+- intégrer du code sans que le code ne s'Affiche
+- gérer un ficher .yml et .css
 - Importer les données météos 
-- 
