@@ -340,8 +340,6 @@ carte_occitanie
 - Nettoyage de fichier csv 
  
 
-# Cohérence avec le diagramme de Gantt ?{background-color="#CAFFEF"} 
-
 # API Call : {background-color="#CAFFEF"}
 
 
@@ -402,3 +400,4 @@ def data_prep(time):
     return df
 ```
 
+# Cohérence avec le diagramme de Gantt ?{background-color="#CAFFEF"} 
