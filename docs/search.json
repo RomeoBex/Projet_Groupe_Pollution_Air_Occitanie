@@ -453,5 +453,12 @@
     "title": "Projet Pollution",
     "section": "Cohérence avec le diagramme de Gantt ?",
     "text": "Cohérence avec le diagramme de Gantt ?\n\n\n\n\ngantt\n    title Exemple de Diagramme de Gantt \n    dateFormat YYYY-MM-DD\n    title Diagramme de Gantt \n    axisFormat %d-%m\n\n    section Dates importantes\n    Fin du projet :crit, 2023-12-10, 5d\n    Présentation Orale :crit, 2023-12-15, 8d  \n\n\n    section Repository\n    Création de contenu : a3, 2023-10-07, 10d\n    Ajout d'un Readme : a4, 2023-10-17, 10d\n    Ajout de index html : a5, 2023-10-24, 10d\n\n    section Pages web\n    Création de la page web : a6, 2023-10-31, 10d\n    Ajout de la carte : a7, 2023-11-08, 12d\n    Diapositives quarto : a9, 2023-11-30, 13d\n    Ajout d'interactivité : a8, 2023-11-18, 22d\n    Embellissement de la page : a9, 2023-11-01, 40d"
+  },
+  {
+    "objectID": "diapositives/diap.html#visualization",
+    "href": "diapositives/diap.html#visualization",
+    "title": "Projet Pollution",
+    "section": "Visualization",
+    "text": "Visualization\nfrom functions import dataprep as dap\nfrom functions import visuals as viz\n\ndf = dap.data_prep(time='m')\nviz.visualize_df(df=df, city='MONTPELLIER', nom_poll=\"NOX\")"
   }
 ]

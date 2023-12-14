@@ -43,7 +43,7 @@ format:
 
 
 # Analyse du code {background-color="#CAFFEF"}
-```{.python code-line-numbers="2,3,4,5,6|9|12|15|18,19|22,23,24,25|27"}
+```{.python code-line-numbers="2,3,4,5,6|9|12|15|18,19|22,23,24,25|27,28,29|32"}
 
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -54,10 +54,10 @@ import os
 # Remplacez 'votre_fichier.csv' par le chemin vers votre fichier CSV
 chemin_fichier_csv = 'Mesure_mensuelle_Region_Occitanie_Polluants_Principaux.csv'
 
-# Charger le fichier CSV dans un DataFrame
+#
 df = pd.read_csv(chemin_fichier_csv)
 
-# Créer un dégradé de couleurs pour la palette
+#
 couleurs = sns.color_palette("coolwarm", as_cmap=True)
 
 # Créer un diagramme circulaire (camembert) pour la variable 'nom_dept'
@@ -69,6 +69,11 @@ df['nom_dept'].value_counts().plot.pie(autopct='%1.1f%%', startangle=140, cmap=c
 plt.title('Répartition des données par département')
 plt.axis('equal')  # Assure que le camembert est dessiné comme un cercle
 plt.ylabel('')  
+
+dossier_diapositives = "diapositives"
+chemin_fichier_svg = os.path.join(dossier_diapositives, 'graph3.svg')
+plt.savefig(chemin_fichier_svg, format='svg')
+
 
 plt.show()
 ```
@@ -103,6 +108,8 @@ df['nom_dept'].value_counts().plot.pie(autopct='%1.1f%%', startangle=140, cmap=c
 plt.title('Répartition des données par département')
 plt.axis('equal')  # Assure que le camembert est dessiné comme un cercle
 plt.ylabel('')  # Supprimer l'étiquette de l'axe y pour plus de clarté
+
+
 
 plt.show()
 ```
@@ -183,7 +190,7 @@ fig_rodez.show()
 
 # Code carte intéractive : {background-color="#CAFFEF"}
 
-```{.python code-line-numbers="2,3|6,7,8|11,12|15|24,25,26|59|68"}
+```{.python code-line-numbers="2,3|6,7,8,9,10,11,12,13,14|18|21,22,23|26,27|30,31,32,33,34,35,36,37,38,39,40,41,42|45,46,47,48,49,50,51,53|,56,57"}
 #test d'une carte des densités, interactive 
 import folium
 from branca.colormap import linear
@@ -241,10 +248,6 @@ for ville, coordonnees in grandes_villes_occitanie.items():
 # Personnaliser la légende
 colormap.caption = 'Population et densité des grandes villes en Occitanie'
 colormap.add_to(carte_occitanie)
-
-# Afficher la carte dans le notebook
-carte_occitanie
-
 
 
 ```
@@ -307,7 +310,7 @@ for ville, coordonnees in grandes_villes_occitanie.items():
     ).add_to(carte_occitanie)
 
 # Personnaliser la légende
-colormap.caption = 'Population et densité des grandes villes en Occitanie'
+colormap.caption = 'Population des grandes villes en Occitanie'
 colormap.add_to(carte_occitanie)
 
 # Afficher la carte dans le notebook
