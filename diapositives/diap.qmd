@@ -345,7 +345,7 @@ carte_occitanie
 # API Call : {background-color="#CAFFEF"}
 
 
-```{.python code-line-numbers="51|52|1|2,3,4,5,6,7|53|10|23,24,25,26,27,28,29,30,31|34,35,36,37,38,39,40,41,42"}
+```{.python code-line-numbers="51|1|2,3,4,5,6,7|53|10|23,24,25,26,27,28,29,30,31|34,35,36,37,38,39,40,41,42"}
 def get_data(time):
     if time == "j":
         url = "https://services9.arcgis.com/7Sr9Ek9c1QTKmbwr/arcgis/rest/services/Mesure_horaire_(30j)_Region_Occitanie_Polluants_Reglementaires_1/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json"
@@ -402,3 +402,22 @@ def data_prep(time):
     return df
 ```
 
+## Visualization {background-color="#CAFFEF"}
+
+```{.python}
+from functions import dataprep as dap
+from functions import visuals as viz
+
+df = dap.data_prep(time='m')
+viz.visualize_df(df=df, city='MONTPELLIER', nom_poll="NOX")
+```
+
+
+```{python}
+from functions import visuals as viz
+from functions import dataprep as dap
+
+df = dap.data_prep(time='m')
+viz.visualize_df(df=df, city='MONTPELLIER', nom_poll="NOX")
+
+```
