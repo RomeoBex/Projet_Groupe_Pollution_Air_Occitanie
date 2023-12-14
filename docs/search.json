@@ -123,7 +123,7 @@
     "href": "diapositives/diap.html#technicité-et-source",
     "title": "Projet Pollution",
     "section": "Technicité et source",
-    "text": "Technicité et source\n\n\nBibilothèques :\n\npandas\nmatplotlib\nseaborn\nos\ngeojson\n\nDiapositives : Quarto\nSources : données SYNOP et Atmo Occitanie"
+    "text": "Technicité et source\n\n\nBibilothèques :\n\npandas\nmatplotlib\nseaborn\nplotly\nfolium\n\nDiapositives : Quarto\nSources : données SYNOP et Atmo Occitanie"
   },
   {
     "objectID": "diapositives/diap.html#comment-est-ce-quon-a-fait",
@@ -149,9 +149,9 @@
   {
     "objectID": "diapositives/diap.html#section",
     "href": "diapositives/diap.html#section",
-    "title": "Projets Pollution",
+    "title": "Projet Pollution",
     "section": "",
-    "text": "Cette diapo est un test"
+    "text": "#{background-image=“apercu.png”}"
   },
   {
     "objectID": "diapositives/diap.html#projets-pollution",

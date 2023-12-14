@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.3.450">
 
   <meta name="author" content="BEX Roméo MARHEINEKE Linus">
-  <meta name="dcterms.date" content="2023-12-12">
+  <meta name="dcterms.date" content="2023-12-14">
   <title>Pollution Occitanie - Projet Pollution</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -420,7 +420,7 @@ BEX Roméo MARHEINEKE Linus
 </div>
 </div>
 
-  <p class="date">2023-12-12</p>
+  <p class="date">2023-12-14</p>
 </section>
 <section>
 <section id="objectifs-du-projet" class="title-slide slide level1 center" data-background-color="#CAFFEF">
@@ -441,8 +441,8 @@ BEX Roméo MARHEINEKE Linus
 <li class="fragment">pandas</li>
 <li class="fragment">matplotlib</li>
 <li class="fragment">seaborn</li>
-<li class="fragment">os</li>
-<li class="fragment">geojson</li>
+<li class="fragment">plotly</li>
+<li class="fragment">folium</li>
 </ul></li>
 <li class="fragment">Diapositives : <a href="https://quarto.org/">Quarto</a></li>
 <li class="fragment">Sources : <a href="https://public.opendatasoft.com/explore/dataset/donnees-synop-essentielles-omm/api/?sort=date">données SYNOP</a> et <a href="https://data-atmo-occitanie.opendata.arcgis.com/pages/liste-des-flux">Atmo Occitanie</a></li>
@@ -450,6 +450,19 @@ BEX Roméo MARHEINEKE Linus
 </div>
 </section>
 <section id="section" class="slide level2" data-background-video="video.mp4" data-background-video-loop="true" data-background-video-muted="true">
+<h2></h2>
+</section></section>
+<section id="section-1" class="title-slide slide level1 center" data-background-image="apercu.png">
+<h1></h1>
+
+</section>
+
+<section>
+<section id="section-2" class="title-slide slide level1 center" data-background-image="apercu2.png">
+<h1></h1>
+
+</section>
+<section id="section-3" class="slide level2" data-background-video="vivi.mp4" data-background-video-loop="true" data-background-video-muted="true">
 <h2></h2>
 </section></section>
 <section>
@@ -473,13 +486,13 @@ BEX Roméo MARHEINEKE Linus
 <span id="cb1-16"><a href="#cb1-16"></a></span>
 <span id="cb1-17"><a href="#cb1-17"></a><span class="co"># Créer un diagramme circulaire (camembert) pour la variable 'nom_dept'</span></span>
 <span id="cb1-18"><a href="#cb1-18"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
-<span id="cb1-19"><a href="#cb1-19"></a>sns.<span class="bu">set</span>(style<span class="op">=</span><span class="st">"whitegrid"</span>)  <span class="co"># Style de fond pour une meilleure lisibilité</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a>sns.<span class="bu">set</span>(style<span class="op">=</span><span class="st">"whitegrid"</span>)</span>
 <span id="cb1-20"><a href="#cb1-20"></a></span>
 <span id="cb1-21"><a href="#cb1-21"></a><span class="co"># Tracer le camembert avec le dégradé de couleurs</span></span>
 <span id="cb1-22"><a href="#cb1-22"></a>df[<span class="st">'nom_dept'</span>].value_counts().plot.pie(autopct<span class="op">=</span><span class="st">'</span><span class="sc">%1.1f%%</span><span class="st">'</span>, startangle<span class="op">=</span><span class="dv">140</span>, cmap<span class="op">=</span>couleurs)</span>
 <span id="cb1-23"><a href="#cb1-23"></a>plt.title(<span class="st">'Répartition des données par département'</span>)</span>
 <span id="cb1-24"><a href="#cb1-24"></a>plt.axis(<span class="st">'equal'</span>)  <span class="co"># Assure que le camembert est dessiné comme un cercle</span></span>
-<span id="cb1-25"><a href="#cb1-25"></a>plt.ylabel(<span class="st">''</span>)  <span class="co"># Supprimer l'étiquette de l'axe y pour plus de clarté</span></span>
+<span id="cb1-25"><a href="#cb1-25"></a>plt.ylabel(<span class="st">''</span>)  </span>
 <span id="cb1-26"><a href="#cb1-26"></a></span>
 <span id="cb1-27"><a href="#cb1-27"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
@@ -493,7 +506,7 @@ BEX Roméo MARHEINEKE Linus
 </section></section>
 <section id="graphique-3d-de-rodez" class="title-slide slide level1 center" data-background-color="#CAFFEF">
 <h1>Graphique 3D de Rodez :</h1>
-<div class="sourceCode" id="cb2" data-code-line-numbers="2,3|6|9|12|15|18|21,22,23,24|27|31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a></span>
+<div class="sourceCode" id="cb2" data-code-line-numbers="2,3|6|9|13|15|18|21,22,23,24|27|31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
 <span id="cb2-4"><a href="#cb2-4"></a></span>
@@ -501,29 +514,30 @@ BEX Roméo MARHEINEKE Linus
 <span id="cb2-6"><a href="#cb2-6"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'Mesure_annuelle_Region_Occitanie_Polluants_Principaux.csv'</span>)</span>
 <span id="cb2-7"><a href="#cb2-7"></a></span>
 <span id="cb2-8"><a href="#cb2-8"></a><span class="co"># Filtrer les données pour la ville de RODEZ</span></span>
-<span id="cb2-9"><a href="#cb2-9"></a>rodez_data <span class="op">=</span> df[df[<span class="st">'nom_com'</span>] <span class="op">==</span> <span class="st">'RODEZ'</span>].copy()  <span class="co"># Utiliser .copy() pour éviter le SettingWithCopyWarning</span></span>
-<span id="cb2-10"><a href="#cb2-10"></a></span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="co"># Convertir la colonne 'date_debut' en format datetime</span></span>
-<span id="cb2-12"><a href="#cb2-12"></a>rodez_data[<span class="st">'date_debut'</span>] <span class="op">=</span> pd.to_datetime(rodez_data[<span class="st">'date_debut'</span>])</span>
-<span id="cb2-13"><a href="#cb2-13"></a></span>
-<span id="cb2-14"><a href="#cb2-14"></a><span class="co"># Trier les données par date</span></span>
-<span id="cb2-15"><a href="#cb2-15"></a>rodez_data <span class="op">=</span> rodez_data.sort_values(by<span class="op">=</span><span class="st">'date_debut'</span>)</span>
-<span id="cb2-16"><a href="#cb2-16"></a></span>
-<span id="cb2-17"><a href="#cb2-17"></a><span class="co"># Obtenir la valeur maximale de chaque polluant pour chaque année</span></span>
-<span id="cb2-18"><a href="#cb2-18"></a>max_values_rodez <span class="op">=</span> rodez_data.groupby([<span class="st">'date_debut'</span>, <span class="st">'nom_poll'</span>])[<span class="st">'valeur'</span>].<span class="bu">max</span>().reset_index()</span>
-<span id="cb2-19"><a href="#cb2-19"></a></span>
-<span id="cb2-20"><a href="#cb2-20"></a><span class="co"># Créer un graphique en 3D avec Plotly Express</span></span>
-<span id="cb2-21"><a href="#cb2-21"></a>fig_rodez <span class="op">=</span> px.scatter_3d(max_values_rodez, x<span class="op">=</span><span class="st">'date_debut'</span>, y<span class="op">=</span><span class="st">'nom_poll'</span>, z<span class="op">=</span><span class="st">'valeur'</span>, color<span class="op">=</span><span class="st">'valeur'</span>,</span>
-<span id="cb2-22"><a href="#cb2-22"></a>                          labels<span class="op">=</span>{<span class="st">'valeur'</span>: <span class="ss">f'Concentration maximale de pollution (ug.m-3)'</span>},</span>
-<span id="cb2-23"><a href="#cb2-23"></a>                          title<span class="op">=</span><span class="st">'Concentration maximale de pollution à RODEZ par année'</span>,</span>
-<span id="cb2-24"><a href="#cb2-24"></a>                          size_max<span class="op">=</span><span class="dv">18</span>)</span>
-<span id="cb2-25"><a href="#cb2-25"></a></span>
-<span id="cb2-26"><a href="#cb2-26"></a><span class="co"># Personnaliser le graphique</span></span>
-<span id="cb2-27"><a href="#cb2-27"></a>fig_rodez.update_layout(scene<span class="op">=</span><span class="bu">dict</span>(xaxis_title<span class="op">=</span><span class="st">'Année'</span>, yaxis_title<span class="op">=</span><span class="st">'Polluant'</span>, zaxis_title<span class="op">=</span><span class="st">'Concentration maximale de pollution (ug.m-3)'</span>),</span>
-<span id="cb2-28"><a href="#cb2-28"></a>                        height<span class="op">=</span><span class="dv">600</span>, width<span class="op">=</span><span class="dv">800</span>)  <span class="co"># Ajustez ces valeurs en fonction de la taille souhaitée</span></span>
-<span id="cb2-29"><a href="#cb2-29"></a></span>
-<span id="cb2-30"><a href="#cb2-30"></a><span class="co"># Afficher le graphique interactif</span></span>
-<span id="cb2-31"><a href="#cb2-31"></a>fig_rodez.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-9"><a href="#cb2-9"></a>rodez_data <span class="op">=</span> df[df[<span class="st">'nom_com'</span>] <span class="op">==</span> <span class="st">'RODEZ'</span>].copy()  </span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="co">#</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a></span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="co"># Convertir la colonne 'date_debut' en format datetime</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a>rodez_data[<span class="st">'date_debut'</span>] <span class="op">=</span> pd.to_datetime(rodez_data[<span class="st">'date_debut'</span>])</span>
+<span id="cb2-14"><a href="#cb2-14"></a></span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="co"># Trier les données par date</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a>rodez_data <span class="op">=</span> rodez_data.sort_values(by<span class="op">=</span><span class="st">'date_debut'</span>)</span>
+<span id="cb2-17"><a href="#cb2-17"></a></span>
+<span id="cb2-18"><a href="#cb2-18"></a><span class="co"># Obtenir la valeur maximale de chaque polluant pour chaque année</span></span>
+<span id="cb2-19"><a href="#cb2-19"></a>max_values_rodez <span class="op">=</span> rodez_data.groupby([<span class="st">'date_debut'</span>, <span class="st">'nom_poll'</span>])[<span class="st">'valeur'</span>].<span class="bu">max</span>().reset_index()</span>
+<span id="cb2-20"><a href="#cb2-20"></a></span>
+<span id="cb2-21"><a href="#cb2-21"></a><span class="co"># Créer un graphique en 3D avec Plotly Express</span></span>
+<span id="cb2-22"><a href="#cb2-22"></a>fig_rodez <span class="op">=</span> px.scatter_3d(max_values_rodez, x<span class="op">=</span><span class="st">'date_debut'</span>, y<span class="op">=</span><span class="st">'nom_poll'</span>, z<span class="op">=</span><span class="st">'valeur'</span>, color<span class="op">=</span><span class="st">'valeur'</span>,</span>
+<span id="cb2-23"><a href="#cb2-23"></a>                          labels<span class="op">=</span>{<span class="st">'valeur'</span>: <span class="ss">f'Concentration maximale de pollution (ug.m-3)'</span>},</span>
+<span id="cb2-24"><a href="#cb2-24"></a>                          title<span class="op">=</span><span class="st">'Concentration maximale de pollution à RODEZ par année'</span>,</span>
+<span id="cb2-25"><a href="#cb2-25"></a>                          size_max<span class="op">=</span><span class="dv">18</span>)</span>
+<span id="cb2-26"><a href="#cb2-26"></a></span>
+<span id="cb2-27"><a href="#cb2-27"></a><span class="co"># Personnaliser le graphique</span></span>
+<span id="cb2-28"><a href="#cb2-28"></a>fig_rodez.update_layout(scene<span class="op">=</span><span class="bu">dict</span>(xaxis_title<span class="op">=</span><span class="st">'Année'</span>, yaxis_title<span class="op">=</span><span class="st">'Polluant'</span>, zaxis_title<span class="op">=</span><span class="st">'Concentration maximale de pollution (ug.m-3)'</span>),</span>
+<span id="cb2-29"><a href="#cb2-29"></a>                        height<span class="op">=</span><span class="dv">600</span>, width<span class="op">=</span><span class="dv">800</span>)  <span class="co"># Ajustez ces valeurs en fonction de la taille souhaitée</span></span>
+<span id="cb2-30"><a href="#cb2-30"></a></span>
+<span id="cb2-31"><a href="#cb2-31"></a><span class="co"># Afficher le graphique interactif</span></span>
+<span id="cb2-32"><a href="#cb2-32"></a>fig_rodez.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 
 <section id="résultat-1" class="title-slide slide level1 center" data-background-color="#CAFFEF">
@@ -531,9 +545,9 @@ BEX Roméo MARHEINEKE Linus
 <div class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 
-<div>                            <div id="b65d6107-e438-4f16-9acc-12532cb7a876" class="plotly-graph-div" style="height:600px; width:800px;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("b65d6107-e438-4f16-9acc-12532cb7a876")) {                    Plotly.newPlot(                        "b65d6107-e438-4f16-9acc-12532cb7a876",                        [{"hovertemplate":"date_debut=%{x}<br>nom_poll=%{y}<br>Concentration maximale de pollution (ug.m-3)=%{marker.color}<extra></extra>","legendgroup":"","marker":{"color":[null,null,null,64.3,null,null,null,63.4,null,null,null,null,null,62.8,11.2,null,5.8,11.7,20.4,58.1,11.5,7.3,6.2,11.4,20.8,63.0,13.4,7.9,null,null,null,65.1,11.1,6.7],"coloraxis":"coloraxis","symbol":"circle"},"mode":"markers","name":"","scene":"scene","showlegend":false,"x":["2018-01-01T00:00:00+00:00","2018-01-01T00:00:00+00:00","2018-01-01T00:00:00+00:00","2018-01-01T00:00:00+00:00","2019-01-01T00:00:00+00:00","2019-01-01T00:00:00+00:00","2019-01-01T00:00:00+00:00","2019-01-01T00:00:00+00:00","2019-01-01T00:00:00+00:00","2019-01-01T00:00:00+00:00","2020-01-01T00:00:00+00:00","2020-01-01T00:00:00+00:00","2020-01-01T00:00:00+00:00","2020-01-01T00:00:00+00:00","2020-01-01T00:00:00+00:00","2020-01-01T00:00:00+00:00","2021-01-01T00:00:00+00:00","2021-01-01T00:00:00+00:00","2021-01-01T00:00:00+00:00","2021-01-01T00:00:00+00:00","2021-01-01T00:00:00+00:00","2021-01-01T00:00:00+00:00","2022-01-01T00:00:00+00:00","2022-01-01T00:00:00+00:00","2022-01-01T00:00:00+00:00","2022-01-01T00:00:00+00:00","2022-01-01T00:00:00+00:00","2022-01-01T00:00:00+00:00","2023-01-01T00:00:00+00:00","2023-01-01T00:00:00+00:00","2023-01-01T00:00:00+00:00","2023-01-01T00:00:00+00:00","2023-01-01T00:00:00+00:00","2023-01-01T00:00:00+00:00"],"y":["NO","NO2","NOX","O3","NO","NO2","NOX","O3","PM10","PM2.5","NO","NO2","NOX","O3","PM10","PM2.5","NO","NO2","NOX","O3","PM10","PM2.5","NO","NO2","NOX","O3","PM10","PM2.5","NO","NO2","NOX","O3","PM10","PM2.5"],"z":[null,null,null,64.3,null,null,null,63.4,null,null,null,null,null,62.8,11.2,null,5.8,11.7,20.4,58.1,11.5,7.3,6.2,11.4,20.8,63.0,13.4,7.9,null,null,null,65.1,11.1,6.7],"type":"scatter3d"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"scene":{"domain":{"x":[0.0,1.0],"y":[0.0,1.0]},"xaxis":{"title":{"text":"Ann\u00e9e"}},"yaxis":{"title":{"text":"Polluant"}},"zaxis":{"title":{"text":"Concentration maximale de pollution (ug.m-3)"}}},"coloraxis":{"colorbar":{"title":{"text":"Concentration maximale de pollution (ug.m-3)"}},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"legend":{"tracegroupgap":0},"title":{"text":"Concentration maximale de pollution \u00e0 RODEZ par ann\u00e9e"},"height":600,"width":800},                        {"responsive": true}                    ).then(function(){
+<div>                            <div id="9b2c58e7-d890-417a-a459-843115ca926a" class="plotly-graph-div" style="height:600px; width:800px;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("9b2c58e7-d890-417a-a459-843115ca926a")) {                    Plotly.newPlot(                        "9b2c58e7-d890-417a-a459-843115ca926a",                        [{"hovertemplate":"date_debut=%{x}<br>nom_poll=%{y}<br>Concentration maximale de pollution (ug.m-3)=%{marker.color}<extra></extra>","legendgroup":"","marker":{"color":[null,null,null,64.3,null,null,null,63.4,null,null,null,null,null,62.8,11.2,null,5.8,11.7,20.4,58.1,11.5,7.3,6.2,11.4,20.8,63.0,13.4,7.9,null,null,null,65.1,11.1,6.7],"coloraxis":"coloraxis","symbol":"circle"},"mode":"markers","name":"","scene":"scene","showlegend":false,"x":["2018-01-01T00:00:00+00:00","2018-01-01T00:00:00+00:00","2018-01-01T00:00:00+00:00","2018-01-01T00:00:00+00:00","2019-01-01T00:00:00+00:00","2019-01-01T00:00:00+00:00","2019-01-01T00:00:00+00:00","2019-01-01T00:00:00+00:00","2019-01-01T00:00:00+00:00","2019-01-01T00:00:00+00:00","2020-01-01T00:00:00+00:00","2020-01-01T00:00:00+00:00","2020-01-01T00:00:00+00:00","2020-01-01T00:00:00+00:00","2020-01-01T00:00:00+00:00","2020-01-01T00:00:00+00:00","2021-01-01T00:00:00+00:00","2021-01-01T00:00:00+00:00","2021-01-01T00:00:00+00:00","2021-01-01T00:00:00+00:00","2021-01-01T00:00:00+00:00","2021-01-01T00:00:00+00:00","2022-01-01T00:00:00+00:00","2022-01-01T00:00:00+00:00","2022-01-01T00:00:00+00:00","2022-01-01T00:00:00+00:00","2022-01-01T00:00:00+00:00","2022-01-01T00:00:00+00:00","2023-01-01T00:00:00+00:00","2023-01-01T00:00:00+00:00","2023-01-01T00:00:00+00:00","2023-01-01T00:00:00+00:00","2023-01-01T00:00:00+00:00","2023-01-01T00:00:00+00:00"],"y":["NO","NO2","NOX","O3","NO","NO2","NOX","O3","PM10","PM2.5","NO","NO2","NOX","O3","PM10","PM2.5","NO","NO2","NOX","O3","PM10","PM2.5","NO","NO2","NOX","O3","PM10","PM2.5","NO","NO2","NOX","O3","PM10","PM2.5"],"z":[null,null,null,64.3,null,null,null,63.4,null,null,null,null,null,62.8,11.2,null,5.8,11.7,20.4,58.1,11.5,7.3,6.2,11.4,20.8,63.0,13.4,7.9,null,null,null,65.1,11.1,6.7],"type":"scatter3d"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"scene":{"domain":{"x":[0.0,1.0],"y":[0.0,1.0]},"xaxis":{"title":{"text":"Ann\u00e9e"}},"yaxis":{"title":{"text":"Polluant"}},"zaxis":{"title":{"text":"Concentration maximale de pollution (ug.m-3)"}}},"coloraxis":{"colorbar":{"title":{"text":"Concentration maximale de pollution (ug.m-3)"}},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"legend":{"tracegroupgap":0},"title":{"text":"Concentration maximale de pollution \u00e0 RODEZ par ann\u00e9e"},"height":600,"width":800},                        {"responsive": true}                    ).then(function(){
                             
-var gd = document.getElementById('b65d6107-e438-4f16-9acc-12532cb7a876');
+var gd = document.getElementById('9b2c58e7-d890-417a-a459-843115ca926a');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -629,7 +643,7 @@ if (outputEl) {{
 <section id="résultat-2" class="title-slide slide level1 center" data-background-color="#CAFFEF">
 <h1>Résultat :</h1>
 <div class="cell" data-execution_count="3">
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="15">
 <div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -&gt; Trust Notebook</span><iframe srcdoc="<!DOCTYPE html>
 <html>
 <head>
@@ -657,7 +671,7 @@ if (outputEl) {{
             <meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; />
             <style>
-                #map_8885bf29bdb8101eff142010b5eca840 {
+                #map_a0e0d6b6bcca204941398cf928834fd6 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -672,14 +686,14 @@ if (outputEl) {{
 <body>
     
     
-            <div class=&quot;folium-map&quot; id=&quot;map_8885bf29bdb8101eff142010b5eca840&quot; ></div>
+            <div class=&quot;folium-map&quot; id=&quot;map_a0e0d6b6bcca204941398cf928834fd6&quot; ></div>
         
 </body>
 <script>
     
     
-            var map_8885bf29bdb8101eff142010b5eca840 = L.map(
-                &quot;map_8885bf29bdb8101eff142010b5eca840&quot;,
+            var map_a0e0d6b6bcca204941398cf928834fd6 = L.map(
+                &quot;map_a0e0d6b6bcca204941398cf928834fd6&quot;,
                 {
                     center: [43.5912, 1.4466],
                     crs: L.CRS.EPSG3857,
@@ -693,465 +707,465 @@ if (outputEl) {{
 
         
     
-            var tile_layer_e947362dac3e25782c29bd50be2b564c = L.tileLayer(
+            var tile_layer_859fcd0621e1297a5b768038d77b2952 = L.tileLayer(
                 &quot;https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg&quot;,
                 {&quot;attribution&quot;: &quot;Map tiles by \u003ca target=\&quot;_blank\&quot; href=\&quot;http://stamen.com\&quot;\u003eStamen Design\u003c/a\u003e, under \u003ca target=\&quot;_blank\&quot; href=\&quot;http://creativecommons.org/licenses/by/3.0\&quot;\u003eCC BY 3.0\u003c/a\u003e. Data by \u0026copy; \u003ca target=\&quot;_blank\&quot; href=\&quot;http://openstreetmap.org\&quot;\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\&quot;_blank\&quot; href=\&quot;http://creativecommons.org/licenses/by-sa/3.0\&quot;\u003eCC BY SA\u003c/a\u003e.&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 18, &quot;maxZoom&quot;: 18, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
-            ).addTo(map_8885bf29bdb8101eff142010b5eca840);
+            ).addTo(map_a0e0d6b6bcca204941398cf928834fd6);
         
     
-            var marker_77edee343470c84c18922b7593930e49 = L.marker(
+            var marker_792e1beed2112af3ee0392882119c37e = L.marker(
                 [43.5912, 1.4466],
                 {}
-            ).addTo(map_8885bf29bdb8101eff142010b5eca840);
+            ).addTo(map_a0e0d6b6bcca204941398cf928834fd6);
         
     
-            var icon_e97e479000a7472f5ef83ea4f532d6d0 = L.AwesomeMarkers.icon(
+            var icon_ef33f45345d9089d2a1c8609a5430fb9 = L.AwesomeMarkers.icon(
                 {&quot;extraClasses&quot;: &quot;fa-rotate-0&quot;, &quot;icon&quot;: &quot;info-sign&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;red&quot;, &quot;prefix&quot;: &quot;glyphicon&quot;}
             );
-            marker_77edee343470c84c18922b7593930e49.setIcon(icon_e97e479000a7472f5ef83ea4f532d6d0);
+            marker_792e1beed2112af3ee0392882119c37e.setIcon(icon_ef33f45345d9089d2a1c8609a5430fb9);
         
     
-        var popup_1e9bc48d7ad17583233f75f8b57a91e9 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_2711a5dbab7b8c4d122c9f70167631ab = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_a468ecc06a0d58e0cfdc25476950dbcc = $(`<div id=&quot;html_a468ecc06a0d58e0cfdc25476950dbcc&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Centre de l'Occitanie</div>`)[0];
-                popup_1e9bc48d7ad17583233f75f8b57a91e9.setContent(html_a468ecc06a0d58e0cfdc25476950dbcc);
+                var html_7e54c42c9fcc167cbdac1efbc460aa4f = $(`<div id=&quot;html_7e54c42c9fcc167cbdac1efbc460aa4f&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Centre de l'Occitanie</div>`)[0];
+                popup_2711a5dbab7b8c4d122c9f70167631ab.setContent(html_7e54c42c9fcc167cbdac1efbc460aa4f);
             
         
 
-        marker_77edee343470c84c18922b7593930e49.bindPopup(popup_1e9bc48d7ad17583233f75f8b57a91e9)
+        marker_792e1beed2112af3ee0392882119c37e.bindPopup(popup_2711a5dbab7b8c4d122c9f70167631ab)
         ;
 
         
     
     
-            var tile_layer_e41ef18d63c7aa9319866ff25e95a844 = L.tileLayer(
+            var tile_layer_1355b9f665f39787bea3ab9d40a31d94 = L.tileLayer(
                 &quot;https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
                 {&quot;attribution&quot;: &quot;Data by \u0026copy; \u003ca target=\&quot;_blank\&quot; href=\&quot;http://openstreetmap.org\&quot;\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\&quot;_blank\&quot; href=\&quot;http://www.openstreetmap.org/copyright\&quot;\u003eODbL\u003c/a\u003e.&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 18, &quot;maxZoom&quot;: 18, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
-            ).addTo(map_8885bf29bdb8101eff142010b5eca840);
+            ).addTo(map_a0e0d6b6bcca204941398cf928834fd6);
         
     
-            var marker_e7e19b5285b975c9df28dc806a98fb5e = L.marker(
+            var marker_8f7566bf3cd7bd830ad9156b0791af11 = L.marker(
                 [43.6047, 1.4442],
                 {}
-            ).addTo(map_8885bf29bdb8101eff142010b5eca840);
+            ).addTo(map_a0e0d6b6bcca204941398cf928834fd6);
         
     
-            var icon_989dd168295019622de86281ccaaf39f = L.AwesomeMarkers.icon(
+            var icon_09580937b3922d1f2681b66941bf42c2 = L.AwesomeMarkers.icon(
                 {&quot;extraClasses&quot;: &quot;fa-rotate-0&quot;, &quot;icon&quot;: &quot;star&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;blue&quot;, &quot;prefix&quot;: &quot;glyphicon&quot;}
             );
-            marker_e7e19b5285b975c9df28dc806a98fb5e.setIcon(icon_989dd168295019622de86281ccaaf39f);
+            marker_8f7566bf3cd7bd830ad9156b0791af11.setIcon(icon_09580937b3922d1f2681b66941bf42c2);
         
     
-        var popup_cd45e1d50c65218bc9c2b8d959c27e99 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_386a4e560c4887c63927b8e0f22f6735 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_5805e498ba0e4054332228118a435088 = $(`<div id=&quot;html_5805e498ba0e4054332228118a435088&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Toulouse: 479553 habitants</div>`)[0];
-                popup_cd45e1d50c65218bc9c2b8d959c27e99.setContent(html_5805e498ba0e4054332228118a435088);
+                var html_7b398d789fce22901112a07872f05ab0 = $(`<div id=&quot;html_7b398d789fce22901112a07872f05ab0&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Toulouse: 479553 habitants</div>`)[0];
+                popup_386a4e560c4887c63927b8e0f22f6735.setContent(html_7b398d789fce22901112a07872f05ab0);
             
         
 
-        marker_e7e19b5285b975c9df28dc806a98fb5e.bindPopup(popup_cd45e1d50c65218bc9c2b8d959c27e99)
+        marker_8f7566bf3cd7bd830ad9156b0791af11.bindPopup(popup_386a4e560c4887c63927b8e0f22f6735)
         ;
 
         
     
     
-            var marker_54259d9ccf51ea1e2c12678ada0c5982 = L.marker(
+            var marker_828f6d6cef231a616f169f7037cb4e27 = L.marker(
                 [43.611, 3.8767],
                 {}
-            ).addTo(map_8885bf29bdb8101eff142010b5eca840);
+            ).addTo(map_a0e0d6b6bcca204941398cf928834fd6);
         
     
-            var icon_2b6e0d20c74ad250a21539a38b2e0869 = L.AwesomeMarkers.icon(
+            var icon_0fd5d11ce84e23a46b2efdc0a7a5c857 = L.AwesomeMarkers.icon(
                 {&quot;extraClasses&quot;: &quot;fa-rotate-0&quot;, &quot;icon&quot;: &quot;cloud&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;green&quot;, &quot;prefix&quot;: &quot;glyphicon&quot;}
             );
-            marker_54259d9ccf51ea1e2c12678ada0c5982.setIcon(icon_2b6e0d20c74ad250a21539a38b2e0869);
+            marker_828f6d6cef231a616f169f7037cb4e27.setIcon(icon_0fd5d11ce84e23a46b2efdc0a7a5c857);
         
     
-        var popup_cfabbbba58610c000607ef1d2fc81315 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_ff540d52075610df9562a50774fc0106 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_e8c7f8987cc7c78ebc38b64f5e48cfbc = $(`<div id=&quot;html_e8c7f8987cc7c78ebc38b64f5e48cfbc&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Montpellier: 285121 habitants</div>`)[0];
-                popup_cfabbbba58610c000607ef1d2fc81315.setContent(html_e8c7f8987cc7c78ebc38b64f5e48cfbc);
+                var html_f0bf767a2fb724fb528e8bb1f87fd1b0 = $(`<div id=&quot;html_f0bf767a2fb724fb528e8bb1f87fd1b0&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Montpellier: 285121 habitants</div>`)[0];
+                popup_ff540d52075610df9562a50774fc0106.setContent(html_f0bf767a2fb724fb528e8bb1f87fd1b0);
             
         
 
-        marker_54259d9ccf51ea1e2c12678ada0c5982.bindPopup(popup_cfabbbba58610c000607ef1d2fc81315)
+        marker_828f6d6cef231a616f169f7037cb4e27.bindPopup(popup_ff540d52075610df9562a50774fc0106)
         ;
 
         
     
     
-            var marker_b34c08eb6a9bd261fcdb5d57722fad0e = L.marker(
+            var marker_0e5072619c6bcd7b35d5e489684aabdf = L.marker(
                 [43.8374, 4.3601],
                 {}
-            ).addTo(map_8885bf29bdb8101eff142010b5eca840);
+            ).addTo(map_a0e0d6b6bcca204941398cf928834fd6);
         
     
-            var icon_db24ea56dadc766171e3c63c12a529de = L.AwesomeMarkers.icon(
+            var icon_f778cb2bb7ddfb36557928d6adfd9fed = L.AwesomeMarkers.icon(
                 {&quot;extraClasses&quot;: &quot;fa-rotate-0&quot;, &quot;icon&quot;: &quot;cloud&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;green&quot;, &quot;prefix&quot;: &quot;glyphicon&quot;}
             );
-            marker_b34c08eb6a9bd261fcdb5d57722fad0e.setIcon(icon_db24ea56dadc766171e3c63c12a529de);
+            marker_0e5072619c6bcd7b35d5e489684aabdf.setIcon(icon_f778cb2bb7ddfb36557928d6adfd9fed);
         
     
-        var popup_e9ff03fcbd6b55dd4253aec80534c011 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_435a067e58e91296b93e245279f2c111 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_2aad54a9f7cebb74a4c630ecefb98f31 = $(`<div id=&quot;html_2aad54a9f7cebb74a4c630ecefb98f31&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Nîmes: 151001 habitants</div>`)[0];
-                popup_e9ff03fcbd6b55dd4253aec80534c011.setContent(html_2aad54a9f7cebb74a4c630ecefb98f31);
+                var html_37507e75c312aa26d893ebdf72f04f48 = $(`<div id=&quot;html_37507e75c312aa26d893ebdf72f04f48&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Nîmes: 151001 habitants</div>`)[0];
+                popup_435a067e58e91296b93e245279f2c111.setContent(html_37507e75c312aa26d893ebdf72f04f48);
             
         
 
-        marker_b34c08eb6a9bd261fcdb5d57722fad0e.bindPopup(popup_e9ff03fcbd6b55dd4253aec80534c011)
+        marker_0e5072619c6bcd7b35d5e489684aabdf.bindPopup(popup_435a067e58e91296b93e245279f2c111)
         ;
 
         
     
     
-            var marker_4aa10199cfb37f6284ced73c891db6c7 = L.marker(
+            var marker_74c56a4d2e72e64d04979cf01b01fad5 = L.marker(
                 [42.6986, 2.8954],
                 {}
-            ).addTo(map_8885bf29bdb8101eff142010b5eca840);
+            ).addTo(map_a0e0d6b6bcca204941398cf928834fd6);
         
     
-            var icon_091fc70a4fe4d2238ee0c766467ce938 = L.AwesomeMarkers.icon(
+            var icon_0401c2e5a1c1568152084d21c8004d46 = L.AwesomeMarkers.icon(
                 {&quot;extraClasses&quot;: &quot;fa-rotate-0&quot;, &quot;icon&quot;: &quot;cloud&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;green&quot;, &quot;prefix&quot;: &quot;glyphicon&quot;}
             );
-            marker_4aa10199cfb37f6284ced73c891db6c7.setIcon(icon_091fc70a4fe4d2238ee0c766467ce938);
+            marker_74c56a4d2e72e64d04979cf01b01fad5.setIcon(icon_0401c2e5a1c1568152084d21c8004d46);
         
     
-        var popup_ff20cc11c463dfecf4acae417136a033 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_e0a32eb44f1ce88188ad237d64bddf1e = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_fe3bc6c0fe8c5d0624acf113ad04983c = $(`<div id=&quot;html_fe3bc6c0fe8c5d0624acf113ad04983c&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Perpignan: 121875 habitants</div>`)[0];
-                popup_ff20cc11c463dfecf4acae417136a033.setContent(html_fe3bc6c0fe8c5d0624acf113ad04983c);
+                var html_d4e184ffa884ca95630b0cf8f0b0da7c = $(`<div id=&quot;html_d4e184ffa884ca95630b0cf8f0b0da7c&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Perpignan: 121875 habitants</div>`)[0];
+                popup_e0a32eb44f1ce88188ad237d64bddf1e.setContent(html_d4e184ffa884ca95630b0cf8f0b0da7c);
             
         
 
-        marker_4aa10199cfb37f6284ced73c891db6c7.bindPopup(popup_ff20cc11c463dfecf4acae417136a033)
+        marker_74c56a4d2e72e64d04979cf01b01fad5.bindPopup(popup_e0a32eb44f1ce88188ad237d64bddf1e)
         ;
 
         
     
     
-            var marker_90f94a66c5840a68b32f8b35c6d770e8 = L.marker(
+            var marker_34e42186aca14ed1c59aafd53a2ed225 = L.marker(
                 [43.213, 2.3491],
                 {}
-            ).addTo(map_8885bf29bdb8101eff142010b5eca840);
+            ).addTo(map_a0e0d6b6bcca204941398cf928834fd6);
         
     
-            var icon_18cc0c3814da2bd3979583bb1c2042bd = L.AwesomeMarkers.icon(
+            var icon_50ffa1ba2505d2f32a71d65689cd4676 = L.AwesomeMarkers.icon(
                 {&quot;extraClasses&quot;: &quot;fa-rotate-0&quot;, &quot;icon&quot;: &quot;info-sign&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;red&quot;, &quot;prefix&quot;: &quot;glyphicon&quot;}
             );
-            marker_90f94a66c5840a68b32f8b35c6d770e8.setIcon(icon_18cc0c3814da2bd3979583bb1c2042bd);
+            marker_34e42186aca14ed1c59aafd53a2ed225.setIcon(icon_50ffa1ba2505d2f32a71d65689cd4676);
         
     
-        var popup_533d26762e0571ab91e4e02a91a18c02 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_b04cb6d125de4fa871822427ab66e8d9 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_e9686e74fca05bf292809248ec7f7bb7 = $(`<div id=&quot;html_e9686e74fca05bf292809248ec7f7bb7&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Carcassonne: 47038 habitants</div>`)[0];
-                popup_533d26762e0571ab91e4e02a91a18c02.setContent(html_e9686e74fca05bf292809248ec7f7bb7);
+                var html_7af71f1a6da3d6409805e5df93f1b293 = $(`<div id=&quot;html_7af71f1a6da3d6409805e5df93f1b293&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Carcassonne: 47038 habitants</div>`)[0];
+                popup_b04cb6d125de4fa871822427ab66e8d9.setContent(html_7af71f1a6da3d6409805e5df93f1b293);
             
         
 
-        marker_90f94a66c5840a68b32f8b35c6d770e8.bindPopup(popup_533d26762e0571ab91e4e02a91a18c02)
+        marker_34e42186aca14ed1c59aafd53a2ed225.bindPopup(popup_b04cb6d125de4fa871822427ab66e8d9)
         ;
 
         
     
     
-            var marker_52aef634e9788748bfed015720c2d9a9 = L.marker(
+            var marker_0cae3dad995222618836b6a1c0b63761 = L.marker(
                 [43.9291, 2.1483],
                 {}
-            ).addTo(map_8885bf29bdb8101eff142010b5eca840);
+            ).addTo(map_a0e0d6b6bcca204941398cf928834fd6);
         
     
-            var icon_a5a8ca96016bc9487443a283ad44a2df = L.AwesomeMarkers.icon(
+            var icon_183e90802f017d8000ec1e58ae977f5d = L.AwesomeMarkers.icon(
                 {&quot;extraClasses&quot;: &quot;fa-rotate-0&quot;, &quot;icon&quot;: &quot;info-sign&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;red&quot;, &quot;prefix&quot;: &quot;glyphicon&quot;}
             );
-            marker_52aef634e9788748bfed015720c2d9a9.setIcon(icon_a5a8ca96016bc9487443a283ad44a2df);
+            marker_0cae3dad995222618836b6a1c0b63761.setIcon(icon_183e90802f017d8000ec1e58ae977f5d);
         
     
-        var popup_a65a41d865272d0554263970e48f75e8 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_fb6ed2c6494d750297d2c2acd0d7d38e = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_cea4814f4d3eca2102541f5fbe6ca986 = $(`<div id=&quot;html_cea4814f4d3eca2102541f5fbe6ca986&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Albi: 49236 habitants</div>`)[0];
-                popup_a65a41d865272d0554263970e48f75e8.setContent(html_cea4814f4d3eca2102541f5fbe6ca986);
+                var html_a962fb4d777743b6485541dc1f7e819e = $(`<div id=&quot;html_a962fb4d777743b6485541dc1f7e819e&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Albi: 49236 habitants</div>`)[0];
+                popup_fb6ed2c6494d750297d2c2acd0d7d38e.setContent(html_a962fb4d777743b6485541dc1f7e819e);
             
         
 
-        marker_52aef634e9788748bfed015720c2d9a9.bindPopup(popup_a65a41d865272d0554263970e48f75e8)
+        marker_0cae3dad995222618836b6a1c0b63761.bindPopup(popup_fb6ed2c6494d750297d2c2acd0d7d38e)
         ;
 
         
     
     
-            var marker_3d86238698c139e0a933e2053bb8f47a = L.marker(
+            var marker_e431ce3ffd149ceb9352c8253eef29e3 = L.marker(
                 [43.2328, 0.0716],
                 {}
-            ).addTo(map_8885bf29bdb8101eff142010b5eca840);
+            ).addTo(map_a0e0d6b6bcca204941398cf928834fd6);
         
     
-            var icon_648e64ec7bc89b389fe16413d8354d8c = L.AwesomeMarkers.icon(
+            var icon_20db0a28cad70c1b1fcf3f84920611d2 = L.AwesomeMarkers.icon(
                 {&quot;extraClasses&quot;: &quot;fa-rotate-0&quot;, &quot;icon&quot;: &quot;info-sign&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;red&quot;, &quot;prefix&quot;: &quot;glyphicon&quot;}
             );
-            marker_3d86238698c139e0a933e2053bb8f47a.setIcon(icon_648e64ec7bc89b389fe16413d8354d8c);
+            marker_e431ce3ffd149ceb9352c8253eef29e3.setIcon(icon_20db0a28cad70c1b1fcf3f84920611d2);
         
     
-        var popup_b0c146d2c27971f9d8fad4814ffb1b53 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_aba37fd0be265b9f1a2a510d41f7e358 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_135c235d8a03f5f1f4fbbb7cb9cac8a6 = $(`<div id=&quot;html_135c235d8a03f5f1f4fbbb7cb9cac8a6&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Tarbes: 40356 habitants</div>`)[0];
-                popup_b0c146d2c27971f9d8fad4814ffb1b53.setContent(html_135c235d8a03f5f1f4fbbb7cb9cac8a6);
+                var html_1bfaf12622606b5de80992663ac71542 = $(`<div id=&quot;html_1bfaf12622606b5de80992663ac71542&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Tarbes: 40356 habitants</div>`)[0];
+                popup_aba37fd0be265b9f1a2a510d41f7e358.setContent(html_1bfaf12622606b5de80992663ac71542);
             
         
 
-        marker_3d86238698c139e0a933e2053bb8f47a.bindPopup(popup_b0c146d2c27971f9d8fad4814ffb1b53)
+        marker_e431ce3ffd149ceb9352c8253eef29e3.bindPopup(popup_aba37fd0be265b9f1a2a510d41f7e358)
         ;
 
         
     
     
-            var marker_0cee8a6a9040fc7a978044e074e4773e = L.marker(
+            var marker_31c7108fe0439434d3b2b4081c341e98 = L.marker(
                 [43.646, 0.5857],
                 {}
-            ).addTo(map_8885bf29bdb8101eff142010b5eca840);
+            ).addTo(map_a0e0d6b6bcca204941398cf928834fd6);
         
     
-            var icon_30ba5fb39836a9f7e56c78951c86dbe9 = L.AwesomeMarkers.icon(
+            var icon_f38d666ebcaccee7d61c351c1572e57e = L.AwesomeMarkers.icon(
                 {&quot;extraClasses&quot;: &quot;fa-rotate-0&quot;, &quot;icon&quot;: &quot;info-sign&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;red&quot;, &quot;prefix&quot;: &quot;glyphicon&quot;}
             );
-            marker_0cee8a6a9040fc7a978044e074e4773e.setIcon(icon_30ba5fb39836a9f7e56c78951c86dbe9);
+            marker_31c7108fe0439434d3b2b4081c341e98.setIcon(icon_f38d666ebcaccee7d61c351c1572e57e);
         
     
-        var popup_50bdf812635686da3a8baf2e2b116d23 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_e46a1e2f7fd4b54c7fa6d4494593ff2a = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_5a6d5cd02c2d29aadfb2bf2680aa1ba3 = $(`<div id=&quot;html_5a6d5cd02c2d29aadfb2bf2680aa1ba3&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Auch: 23853 habitants</div>`)[0];
-                popup_50bdf812635686da3a8baf2e2b116d23.setContent(html_5a6d5cd02c2d29aadfb2bf2680aa1ba3);
+                var html_342bb4f9cfc040aed1ee760e560c04b3 = $(`<div id=&quot;html_342bb4f9cfc040aed1ee760e560c04b3&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Auch: 23853 habitants</div>`)[0];
+                popup_e46a1e2f7fd4b54c7fa6d4494593ff2a.setContent(html_342bb4f9cfc040aed1ee760e560c04b3);
             
         
 
-        marker_0cee8a6a9040fc7a978044e074e4773e.bindPopup(popup_50bdf812635686da3a8baf2e2b116d23)
+        marker_31c7108fe0439434d3b2b4081c341e98.bindPopup(popup_e46a1e2f7fd4b54c7fa6d4494593ff2a)
         ;
 
         
     
     
-            var circle_marker_e53f70445cc99ccd9be026bd261806fc = L.circleMarker(
+            var circle_marker_94e1b1a75cb46d558dd00b0a767c4093 = L.circleMarker(
                 [43.6047, 1.4442],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;#800026ff&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;#800026ff&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 95.9106, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_8885bf29bdb8101eff142010b5eca840);
+            ).addTo(map_a0e0d6b6bcca204941398cf928834fd6);
         
     
-        var popup_ba27ef0e7cf5eb1c581342b1ff440a11 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_279aeba3213d54b5a6b2c4d62b57b5f4 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_8bfc29a59f76840f2df1fc573494e7d7 = $(`<div id=&quot;html_8bfc29a59f76840f2df1fc573494e7d7&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Toulouse: 479553 habitants</div>`)[0];
-                popup_ba27ef0e7cf5eb1c581342b1ff440a11.setContent(html_8bfc29a59f76840f2df1fc573494e7d7);
+                var html_2be1fb18dd0e2e4c207facc788a95971 = $(`<div id=&quot;html_2be1fb18dd0e2e4c207facc788a95971&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Toulouse: 479553 habitants</div>`)[0];
+                popup_279aeba3213d54b5a6b2c4d62b57b5f4.setContent(html_2be1fb18dd0e2e4c207facc788a95971);
             
         
 
-        circle_marker_e53f70445cc99ccd9be026bd261806fc.bindPopup(popup_ba27ef0e7cf5eb1c581342b1ff440a11)
+        circle_marker_94e1b1a75cb46d558dd00b0a767c4093.bindPopup(popup_279aeba3213d54b5a6b2c4d62b57b5f4)
         ;
 
         
     
     
-            var circle_marker_96b9a0d4ce4a1cf8b40feea6846ce76e = L.circleMarker(
+            var circle_marker_de00daeac99ddf796914f96f05f4b9ff = L.circleMarker(
                 [43.611, 3.8767],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;#fd6831ff&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;#fd6831ff&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 57.0242, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_8885bf29bdb8101eff142010b5eca840);
+            ).addTo(map_a0e0d6b6bcca204941398cf928834fd6);
         
     
-        var popup_7aaed070dbc7d8352a52d8203339a053 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_7768aad43ec631ba14ab2fabb3740eeb = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_e8b32a51d702c982ae515f78f55588c3 = $(`<div id=&quot;html_e8b32a51d702c982ae515f78f55588c3&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Montpellier: 285121 habitants</div>`)[0];
-                popup_7aaed070dbc7d8352a52d8203339a053.setContent(html_e8b32a51d702c982ae515f78f55588c3);
+                var html_50cb10127bd72e9b1c0830a4395e156b = $(`<div id=&quot;html_50cb10127bd72e9b1c0830a4395e156b&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Montpellier: 285121 habitants</div>`)[0];
+                popup_7768aad43ec631ba14ab2fabb3740eeb.setContent(html_50cb10127bd72e9b1c0830a4395e156b);
             
         
 
-        circle_marker_96b9a0d4ce4a1cf8b40feea6846ce76e.bindPopup(popup_7aaed070dbc7d8352a52d8203339a053)
+        circle_marker_de00daeac99ddf796914f96f05f4b9ff.bindPopup(popup_7768aad43ec631ba14ab2fabb3740eeb)
         ;
 
         
     
     
-            var circle_marker_82ac7f94cd3e9e0cb7090c934924d7b3 = L.circleMarker(
+            var circle_marker_48a25b3f1c47e2b0761eebe22a88a222 = L.circleMarker(
                 [43.8374, 4.3601],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;#fed06cff&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;#fed06cff&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 30.200200000000002, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_8885bf29bdb8101eff142010b5eca840);
+            ).addTo(map_a0e0d6b6bcca204941398cf928834fd6);
         
     
-        var popup_42012ad3740f9f67427f220f2d271489 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_88f3a5d0a3079feab895e76f90af8d56 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_e63bb8add15ad46f3b8a711f2fca3541 = $(`<div id=&quot;html_e63bb8add15ad46f3b8a711f2fca3541&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Nîmes: 151001 habitants</div>`)[0];
-                popup_42012ad3740f9f67427f220f2d271489.setContent(html_e63bb8add15ad46f3b8a711f2fca3541);
+                var html_692d5267c983423d6cd56302953822ed = $(`<div id=&quot;html_692d5267c983423d6cd56302953822ed&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Nîmes: 151001 habitants</div>`)[0];
+                popup_88f3a5d0a3079feab895e76f90af8d56.setContent(html_692d5267c983423d6cd56302953822ed);
             
         
 
-        circle_marker_82ac7f94cd3e9e0cb7090c934924d7b3.bindPopup(popup_42012ad3740f9f67427f220f2d271489)
+        circle_marker_48a25b3f1c47e2b0761eebe22a88a222.bindPopup(popup_88f3a5d0a3079feab895e76f90af8d56)
         ;
 
         
     
     
-            var circle_marker_e7ab77a566b789f46ed378ce093d1ea2 = L.circleMarker(
+            var circle_marker_a9beca52d90fa866dc5f298933737111 = L.circleMarker(
                 [42.6986, 2.8954],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;#ffdf82ff&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;#ffdf82ff&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 24.375, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_8885bf29bdb8101eff142010b5eca840);
+            ).addTo(map_a0e0d6b6bcca204941398cf928834fd6);
         
     
-        var popup_1128fe00dbaa7e757337a71bc5b8af5c = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_640ef58ac40dcfe6ffb4dcbaba3ce1d9 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_274e6926bee6af515ca761df9d948e0d = $(`<div id=&quot;html_274e6926bee6af515ca761df9d948e0d&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Perpignan: 121875 habitants</div>`)[0];
-                popup_1128fe00dbaa7e757337a71bc5b8af5c.setContent(html_274e6926bee6af515ca761df9d948e0d);
+                var html_ceaa93f03efde80bc44146a3761d2a79 = $(`<div id=&quot;html_ceaa93f03efde80bc44146a3761d2a79&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Perpignan: 121875 habitants</div>`)[0];
+                popup_640ef58ac40dcfe6ffb4dcbaba3ce1d9.setContent(html_ceaa93f03efde80bc44146a3761d2a79);
             
         
 
-        circle_marker_e7ab77a566b789f46ed378ce093d1ea2.bindPopup(popup_1128fe00dbaa7e757337a71bc5b8af5c)
+        circle_marker_a9beca52d90fa866dc5f298933737111.bindPopup(popup_640ef58ac40dcfe6ffb4dcbaba3ce1d9)
         ;
 
         
     
     
-            var circle_marker_38471e0549cb9e6d267312343928328b = L.circleMarker(
+            var circle_marker_1380b12186c057f3e9a66bf27f6898b0 = L.circleMarker(
                 [43.213, 2.3491],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;#fff8baff&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;#fff8baff&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 9.4076, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_8885bf29bdb8101eff142010b5eca840);
+            ).addTo(map_a0e0d6b6bcca204941398cf928834fd6);
         
     
-        var popup_5fdd395d3be21991c2ee328d880e23d4 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_77871d4e92c2289453a57aee235d0906 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_ce6c9b3e2bb3d6d262b3123a228bac12 = $(`<div id=&quot;html_ce6c9b3e2bb3d6d262b3123a228bac12&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Carcassonne: 47038 habitants</div>`)[0];
-                popup_5fdd395d3be21991c2ee328d880e23d4.setContent(html_ce6c9b3e2bb3d6d262b3123a228bac12);
+                var html_7a0fbd48a04340455266ae03093475ce = $(`<div id=&quot;html_7a0fbd48a04340455266ae03093475ce&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Carcassonne: 47038 habitants</div>`)[0];
+                popup_77871d4e92c2289453a57aee235d0906.setContent(html_7a0fbd48a04340455266ae03093475ce);
             
         
 
-        circle_marker_38471e0549cb9e6d267312343928328b.bindPopup(popup_5fdd395d3be21991c2ee328d880e23d4)
+        circle_marker_1380b12186c057f3e9a66bf27f6898b0.bindPopup(popup_77871d4e92c2289453a57aee235d0906)
         ;
 
         
     
     
-            var circle_marker_d2f2d9d66e138040d650a8cd51db9021 = L.circleMarker(
+            var circle_marker_53d4af98c2630c1d9a58322961080485 = L.circleMarker(
                 [43.9291, 2.1483],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;#fff7b9ff&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;#fff7b9ff&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 9.8472, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_8885bf29bdb8101eff142010b5eca840);
+            ).addTo(map_a0e0d6b6bcca204941398cf928834fd6);
         
     
-        var popup_a7ffff8c862eb9fc6d86474c3459c6a1 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_b92815e75eca4d40057cc660272f836c = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_8cb1ca4375e336081566b2cf15d363ba = $(`<div id=&quot;html_8cb1ca4375e336081566b2cf15d363ba&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Albi: 49236 habitants</div>`)[0];
-                popup_a7ffff8c862eb9fc6d86474c3459c6a1.setContent(html_8cb1ca4375e336081566b2cf15d363ba);
+                var html_576fa65f9389195c5c9a3873aec2d6db = $(`<div id=&quot;html_576fa65f9389195c5c9a3873aec2d6db&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Albi: 49236 habitants</div>`)[0];
+                popup_b92815e75eca4d40057cc660272f836c.setContent(html_576fa65f9389195c5c9a3873aec2d6db);
             
         
 
-        circle_marker_d2f2d9d66e138040d650a8cd51db9021.bindPopup(popup_a7ffff8c862eb9fc6d86474c3459c6a1)
+        circle_marker_53d4af98c2630c1d9a58322961080485.bindPopup(popup_b92815e75eca4d40057cc660272f836c)
         ;
 
         
     
     
-            var circle_marker_2db8bd96b5a72b821457cf3309f1f8c9 = L.circleMarker(
+            var circle_marker_02a1987339cdfcb68d665b8484232a09 = L.circleMarker(
                 [43.2328, 0.0716],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;#fffac0ff&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;#fffac0ff&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 8.0712, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_8885bf29bdb8101eff142010b5eca840);
+            ).addTo(map_a0e0d6b6bcca204941398cf928834fd6);
         
     
-        var popup_f11707c6494782247c71c9e086182c58 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_2a0b7c2e2ca7f185881e3786e1f51291 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_9c62e5b35e10b4864da6a119e5d9df86 = $(`<div id=&quot;html_9c62e5b35e10b4864da6a119e5d9df86&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Tarbes: 40356 habitants</div>`)[0];
-                popup_f11707c6494782247c71c9e086182c58.setContent(html_9c62e5b35e10b4864da6a119e5d9df86);
+                var html_fc9351bf7ff40d2d7226bbfd5737348b = $(`<div id=&quot;html_fc9351bf7ff40d2d7226bbfd5737348b&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Tarbes: 40356 habitants</div>`)[0];
+                popup_2a0b7c2e2ca7f185881e3786e1f51291.setContent(html_fc9351bf7ff40d2d7226bbfd5737348b);
             
         
 
-        circle_marker_2db8bd96b5a72b821457cf3309f1f8c9.bindPopup(popup_f11707c6494782247c71c9e086182c58)
+        circle_marker_02a1987339cdfcb68d665b8484232a09.bindPopup(popup_2a0b7c2e2ca7f185881e3786e1f51291)
         ;
 
         
     
     
-            var circle_marker_0ab9274dd3771e311126241bb82a4cde = L.circleMarker(
+            var circle_marker_3b5c76f4d41a872544a1a28abe46820a = L.circleMarker(
                 [43.646, 0.5857],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;#ffffccff&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;#ffffccff&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 4.7706, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_8885bf29bdb8101eff142010b5eca840);
+            ).addTo(map_a0e0d6b6bcca204941398cf928834fd6);
         
     
-        var popup_2c65538344be349b097b9b5c95a4a099 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_5d7142042afa4ce04a598814497c488e = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_793de59f62b4e3e3efdbacd1c019764e = $(`<div id=&quot;html_793de59f62b4e3e3efdbacd1c019764e&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Auch: 23853 habitants</div>`)[0];
-                popup_2c65538344be349b097b9b5c95a4a099.setContent(html_793de59f62b4e3e3efdbacd1c019764e);
+                var html_53f76e60e8fe90d5e03fa88632b8e411 = $(`<div id=&quot;html_53f76e60e8fe90d5e03fa88632b8e411&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Auch: 23853 habitants</div>`)[0];
+                popup_5d7142042afa4ce04a598814497c488e.setContent(html_53f76e60e8fe90d5e03fa88632b8e411);
             
         
 
-        circle_marker_0ab9274dd3771e311126241bb82a4cde.bindPopup(popup_2c65538344be349b097b9b5c95a4a099)
+        circle_marker_3b5c76f4d41a872544a1a28abe46820a.bindPopup(popup_5d7142042afa4ce04a598814497c488e)
         ;
 
         
     
     
-    var color_map_1d8a50339103299c52d979be9884cee2 = {};
+    var color_map_33fc509780febaac2338d3d9aaa35512 = {};
 
     
-    color_map_1d8a50339103299c52d979be9884cee2.color = d3.scale.threshold()
+    color_map_33fc509780febaac2338d3d9aaa35512.color = d3.scale.threshold()
               .domain([23853.0, 24766.226452905812, 25679.452905811624, 26592.679358717436, 27505.905811623248, 28419.132264529057, 29332.35871743487, 30245.58517034068, 31158.811623246493, 32072.038076152305, 32985.26452905811, 33898.49098196393, 34811.71743486974, 35724.94388777555, 36638.17034068136, 37551.39679358718, 38464.623246492985, 39377.849699398794, 40291.07615230461, 41204.302605210425, 42117.52905811623, 43030.75551102204, 43943.98196392786, 44857.208416833666, 45770.434869739474, 46683.66132264529, 47596.887775551106, 48510.114228456914, 49423.34068136272, 50336.56713426854, 51249.793587174354, 52163.020040080155, 53076.24649298597, 53989.47294589179, 54902.699398797595, 55815.9258517034, 56729.15230460922, 57642.37875751503, 58555.60521042084, 59468.83166332665, 60382.05811623247, 61295.284569138275, 62208.51102204409, 63121.7374749499, 64034.96392785571, 64948.19038076152, 65861.41683366733, 66774.64328657315, 67687.86973947895, 68601.09619238478, 69514.32264529058, 70427.5490981964, 71340.77555110221, 72254.00200400801, 73167.22845691383, 74080.45490981964, 74993.68136272545, 75906.90781563126, 76820.13426853708, 77733.36072144288, 78646.58717434871, 79559.81362725451, 80473.04008016031, 81386.26653306614, 82299.49298597194, 83212.71943887776, 84125.94589178357, 85039.17234468937, 85952.39879759519, 86865.625250501, 87778.8517034068, 88692.07815631262, 89605.30460921844, 90518.53106212425, 91431.75751503005, 92344.98396793587, 93258.21042084169, 94171.4368737475, 95084.6633266533, 95997.88977955912, 96911.11623246493, 97824.34268537074, 98737.56913827655, 99650.79559118237, 100564.02204408818, 101477.24849699398, 102390.4749498998, 103303.70140280561, 104216.92785571142, 105130.15430861723, 106043.38076152305, 106956.60721442886, 107869.83366733466, 108783.06012024048, 109696.2865731463, 110609.51302605211, 111522.73947895791, 112435.96593186373, 113349.19238476954, 114262.41883767534, 115175.64529058116, 116088.87174348698, 117002.09819639279, 117915.32464929859, 118828.55110220441, 119741.77755511022, 120655.00400801603, 121568.23046092184, 122481.45691382766, 123394.68336673347, 124307.90981963927, 125221.13627254509, 126134.3627254509, 127047.58917835672, 127960.81563126252, 128874.04208416834, 129787.26853707415, 130700.49498997995, 131613.72144288576, 132526.94789579159, 133440.17434869742, 134353.40080160322, 135266.62725450902, 136179.85370741482, 137093.08016032062, 138006.30661322645, 138919.53306613228, 139832.75951903808, 140745.98597194388, 141659.21242484968, 142572.4388777555, 143485.66533066134, 144398.89178356715, 145312.11823647295, 146225.34468937875, 147138.57114228455, 148051.79759519038, 148965.0240480962, 149878.250501002, 150791.4769539078, 151704.7034068136, 152617.92985971944, 153531.15631262524, 154444.38276553107, 155357.60921843688, 156270.83567134268, 157184.0621242485, 158097.2885771543, 159010.5150300601, 159923.74148296594, 160836.96793587174, 161750.19438877754, 162663.42084168337, 163576.64729458917, 164489.873747495, 165403.1002004008, 166316.3266533066, 167229.55310621244, 168142.77955911824, 169056.00601202404, 169969.23246492987, 170882.45891783567, 171795.68537074147, 172708.9118236473, 173622.1382765531, 174535.36472945893, 175448.59118236473, 176361.81763527053, 177275.04408817636, 178188.27054108217, 179101.49699398797, 180014.7234468938, 180927.9498997996, 181841.1763527054, 182754.40280561123, 183667.62925851703, 184580.85571142283, 185494.08216432866, 186407.30861723446, 187320.5350701403, 188233.7615230461, 189146.9879759519, 190060.21442885773, 190973.44088176353, 191886.66733466933, 192799.89378757516, 193713.12024048096, 194626.34669338676, 195539.5731462926, 196452.7995991984, 197366.02605210422, 198279.25250501002, 199192.47895791582, 200105.70541082165, 201018.93186372746, 201932.15831663326, 202845.3847695391, 203758.6112224449, 204671.8376753507, 205585.06412825652, 206498.29058116232, 207411.51703406815, 208324.74348697395, 209237.96993987975, 210151.19639278558, 211064.42284569138, 211977.64929859719, 212890.87575150302, 213804.10220440882, 214717.32865731462, 215630.55511022045, 216543.78156312625, 217457.00801603205, 218370.23446893788, 219283.46092184368, 220196.6873747495, 221109.9138276553, 222023.1402805611, 222936.36673346694, 223849.59318637275, 224762.81963927855, 225676.04609218438, 226589.27254509018, 227502.49899799598, 228415.7254509018, 229328.9519038076, 230242.17835671344, 231155.40480961924, 232068.63126252504, 232981.85771543087, 233895.08416833667, 234808.31062124248, 235721.5370741483, 236634.7635270541, 237547.9899799599, 238461.21643286574, 239374.44288577154, 240287.66933867734, 241200.89579158317, 242114.12224448897, 243027.3486973948, 243940.5751503006, 244853.8016032064, 245767.02805611223, 246680.25450901804, 247593.48096192384, 248506.70741482967, 249419.93386773547, 250333.16032064127, 251246.3867735471, 252159.6132264529, 253072.83967935873, 253986.06613226453, 254899.29258517033, 255812.51903807616, 256725.74549098196, 257638.97194388777, 258552.1983967936, 259465.4248496994, 260378.6513026052, 261291.87775551103, 262205.10420841683, 263118.3306613227, 264031.5571142285, 264944.7835671343, 265858.0100200401, 266771.2364729459, 267684.4629258517, 268597.6893787575, 269510.9158316633, 270424.1422845691, 271337.36873747496, 272250.59519038076, 273163.82164328656, 274077.0480961924, 274990.2745490982, 275903.501002004, 276816.7274549098, 277729.9539078156, 278643.1803607214, 279556.4068136272, 280469.633266533, 281382.8597194389, 282296.0861723447, 283209.3126252505, 284122.53907815635, 285035.76553106215, 285948.99198396795, 286862.21843687375, 287775.44488977955, 288688.67134268535, 289601.89779559115, 290515.124248497, 291428.3507014028, 292341.5771543086, 293254.8036072144, 294168.0300601202, 295081.2565130261, 295994.4829659319, 296907.7094188377, 297820.9358717435, 298734.1623246493, 299647.3887775551, 300560.61523046094, 301473.84168336674, 302387.06813627254, 303300.29458917835, 304213.52104208415, 305126.74749499, 306039.9739478958, 306953.2004008016, 307866.4268537074, 308779.6533066132, 309692.879759519, 310606.1062124249, 311519.3326653307, 312432.5591182365, 313345.7855711423, 314259.0120240481, 315172.23847695393, 316085.46492985974, 316998.69138276554, 317911.91783567134, 318825.14428857714, 319738.37074148294, 320651.5971943888, 321564.8236472946, 322478.0501002004, 323391.2765531062, 324304.503006012, 325217.72945891786, 326130.95591182366, 327044.18236472947, 327957.40881763527, 328870.63527054107, 329783.86172344687, 330697.0881763527, 331610.31462925853, 332523.54108216433, 333436.76753507013, 334349.99398797593, 335263.2204408818, 336176.4468937876, 337089.6733466934, 338002.8997995992, 338916.126252505, 339829.3527054108, 340742.57915831666, 341655.80561122246, 342569.03206412826, 343482.25851703406, 344395.48496993986, 345308.71142284566, 346221.9378757515, 347135.1643286573, 348048.3907815631, 348961.6172344689, 349874.8436873747, 350788.0701402806, 351701.2965931864, 352614.5230460922, 353527.749498998, 354440.9759519038, 355354.2024048096, 356267.42885771545, 357180.65531062125, 358093.88176352705, 359007.10821643285, 359920.33466933866, 360833.5611222445, 361746.7875751503, 362660.0140280561, 363573.2404809619, 364486.4669338677, 365399.6933867735, 366312.9198396794, 367226.1462925852, 368139.372745491, 369052.5991983968, 369965.8256513026, 370879.05210420844, 371792.27855711424, 372705.50501002005, 373618.73146292585, 374531.95791583165, 375445.18436873745, 376358.4108216433, 377271.6372745491, 378184.8637274549, 379098.0901803607, 380011.3166332665, 380924.5430861724, 381837.7695390782, 382750.995991984, 383664.2224448898, 384577.4488977956, 385490.6753507014, 386403.90180360724, 387317.12825651304, 388230.35470941884, 389143.58116232464, 390056.80761523044, 390970.0340681363, 391883.2605210421, 392796.4869739479, 393709.7134268537, 394622.9398797595, 395536.1663326653, 396449.39278557117, 397362.61923847697, 398275.84569138277, 399189.07214428857, 400102.29859719437, 401015.5250501002, 401928.75150300603, 402841.97795591183, 403755.20440881763, 404668.43086172343, 405581.65731462924, 406494.8837675351, 407408.1102204409, 408321.3366733467, 409234.5631262525, 410147.7895791583, 411061.0160320641, 411974.24248496996, 412887.46893787576, 413800.69539078156, 414713.92184368736, 415627.14829659316, 416540.374749499, 417453.6012024048, 418366.8276553106, 419280.0541082164, 420193.2805611222, 421106.50701402803, 422019.7334669339, 422932.9599198397, 423846.1863727455, 424759.4128256513, 425672.6392785571, 426585.86573146295, 427499.09218436875, 428412.31863727455, 429325.54509018036, 430238.77154308616, 431151.99799599196, 432065.2244488978, 432978.4509018036, 433891.6773547094, 434804.9038076152, 435718.130260521, 436631.3567134269, 437544.5831663327, 438457.8096192385, 439371.0360721443, 440284.2625250501, 441197.4889779559, 442110.71543086175, 443023.94188376755, 443937.16833667335, 444850.39478957915, 445763.62124248495, 446676.8476953908, 447590.0741482966, 448503.3006012024, 449416.5270541082, 450329.753507014, 451242.9799599198, 452156.2064128257, 453069.4328657315, 453982.6593186373, 454895.8857715431, 455809.1122244489, 456722.3386773547, 457635.56513026054, 458548.79158316634, 459462.01803607214, 460375.24448897794, 461288.47094188374, 462201.6973947896, 463114.9238476954, 464028.1503006012, 464941.376753507, 465854.6032064128, 466767.8296593186, 467681.05611222447, 468594.28256513027, 469507.5090180361, 470420.7354709419, 471333.9619238477, 472247.18837675353, 473160.41482965933, 474073.64128256514, 474986.86773547094, 475900.09418837674, 476813.32064128254, 477726.5470941884, 478639.7735470942, 479553.0])
               .range(['#ffffccff', '#ffffccff', '#ffffcbff', '#ffffcaff', '#fffec9ff', '#fffec9ff', '#fffec8ff', '#fffdc7ff', '#fffdc7ff', '#fffdc6ff', '#fffdc5ff', '#fffcc5ff', '#fffcc4ff', '#fffcc3ff', '#fffbc2ff', '#fffbc2ff', '#fffbc1ff', '#fffbc0ff', '#fffac0ff', '#fffabfff', '#fffabeff', '#fff9bdff', '#fff9bdff', '#fff9bcff', '#fff9bbff', '#fff8bbff', '#fff8baff', '#fff8b9ff', '#fff7b8ff', '#fff7b8ff', '#fff7b7ff', '#fff7b6ff', '#fff6b6ff', '#fff6b5ff', '#fff6b4ff', '#fff5b4ff', '#fff5b3ff', '#fff5b2ff', '#fff4b1ff', '#fff4b1ff', '#fff4b0ff', '#fff4afff', '#fff3afff', '#fff3aeff', '#fff3adff', '#fff2acff', '#fff2acff', '#fff2abff', '#fff2aaff', '#fff1aaff', '#fff1a9ff', '#fff1a8ff', '#fff0a7ff', '#fff0a7ff', '#fff0a6ff', '#fff0a5ff', '#ffefa5ff', '#ffefa4ff', '#ffefa3ff', '#ffeea3ff', '#ffeea2ff', '#ffeea1ff', '#ffeea0ff', '#ffeda0ff', '#ffed9fff', '#ffed9eff', '#ffec9eff', '#ffec9dff', '#ffec9cff', '#ffeb9cff', '#ffeb9bff', '#ffeb9aff', '#ffea9aff', '#ffea99ff', '#ffea98ff', '#ffe998ff', '#ffe997ff', '#ffe996ff', '#ffe896ff', '#ffe895ff', '#ffe894ff', '#ffe794ff', '#ffe793ff', '#ffe792ff', '#ffe692ff', '#ffe691ff', '#ffe690ff', '#ffe68fff', '#ffe58fff', '#ffe58eff', '#ffe58dff', '#ffe48dff', '#ffe48cff', '#ffe48bff', '#ffe38bff', '#ffe38aff', '#ffe389ff', '#ffe289ff', '#ffe288ff', '#ffe287ff', '#ffe187ff', '#ffe186ff', '#ffe185ff', '#ffe085ff', '#ffe084ff', '#ffe083ff', '#ffdf83ff', '#ffdf82ff', '#ffdf81ff', '#ffde81ff', '#ffde80ff', '#ffde7fff', '#ffdd7fff', '#ffdd7eff', '#ffdd7dff', '#ffdc7dff', '#ffdc7cff', '#ffdc7bff', '#ffdc7bff', '#ffdb7aff', '#ffdb79ff', '#ffdb78ff', '#ffda78ff', '#ffda77ff', '#ffda76ff', '#fed976ff', '#fed975ff', '#fed874ff', '#fed774ff', '#fed773ff', '#fed672ff', '#fed572ff', '#fed571ff', '#fed470ff', '#fed470ff', '#fed36fff', '#fed26eff', '#fed26eff', '#fed16dff', '#fed06cff', '#fed06cff', '#fecf6bff', '#fecf6aff', '#fece6aff', '#fecd69ff', '#fecd68ff', '#fecc68ff', '#fecb67ff', '#fecb66ff', '#feca66ff', '#feca65ff', '#fec964ff', '#fec864ff', '#fec863ff', '#fec762ff', '#fec662ff', '#fec661ff', '#fec560ff', '#fec45fff', '#fec45fff', '#fec35eff', '#fec35dff', '#fec25dff', '#fec15cff', '#fec15bff', '#fec05bff', '#febf5aff', '#febf59ff', '#febe59ff', '#febe58ff', '#febd57ff', '#febc57ff', '#febc56ff', '#febb55ff', '#feba55ff', '#feba54ff', '#feb953ff', '#feb953ff', '#feb852ff', '#feb751ff', '#feb751ff', '#feb650ff', '#feb54fff', '#feb54fff', '#feb44eff', '#feb44dff', '#feb34dff', '#feb24cff', '#feb24cff', '#feb14bff', '#feb04bff', '#feb04bff', '#feaf4bff', '#feaf4aff', '#feae4aff', '#feae4aff', '#fead4aff', '#feac49ff', '#feac49ff', '#feab49ff', '#feab48ff', '#feaa48ff', '#fea948ff', '#fea948ff', '#fea847ff', '#fea847ff', '#fea747ff', '#fea647ff', '#fea646ff', '#fea546ff', '#fea546ff', '#fea446ff', '#fea345ff', '#fea345ff', '#fea245ff', '#fea245ff', '#fea144ff', '#fea044ff', '#fea044ff', '#fe9f44ff', '#fe9f43ff', '#fe9e43ff', '#fe9d43ff', '#fe9d43ff', '#fe9c42ff', '#fe9c42ff', '#fe9b42ff', '#fe9a42ff', '#fe9a41ff', '#fe9941ff', '#fe9941ff', '#fe9840ff', '#fe9740ff', '#fe9740ff', '#fe9640ff', '#fe963fff', '#fe953fff', '#fe943fff', '#fe943fff', '#fe933eff', '#fe933eff', '#fe923eff', '#fe923eff', '#fe913dff', '#fe903dff', '#fe903dff', '#fe8f3dff', '#fe8f3cff', '#fe8e3cff', '#fe8d3cff', '#fd8d3cff', '#fd8c3bff', '#fd8b3bff', '#fd8a3bff', '#fd883aff', '#fd873aff', '#fd863aff', '#fd853aff', '#fd8439ff', '#fd8339ff', '#fd8239ff', '#fd8138ff', '#fd8038ff', '#fd7f38ff', '#fd7e38ff', '#fd7d37ff', '#fd7c37ff', '#fd7b37ff', '#fd7a36ff', '#fd7936ff', '#fd7836ff', '#fd7736ff', '#fd7635ff', '#fd7535ff', '#fd7435ff', '#fd7334ff', '#fd7234ff', '#fd7134ff', '#fd7033ff', '#fd6f33ff', '#fd6e33ff', '#fd6d33ff', '#fd6c32ff', '#fd6b32ff', '#fd6a32ff', '#fd6931ff', '#fd6831ff', '#fd6731ff', '#fd6631ff', '#fd6530ff', '#fd6430ff', '#fd6330ff', '#fd622fff', '#fd612fff', '#fd602fff', '#fd5f2fff', '#fd5e2eff', '#fd5d2eff', '#fd5c2eff', '#fd5b2dff', '#fd5a2dff', '#fd592dff', '#fd582dff', '#fd572cff', '#fd562cff', '#fd552cff', '#fd542bff', '#fd532bff', '#fd522bff', '#fd512aff', '#fd502aff', '#fd4f2aff', '#fc4e2aff', '#fc4d29ff', '#fc4c29ff', '#fb4b29ff', '#fb4a29ff', '#fa4a29ff', '#fa4928ff', '#fa4828ff', '#f94728ff', '#f94628ff', '#f84527ff', '#f84427ff', '#f84427ff', '#f74327ff', '#f74226ff', '#f64126ff', '#f64026ff', '#f63f26ff', '#f53f26ff', '#f53e25ff', '#f43d25ff', '#f43c25ff', '#f43b25ff', '#f33a24ff', '#f33a24ff', '#f23924ff', '#f23824ff', '#f23724ff', '#f13623ff', '#f13523ff', '#f03523ff', '#f03423ff', '#f03322ff', '#ef3222ff', '#ef3122ff', '#ee3022ff', '#ee3022ff', '#ee2f21ff', '#ed2e21ff', '#ed2d21ff', '#ec2c21ff', '#ec2b20ff', '#ec2b20ff', '#eb2a20ff', '#eb2920ff', '#ea281fff', '#ea271fff', '#ea261fff', '#e9261fff', '#e9251fff', '#e8241eff', '#e8231eff', '#e8221eff', '#e7211eff', '#e7211dff', '#e6201dff', '#e61f1dff', '#e61e1dff', '#e51d1dff', '#e51c1cff', '#e41b1cff', '#e41b1cff', '#e31a1cff', '#e3191cff', '#e2191cff', '#e2181cff', '#e1181cff', '#e0181cff', '#e0171dff', '#df171dff', '#df161dff', '#de161dff', '#dd161dff', '#dd151dff', '#dc151eff', '#dc141eff', '#db141eff', '#da131eff', '#da131eff', '#d9131eff', '#d9121eff', '#d8121fff', '#d7111fff', '#d7111fff', '#d6111fff', '#d5101fff', '#d5101fff', '#d40f20ff', '#d40f20ff', '#d30e20ff', '#d20e20ff', '#d20e20ff', '#d10d20ff', '#d10d21ff', '#d00c21ff', '#cf0c21ff', '#cf0b21ff', '#ce0b21ff', '#ce0b21ff', '#cd0a22ff', '#cc0a22ff', '#cc0922ff', '#cb0922ff', '#ca0922ff', '#ca0822ff', '#c90822ff', '#c90723ff', '#c80723ff', '#c70623ff', '#c70623ff', '#c60623ff', '#c60523ff', '#c50524ff', '#c40424ff', '#c40424ff', '#c30424ff', '#c30324ff', '#c20324ff', '#c10225ff', '#c10225ff', '#c00125ff', '#bf0125ff', '#bf0125ff', '#be0025ff', '#be0026ff', '#bd0026ff', '#bc0026ff', '#bb0026ff', '#ba0026ff', '#b90026ff', '#b80026ff', '#b70026ff', '#b60026ff', '#b50026ff', '#b40026ff', '#b30026ff', '#b20026ff', '#b10026ff', '#b00026ff', '#af0026ff', '#ae0026ff', '#ad0026ff', '#ac0026ff', '#ab0026ff', '#aa0026ff', '#a90026ff', '#a80026ff', '#a70026ff', '#a60026ff', '#a50026ff', '#a40026ff', '#a30026ff', '#a20026ff', '#a10026ff', '#a00026ff', '#9f0026ff', '#9e0026ff', '#9d0026ff', '#9c0026ff', '#9b0026ff', '#9b0026ff', '#9a0026ff', '#990026ff', '#980026ff', '#970026ff', '#960026ff', '#950026ff', '#940026ff', '#930026ff', '#920026ff', '#910026ff', '#900026ff', '#8f0026ff', '#8e0026ff', '#8d0026ff', '#8c0026ff', '#8b0026ff', '#8a0026ff', '#890026ff', '#880026ff', '#870026ff', '#860026ff', '#850026ff', '#840026ff', '#830026ff', '#820026ff', '#810026ff', '#800026ff']);
     
 
-    color_map_1d8a50339103299c52d979be9884cee2.x = d3.scale.linear()
+    color_map_33fc509780febaac2338d3d9aaa35512.x = d3.scale.linear()
               .domain([23853.0, 479553.0])
               .range([0, 450 - 50]);
 
-    color_map_1d8a50339103299c52d979be9884cee2.legend = L.control({position: 'topright'});
-    color_map_1d8a50339103299c52d979be9884cee2.legend.onAdd = function (map) {var div = L.DomUtil.create('div', 'legend'); return div};
-    color_map_1d8a50339103299c52d979be9884cee2.legend.addTo(map_8885bf29bdb8101eff142010b5eca840);
+    color_map_33fc509780febaac2338d3d9aaa35512.legend = L.control({position: 'topright'});
+    color_map_33fc509780febaac2338d3d9aaa35512.legend.onAdd = function (map) {var div = L.DomUtil.create('div', 'legend'); return div};
+    color_map_33fc509780febaac2338d3d9aaa35512.legend.addTo(map_a0e0d6b6bcca204941398cf928834fd6);
 
-    color_map_1d8a50339103299c52d979be9884cee2.xAxis = d3.svg.axis()
-        .scale(color_map_1d8a50339103299c52d979be9884cee2.x)
+    color_map_33fc509780febaac2338d3d9aaa35512.xAxis = d3.svg.axis()
+        .scale(color_map_33fc509780febaac2338d3d9aaa35512.x)
         .orient(&quot;top&quot;)
         .tickSize(1)
         .tickValues([23853.0, 80815.5, 137778.0, 194740.5, 251703.0, 308665.5, 365628.0, 422590.5, 479553.0]);
 
-    color_map_1d8a50339103299c52d979be9884cee2.svg = d3.select(&quot;.legend.leaflet-control&quot;).append(&quot;svg&quot;)
+    color_map_33fc509780febaac2338d3d9aaa35512.svg = d3.select(&quot;.legend.leaflet-control&quot;).append(&quot;svg&quot;)
         .attr(&quot;id&quot;, 'legend')
         .attr(&quot;width&quot;, 450)
         .attr(&quot;height&quot;, 40);
 
-    color_map_1d8a50339103299c52d979be9884cee2.g = color_map_1d8a50339103299c52d979be9884cee2.svg.append(&quot;g&quot;)
+    color_map_33fc509780febaac2338d3d9aaa35512.g = color_map_33fc509780febaac2338d3d9aaa35512.svg.append(&quot;g&quot;)
         .attr(&quot;class&quot;, &quot;key&quot;)
         .attr(&quot;transform&quot;, &quot;translate(25,16)&quot;);
 
-    color_map_1d8a50339103299c52d979be9884cee2.g.selectAll(&quot;rect&quot;)
-        .data(color_map_1d8a50339103299c52d979be9884cee2.color.range().map(function(d, i) {
+    color_map_33fc509780febaac2338d3d9aaa35512.g.selectAll(&quot;rect&quot;)
+        .data(color_map_33fc509780febaac2338d3d9aaa35512.color.range().map(function(d, i) {
           return {
-            x0: i ? color_map_1d8a50339103299c52d979be9884cee2.x(color_map_1d8a50339103299c52d979be9884cee2.color.domain()[i - 1]) : color_map_1d8a50339103299c52d979be9884cee2.x.range()[0],
-            x1: i < color_map_1d8a50339103299c52d979be9884cee2.color.domain().length ? color_map_1d8a50339103299c52d979be9884cee2.x(color_map_1d8a50339103299c52d979be9884cee2.color.domain()[i]) : color_map_1d8a50339103299c52d979be9884cee2.x.range()[1],
+            x0: i ? color_map_33fc509780febaac2338d3d9aaa35512.x(color_map_33fc509780febaac2338d3d9aaa35512.color.domain()[i - 1]) : color_map_33fc509780febaac2338d3d9aaa35512.x.range()[0],
+            x1: i < color_map_33fc509780febaac2338d3d9aaa35512.color.domain().length ? color_map_33fc509780febaac2338d3d9aaa35512.x(color_map_33fc509780febaac2338d3d9aaa35512.color.domain()[i]) : color_map_33fc509780febaac2338d3d9aaa35512.x.range()[1],
             z: d
           };
         }))
@@ -1161,7 +1175,7 @@ if (outputEl) {{
         .attr(&quot;width&quot;, function(d) { return d.x1 - d.x0; })
         .style(&quot;fill&quot;, function(d) { return d.z; });
 
-    color_map_1d8a50339103299c52d979be9884cee2.g.call(color_map_1d8a50339103299c52d979be9884cee2.xAxis).append(&quot;text&quot;)
+    color_map_33fc509780febaac2338d3d9aaa35512.g.call(color_map_33fc509780febaac2338d3d9aaa35512.xAxis).append(&quot;text&quot;)
         .attr(&quot;class&quot;, &quot;caption&quot;)
         .attr(&quot;y&quot;, 21)
         .text(&quot;Population et densit\u00e9 des grandes villes en Occitanie&quot;);
@@ -1181,7 +1195,7 @@ if (outputEl) {{
 
 </section>
 
-<section id="section-1" class="title-slide slide level1 center" data-background-image="classement.svg">
+<section id="section-4" class="title-slide slide level1 center" data-background-image="classement.svg">
 <h1></h1>
 
 </section>
