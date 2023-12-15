@@ -585,16 +585,7 @@ display(maps_box)
 #  {background-image="classement.svg"}
 
 
-# Problèmes rencontrés : {background-image="brain1.svg" background-opacity="0.5" background-size="600px" background-position="bottom" }
 
-- Création de la page web 
-- Compréhension de Quarto 
-- intégrer du code sans que le code ne s'Affiche
-- gérer un ficher .yml et .css
-- Importer les données météos 
-- Gérer le rangement sur le repository 
-- Nettoyage de fichier csv 
- 
 
 # API Call : {background-color="#CAFFEF"}
 
@@ -703,5 +694,18 @@ gantt
     Ajout d'interactivité : a8, 2023-11-18, 22d
     Embellissement de la page : a9, 2023-11-01, 40d
 ```
+
+
+# Problèmes rencontrés : {background-image="brain1.svg" background-opacity="0.5" background-size="600px" background-position="bottom" }
+
+- Création de la page web 
+- Compréhension de Quarto 
+- intégrer du code sans que le code ne s'Affiche
+- gérer un ficher .yml et .css
+- Importer les données météos 
+- Gérer le rangement sur le repository 
+- Nettoyage de fichier csv 
+ 
+
 
 ## End {background-image="bg_slides.svg"}
