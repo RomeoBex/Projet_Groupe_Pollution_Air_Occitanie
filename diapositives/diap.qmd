@@ -322,8 +322,9 @@ carte_occitanie
 ```
 # Code carte intéractive par polluant: {background-color="#CAFFEF"}
 **
-```{.python code-line-numbers="8,9,10,11,12,13,14,15,16|18,19,20,21|54|63|73,74|79,80|90,91,92,93,94,95,96,97,98|106|112,113,114,115,116,117|120|123"}
-
+```{.python code-line-numbers="```{.python code-line-numbers="10, 11, 12, 13, 14, 15, 16, 17, 18 | 20, 21, 22, 23 | 56 | 65 | 75, 76 | 81, 82 | 92, 93, 94, 95, 96, 97, 98, 99, 100 | 108 | 114, 115, 116, 117, 118, 119 | 122 | 125"}
+import time
+temps_debut = time.time()
 import pandas as pd
 import numpy as np
 from ipyleaflet import Map, TileLayer, GeoJSON, Marker, AwesomeIcon
@@ -573,6 +574,9 @@ maps_box.children += (carte_O3,)
 
 
 display(maps_box)
+temps_fin = time.process_time()
+duree_execution = temps_fin - temps_debut
+print(duree_execution)
 ```
 
 
