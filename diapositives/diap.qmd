@@ -1,6 +1,6 @@
 ---
 title: "Projet Pollution"
-author: "BEX Roméo MARHEINEKE Linus "
+author: "BEX Roméo MARHEINEKE Linus BATALLER Jules"
 date : today
 format:
   revealjs: 
@@ -320,7 +320,260 @@ carte_occitanie
 
 
 ```
+# Code carte intéractive par polluant: {background-color="#CAFFEF"}
+**
+```{.python code-line-numbers="8,9,10,11,12,13,14,15,16|18,19,20,21|54|63|73,74|79,80|90,91,92,93,94,95,96,97,98|106|112,113,114,115,116,117|120|123"}
 
+import pandas as pd
+import numpy as np
+from ipyleaflet import Map, TileLayer, GeoJSON, Marker, AwesomeIcon
+import ipywidgets as widgets
+from IPython.display import HTML, display
+
+class Markers:
+    def __init__(self, date_creation, polluant,valeur, X, Y):
+        self.date_creation = date_creation
+        self.polluant = polluant
+        self.valeur = valeur
+        self.X = X 
+        self.Y = Y
+    def add_to_map(self,carte):
+        carte.add_layer(Marker(location=(self.Y,self.X), draggable=False, title=f"Valeur: {self.valeur}"))  
+
+def switch(row):
+    if row["id_poll_ue"] == 7:
+        marker = Markers(row["date_debut"],row["id_poll_ue"],row["valeur"],row["X"],row["Y"])
+        vector_O3.append(marker)
+        
+    elif row["id_poll_ue"] == 8:
+        marker = Markers(row["date_debut"],row["id_poll_ue"],row["valeur"],row["X"],row["Y"])
+        vector_NO2.append(marker)
+       
+    elif row["id_poll_ue"] == 9:
+        marker = Markers(row["date_debut"],row["id_poll_ue"],row["valeur"],row["X"],row["Y"])
+        vector_NOX.append(marker)
+        
+    elif row["id_poll_ue"] == 38:
+        marker = Markers(row["date_debut"],row["id_poll_ue"],row["valeur"],row["X"],row["Y"])
+        vector_NO.append(marker)
+        
+    elif row["id_poll_ue"] == 5:
+        marker = Markers(row["date_debut"],row["id_poll_ue"],row["valeur"],row["X"],row["Y"])
+        vector_PM10.append(marker)
+        
+    elif row["id_poll_ue"] == 11:
+        marker = Markers(row["date_debut"],row["id_poll_ue"],row["valeur"],row["X"],row["Y"])
+        vector_H2S.append(marker)
+        
+    elif row["id_poll_ue"] == 6001:
+        marker = Markers(row["date_debut"],row["id_poll_ue"],row["valeur"],row["X"],row["Y"])
+        vector_PM25.append(marker)
+        
+    elif row["id_poll_ue"] == 1:
+        marker = Markers(row["date_debut"],row["id_poll_ue"],row["valeur"],row["X"],row["Y"])
+        vector_SO2.append(marker)
+        
+    else:
+        print(error)
+
+carte_O3 = Map(center=(43.611015, 3.876733), zoom=9)
+carte_NO = Map(center=(43.611015, 3.876733), zoom=9)
+carte_NO2 = Map(center=(43.611015, 3.876733), zoom=9)
+carte_NOX = Map(center=(43.611015, 3.876733), zoom=9)
+carte_H2S = Map(center=(43.611015, 3.876733), zoom=9)
+carte_PM10 = Map(center=(43.611015, 3.876733), zoom=9)
+carte_PM25 = Map(center=(43.611015, 3.876733), zoom=9)
+carte_SO2 = Map(center=(43.611015, 3.876733), zoom=9)
+
+vector_O3 = []
+vector_NO = []
+vector_NO2 = []
+vector_NOX = []
+vector_H2S = []
+vector_PM10 = []
+vector_PM25 = []
+vector_SO2 = []
+
+# Charger le fichier CSV dans un DataFrame
+chemin_fichier_csv = 'Mesure_mensuelle_Region_Occitanie_Polluants_Principaux.csv'
+df = pd.read_csv(chemin_fichier_csv)
+
+# Créer une colonne 'geometry' avec les coordonnées X et Y sous forme de GeoJSON
+df['geometry'] = df.apply(lambda row: {"type": "Point", "coordinates": [row['X'], row['Y']]}, axis=1)
+
+for index, row in df.iterrows():
+  switch(row)
+
+
+vecteur_cartes=[vector_O3,vector_NO,vector_NO2,vector_NOX,vector_H2S,vector_PM10,vector_PM25,vector_SO2]
+
+v_cartes=[carte_O3,carte_NO,carte_NO2,carte_NOX,carte_H2S,carte_PM10,carte_PM25,carte_SO2]
+
+values_by_location = {}
+marker_by_location = []
+for vector in vecteur_cartes:
+    for mark in vector:
+        X, Y = mark.X, mark.Y
+        val = mark.valeur
+        lieu_key = (X, Y)
+        if lieu_key in values_by_location:
+            values_by_location[lieu_key].append(val)
+        else:
+            values_by_location[lieu_key] = [val]
+    mean_by_location = {lieu: round(np.mean(val), 2) for lieu, val in values_by_location.items()}
+    values_by_location = {}
+    marker_by_location.append(mean_by_location)
+
+
+wmts_url = "https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/WMTS"
+wmts_layer = TileLayer(url=wmts_url, name="WMTS Layer") 
+
+maps_box = widgets.VBox()
+i=0
+for cartes in v_cartes:
+    cartes.add_layer(wmts_layer)
+
+    for lieu, moyenne in marker_by_location[i].items():
+        marker = Marker(
+            location=(lieu[1], lieu[0]),
+            draggable=False,
+            title=f"Valeur: {moyenne}"
+        )
+        cartes.add_layer(marker)
+
+    # Add the map to the horizontal box
+    maps_box.children += (cartes,)
+    i=i+1
+
+display(maps_box)
+```
+# Résultat pour l'ozone : {background-color="#CAFFEF"}
+```{python}
+
+import pandas as pd
+import numpy as np
+from ipyleaflet import Map, TileLayer, GeoJSON, Marker, AwesomeIcon
+import ipywidgets as widgets
+from IPython.display import HTML, display
+
+class Markers:
+    def __init__(self, date_creation, polluant,valeur, X, Y):
+        self.date_creation = date_creation
+        self.polluant = polluant
+        self.valeur = valeur
+        self.X = X 
+        self.Y = Y
+    def add_to_map(self,carte):
+        carte.add_layer(Marker(location=(self.Y,self.X), draggable=False, title=f"Valeur: {self.valeur}"))  
+
+def switch(row):
+    if row["id_poll_ue"] == 7:
+        marker = Markers(row["date_debut"],row["id_poll_ue"],row["valeur"],row["X"],row["Y"])
+        vector_O3.append(marker)
+        
+    elif row["id_poll_ue"] == 8:
+        marker = Markers(row["date_debut"],row["id_poll_ue"],row["valeur"],row["X"],row["Y"])
+        vector_NO2.append(marker)
+       
+    elif row["id_poll_ue"] == 9:
+        marker = Markers(row["date_debut"],row["id_poll_ue"],row["valeur"],row["X"],row["Y"])
+        vector_NOX.append(marker)
+        
+    elif row["id_poll_ue"] == 38:
+        marker = Markers(row["date_debut"],row["id_poll_ue"],row["valeur"],row["X"],row["Y"])
+        vector_NO.append(marker)
+        
+    elif row["id_poll_ue"] == 5:
+        marker = Markers(row["date_debut"],row["id_poll_ue"],row["valeur"],row["X"],row["Y"])
+        vector_PM10.append(marker)
+        
+    elif row["id_poll_ue"] == 11:
+        marker = Markers(row["date_debut"],row["id_poll_ue"],row["valeur"],row["X"],row["Y"])
+        vector_H2S.append(marker)
+        
+    elif row["id_poll_ue"] == 6001:
+        marker = Markers(row["date_debut"],row["id_poll_ue"],row["valeur"],row["X"],row["Y"])
+        vector_PM25.append(marker)
+        
+    elif row["id_poll_ue"] == 1:
+        marker = Markers(row["date_debut"],row["id_poll_ue"],row["valeur"],row["X"],row["Y"])
+        vector_SO2.append(marker)
+        
+    else:
+        print(error)
+
+carte_O3 = Map(center=(43.611015, 3.876733), zoom=9)
+carte_NO = Map(center=(43.611015, 3.876733), zoom=9)
+carte_NO2 = Map(center=(43.611015, 3.876733), zoom=9)
+carte_NOX = Map(center=(43.611015, 3.876733), zoom=9)
+carte_H2S = Map(center=(43.611015, 3.876733), zoom=9)
+carte_PM10 = Map(center=(43.611015, 3.876733), zoom=9)
+carte_PM25 = Map(center=(43.611015, 3.876733), zoom=9)
+carte_SO2 = Map(center=(43.611015, 3.876733), zoom=9)
+
+vector_O3 = []
+vector_NO = []
+vector_NO2 = []
+vector_NOX = []
+vector_H2S = []
+vector_PM10 = []
+vector_PM25 = []
+vector_SO2 = []
+
+# Charger le fichier CSV dans un DataFrame
+chemin_fichier_csv = 'Mesure_mensuelle_Region_Occitanie_Polluants_Principaux.csv'
+df = pd.read_csv(chemin_fichier_csv)
+
+# Créer une colonne 'geometry' avec les coordonnées X et Y sous forme de GeoJSON
+df['geometry'] = df.apply(lambda row: {"type": "Point", "coordinates": [row['X'], row['Y']]}, axis=1)
+
+for index, row in df.iterrows():
+
+
+    switch(row)
+
+
+vecteur_cartes=[vector_O3,vector_NO,vector_NO2,vector_NOX,vector_H2S,vector_PM10,vector_PM25,vector_SO2]
+
+v_cartes=[carte_O3,carte_NO,carte_NO2,carte_NOX,carte_H2S,carte_PM10,carte_PM25,carte_SO2]
+
+values_by_location = {}
+marker_by_location = []
+for vector in vecteur_cartes:
+    for mark in vector:
+        X, Y = mark.X, mark.Y
+        val = mark.valeur
+        
+        lieu_key = (X, Y)
+        if lieu_key in values_by_location:
+            values_by_location[lieu_key].append(val)
+        else:
+            values_by_location[lieu_key] = [val]
+    mean_by_location = {lieu: round(np.mean(val), 2) for lieu, val in values_by_location.items()}
+    values_by_location = {}
+    marker_by_location.append(mean_by_location)
+    marker_by_location[0]
+
+wmts_url = "https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/WMTS"
+wmts_layer = TileLayer(url=wmts_url, name="WMTS Layer") 
+
+maps_box = widgets.VBox()
+
+carte_O3.add_layer(wmts_layer)
+for lieu, moyenne in marker_by_location[0].items():
+    marker = Marker(
+        location=(lieu[1], lieu[0]),
+        draggable=False,
+        title=f"Valeur: {moyenne}"
+    )
+    carte_O3.add_layer(marker)
+
+    # Add the map to the horizontal box
+maps_box.children += (carte_O3,)
+
+
+display(maps_box)
+```
 
 
 # Hiérarchie des villes en fonction des polluants :{background-color="#CAFFEF"} 
