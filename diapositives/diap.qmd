@@ -1,6 +1,6 @@
 ---
 title: "Projet Pollution"
-author: "BEX Roméo MARHEINEKE Linus "
+author: "BEX Roméo MARHEINEKE Linus BATALLER Jules"
 date : today
 format:
   revealjs: 
