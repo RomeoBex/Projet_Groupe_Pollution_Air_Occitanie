@@ -322,7 +322,7 @@ carte_occitanie
 ```
 # Code carte intéractive par polluant: {background-color="#CAFFEF"}
 **
-```{.python code-line-numbers="8,9,10,11,12,13,14,15,16|18,19,20,21|54|63|73|79,80|90,91,92,93,94,95,96,97,98|106|112,113,114,115,116,117|120|123"}
+```{.python code-line-numbers="8,9,10,11,12,13,14,15,16|18,19,20,21|54|63|73,74|79,80|90,91,92,93,94,95,96,97,98|106|112,113,114,115,116,117|120|123"}
 
 import pandas as pd
 import numpy as np
@@ -423,7 +423,7 @@ for vector in vecteur_cartes:
     mean_by_location = {lieu: round(np.mean(val), 2) for lieu, val in values_by_location.items()}
     values_by_location = {}
     marker_by_location.append(mean_by_location)
-    marker_by_location[0]
+
 
 wmts_url = "https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/WMTS"
 wmts_layer = TileLayer(url=wmts_url, name="WMTS Layer") 
