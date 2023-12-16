@@ -28,3 +28,40 @@ body.about4 {
     /* Autres styles d'arrière-plan et de mise en page */
 }
 
+.emblem-container {
+    text-align: center; /* Center emblem on page */
+    padding: 20px;
+}
+
+.emblem {
+    width: 200px; /* Adjust as per your requirement */
+    height: auto;
+}
+
+
+To center the figure and set the background color to LightSteelBlue, you can use the following HTML and CSS:
+
+HTML:
+
+html
+Copy code
+<div class="quarto-figure quarto-figure-center" style="background-color: LightSteelBlue; text-align: center; padding: 20px;">
+    <figure class="figure">
+        <!-- Embedding the SVG emblem -->
+        <img src="Haute_Garonne.svg" class="img-fluid figure-img" alt="Haute-Garonne Emblem" width="400">
+
+        <!-- Caption for the emblem -->
+        <figcaption class="figure-caption"><em>Haute-Garonne, cité des violettes</em></figcaption>
+    </figure>
+</div>
+
+<!-- Additional information about Haute-Garonne -->
+<ul style="text-align: center;">
+    <li><strong>Nombres d’habitants</strong>: 1 415 757</li>
+    <li><strong>Densité</strong>: 224 (<em>nombre d’habitants au km<sup>2</sup></em>)</li>
+    <li><strong>Région</strong>: Occitanie</li>
+</ul>
+CSS (if you have a separate stylesheet, add this to it):
+
+
+  

@@ -3,10 +3,8 @@ project:
   output-dir: docs
 
 website:
-  
   repo-url: https://github.com/quarto-dev/quarto-demo
   repo-actions: [edit, issue]
-  
   title: Pollution Occitanie 
   navbar:
     left: 
@@ -29,11 +27,25 @@ website:
           - Beziers.qmd 
       - about.qmd
       - about2.qmd
+      - text: "Pollutions par Départements"
+        menu:
+          - text: HERAULT
+            href: HERAULT.qmd
+          - text: HAUTE-GARONNE
+            href: HAUTE-GARONNE.qmd
+          - text: HAUTES-PYRENEES
+            href: HAUTES-PYRENEES.qmd
+          - text: AVEYRON
+            href: AVEYRON.qmd
+          - text: ARIEGE
+            href: ARIEGE.qmd
+          - text: PYRENEES-ORIENTALES
+            href: PYRENEES-ORIENTALES.qmd
     tools:
       - icon: github
         menu:
           - text: Signaler une erreur 
-            url:  https://github.com/RomeoBex/Projet_Groupe_Pollution_Air_Occitanie
+            url: https://github.com/RomeoBex/Projet_Groupe_Pollution_Air_Occitanie
 
 format:
   html:
